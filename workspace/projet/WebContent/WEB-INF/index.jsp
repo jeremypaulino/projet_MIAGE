@@ -164,7 +164,7 @@
                 <div class="last">
                     <h3>troisieme zone</h3>
                     <img src="./inc/images/page1-img3.jpg" alt="" class="img-border">
-                    <p>blablabla</p>
+                    <p>blablabla TEST MATHIEU</p>
                     <a href="#" class="button">Plus</a>
                 </div>
             </div>
