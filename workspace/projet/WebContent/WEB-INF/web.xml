@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
- <servlet>
+  <servlet>
     <servlet-name>servletindex</servlet-name>
     <servlet-class>servlets.servletindex</servlet-class>
-
-   
-
-   
     <load-on-startup>1</load-on-startup>
-</servlet>
- 
- <servlet-mapping>
-   <servlet-name>servletindex</servlet-name>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletindex</servlet-name>
     <url-pattern>/toto</url-pattern>
-</servlet-mapping>
- 
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>servletcontact</servlet-name>
+    <servlet-class>servlets.servletcontact</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletcontact</servlet-name>
+    <url-pattern>/contact</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>servletinscription</servlet-name>
+    <servlet-class>servlets.servletinscription</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletinscription</servlet-name>
+    <url-pattern>/incription</url-pattern>
+  </servlet-mapping>
 </web-app>
-

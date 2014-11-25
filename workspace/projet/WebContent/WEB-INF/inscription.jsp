@@ -3,15 +3,15 @@
 <head>
     <title>Clients</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" media="screen" href="../inc/css/reset.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="../inc/css/style.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="../inc/css/grid_12.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./inc/css/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./inc/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./inc/css/grid_12.css">
     <link href='http://fonts.googleapis.com/css?family=Condiment' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-    <script src="js/jquery-1.7.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+    <script src="./inc/js/jquery-1.7.min.js"></script>
+    <script src="./inc/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="./inc/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./inc/js/jquery.leanModal.min.js"></script>
     	<!--[if lt IE 8]>
        <div style=' clear: both; text-align:center; position: relative;'>
          <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -30,7 +30,7 @@
        
   
      <header>
-        <h1><a href="index.jsp"><img src="images/logo.png" alt=""></a>
+        <h1><a href="index.jsp"><img src="./inc/images/logo.png" alt=""></a>
         </h1>
         <section class="header-login">
         <form name="login" action="index_submit" method="get" accept-charset="utf-8">
