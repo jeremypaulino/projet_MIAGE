@@ -81,10 +81,10 @@
        <form id="loginform" name="loginform" method="post" action="index.jsp">
        
        <label for="username">Email:</label>
-       <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+       <input type="email" name="username" id="username" class="txtfield" tabindex="1" required placeholder="exemple@yahoo.fr">
        
        <label for="password">Mot de passe:</label>
-       <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+       <input type="password" name="password" id="password" class="txtfield" tabindex="2" required>
        
        <br>
        <center>
