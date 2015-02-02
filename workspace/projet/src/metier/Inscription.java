@@ -14,7 +14,7 @@ public final class Inscription {
     private static final String CHAMP_CONF   = "confirmation";
     private static final String CHAMP_NOM    = "nom";
     
-    // JE M APPELLE MATHIEU
+    // JE M APPELLE MATHIEU tu t appelle jeremy
     
     private String resultat;
     private Map<String, String> erreurs      = new HashMap<String, String>();
