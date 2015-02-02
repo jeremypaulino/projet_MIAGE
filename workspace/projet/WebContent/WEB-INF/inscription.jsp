@@ -1,17 +1,20 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Clients</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" media="screen" href="../inc/css/reset.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="../inc/css/style.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="../inc/css/grid_12.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./inc/css/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./inc/css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./inc/css/grid_12.css">
     <link href='http://fonts.googleapis.com/css?family=Condiment' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-    <script src="js/jquery-1.7.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+    <script src="./inc/js/jquery-1.7.min.js"></script>
+    <script src="./inc/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="./inc/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./inc/js/jquery.leanModal.min.js"></script>
     	<!--[if lt IE 8]>
        <div style=' clear: both; text-align:center; position: relative;'>
          <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -30,7 +33,7 @@
        
   
      <header>
-        <h1><a href="index.jsp"><img src="images/logo.png" alt=""></a>
+        <h1><a href="index.jsp"><img src="./inc/images/logo.png" alt=""></a>
         </h1>
         <section class="header-login">
         <form name="login" action="index_submit" method="get" accept-charset="utf-8">
@@ -48,10 +51,10 @@
        <form id="loginform" name="loginform" method="post" action="index.jsp">
        
        <label for="username">Email:</label>
-       <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+       <input type="text" name="email" id="username" class="txtfield" tabindex="1">
        
-       <label for="password">Mot de passe:</label>
-       <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+       <label for="motdepasse">Mot de passe:</label>
+       <input type="password" name="motdepasse" id="motdepasse" class="txtfield" tabindex="2">
        
        <br>
        <center>
@@ -68,12 +71,6 @@
        $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
        });
        </script>
-
-        
-        
-        
-        
-        
         </ul>
         </form>
         </section>
@@ -358,7 +355,8 @@ width: 100%;
     /* Injected CSS Code */
 </style>
 
-<form class="jotform-form" action="http://submit.jotformeu.com/submit/43064433137348/" method="post" enctype="multipart/form-data" name="form_43064433137348" id="43064433137348" accept-charset="utf-8">
+
+<form class="jotform-form" action="inscription" method="post" enctype="multipart/form-data" name="form_43064433137348" id="43064433137348" accept-charset="utf-8">
   <input type="hidden" name="formID" value="43064433137348" />
   <div class="form-all">
     <ul class="form-section">
@@ -371,12 +369,12 @@ width: 100%;
         </label>
         <div id="cid_11" class="form-input-wide">
           <span class="form-sub-label-container">
-            <input class="form-textbox validate[required]" type="text" size="10" name="q11_nomEt11[first]" id="first_11" />
+            <input class="form-textbox validate[required]" value=""type="text" size="10" name="prenom" id="prenom" />
             <label class="form-sub-label" for="first_11" id="sublabel_first"> Prénom </label>
           </span>
           <span class="form-sub-label-container">
-            <input class="form-textbox validate[required]" type="text" size="15" name="q11_nomEt11[last]" id="last_11" />
-            <label class="form-sub-label" for="last_11" id="sublabel_last"> Nom de famille </label>
+            <input class="form-textbox validate[required]" value="<c:out value="${utilisateur.nom}"/>" type="text" size="15" name="nom" id="nom" />
+            <label class="form-sub-label" for="nom" id="nom"> Nom de famille </label>
           </span>
         </div>
       </li>
@@ -680,42 +678,44 @@ width: 100%;
         
         
       </li>
- <li class="form-line" data-type="control_email" id="id_13">
+ 	  <li class="form-line" data-type="control_email" id="id_13">
         <label class="form-label form-label-top form-label-auto" id="label_13" for="input_13">
           Email
           <span class="form-required">
-            *
+            ${form.erreurs['email']}
           </span>
         </label>
         <div id="cid_13" class="form-input-wide">
-          <input type="email" class=" form-textbox validate[required, Email]" id="input_13" name="q13_email13" size="30" value="" />
+          <input type="email" class=" form-textbox validate[required, Email]" id="email" name="email" size="30" value="<c:out value="${utilisateur.email}"/>" />
         </div>
       </li>
-      <li class="form-line" data-type="control_email" id="id_14">
-        <label class="form-label form-label-top form-label-auto" id="label_14" for="input_14">
-          Confirmer Votre Email
+      
+      
+      
+      <li class="form-line" data-type="control_textbox" id="id_17">
+			<label class="form-label form-label-top form-label-auto" id="motdepasse" for="motdepasse">
+				Choisissez un mot de passe
+				<span class="form-required">
+					${form.erreurs['motdepasse']}
+				</span>
+			</label>
+			<div id="cid_17" class="form-input-wide">
+				<input type="password" class=" form-textbox validate[required]" data-type="input-textbox" id="input_17" name="q17_choisissezUn" size="20" value="" />
+			</div>
+		</li>
+	 <li class="form-line" data-type="control_email" id="id_14">
+        <label class="form-label form-label-top form-label-auto" id="confirmation" for="confirmation">
+          Confirmer Votre Mot de passe
           <span class="form-required">
             *
           </span>
         </label>
         <div id="cid_14" class="form-input-wide">
-          <input type="email" class=" form-textbox validate[required, Email]" id="input_14" name="q14_confirmerVotre" size="30" value="" />
+          <input type="password" class=" form-textbox validate[required]" id="confirmation" name="cnfirmation" size="30" value="" />
         </div>
       </li>
       
       
-      <li class="form-line" data-type="control_textbox" id="id_17">
-<label class="form-label form-label-top form-label-auto" id="label_17" for="input_17">
-Choisissez un mot de passe
-<span class="form-required">
-*
-</span>
-</label>
-<div id="cid_17" class="form-input-wide">
-<input type="text" class=" form-textbox validate[required]" data-type="input-textbox" id="input_17" name="q17_choisissezUn" size="20" value="" />
-</div>
-</li>
-
 <div name="boite" id="boite" style="visibility: hidden"> 
       <li class="form-line" data-type="control_radio" id="id_15">
         <label class="form-label form-label-top form-label-auto" id="label_15" for="input_15">
@@ -853,7 +853,11 @@ Choisissez un mot de passe
               envoyer
             </button>-->
             <center>
-            <a href="#" class="button">Valider</a>
+<!--             <input><a href="#" class="button">Valider</a> -->
+<input type="submit" value="Inscription" class="sansLabel" />
+
+                <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+
           </center>
          
           </div>
