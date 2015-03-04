@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" extends="struts-default">
+	
+		<!-- ===================================== Generale ================================================ -->
+
+		<!-- Les includes -->
+		<action name="includeTagAction" class="actions.general.IncludeTagAction">
+			<result name="success">index.jsp</result>
+		</action>
+
+		<!-- Se connecter / se deconnecter -->
+		<action name="login" class="actions.general.LoginAction">
+			<result name="success" type="dispatcher">identifier/indexL.jsp</result>
+			<result name="error" type="redirect">about.jsp</result>
+		</action>
+
+		<action name="logout" class="actions.general.LoginAction"
+			method="logout">
+			<result name="success" type="redirect">index.jsp</result>
+		</action>
+
+		<action name="espaceadmin" class="actions.general.LoginAction"
+			method="logout">
+			<result name="success" type="redirect">index.jsp</result>
+		</action>
+
+
+		<!-- S'inscrire -->
+		<action name="inscrireEleveProcess" class="actions.general.InscrireEleveAction"
+			method="inscription">
+			<result name="success">inscriptionsuccess.jsp</result>
+			<result name="input">inscription.jsp</result>
+		</action>
+
+		<!-- page voir prof admin -->
+		<action name="voirProf" class="actions.general.ProfPageAction">
+			<result name="success">listeprofesseur.jsp</result>
+		</action>
+
+
+		<!-- La reecriture des liens -->
+		<action name="pageInscrire">
+			<result name="success">inscription.jsp</result>
+		</action>
+
+		<action name="searchAction" class="actions.general.ChercherProfAction">
+			<result>liste.jsp</result>
+		</action>
+
+		<!-- ============================================================ ADMIN=========================================================== -->
+		<!-- charger liste admin -->
+		<action name="adminPage" class="actions.admin.AdminPageAction">
+			<result name="success">identifier/espaceadmin.jsp</result>
+		</action>
+
+
+		<!-- ajouter admin -->
+		<action name="addAdminAction" class="actions.admin.AdminAction"
+			method="execute">
+			<result name="success">identifier/espaceadmin.jsp</result>
+		</action>
+
+		<!-- supprimer admin -->
+		<action name="supprimerAdmin" class="actions.admin.AdminSupprAdminAction"
+			method="execute">
+			<result name="success">identifier/espaceadmin.jsp</result>
+		</action>
+
+		<!-- supprimer matiere -->
+		<action name="supprimerMatiere" class="actions.admin.AdminSupprMatiereAction"
+			method="execute">
+			<result name="success">identifier/espaceadmin.jsp</result>
+		</action>
+		<!-- ajouter matiere -->
+		<action name="addMatiereAction" class="actions.admin.AdminAddMatiereAction"
+			method="execute">
+			<result name="success">identifier/espaceadmin.jsp</result>
+		</action>
+
+		<!-- accepter cheque -->
+		<action name="accepterCheque" class="actions.admin.AdminAccepterChequeAction"
+			method="execute">
+			<result name="success">identifier/espaceadmin.jsp</result>
+		</action>
+		<!-- refuser cheque -->
+		<!-- <action name="refuserCheque" class="actions.AdminRefuserChequeAction" 
+			method="execute"> -->
+		<!-- <result name="success">identifier/espaceadmin.jsp</result> -->
+		<!-- </action> -->
+
+
+	</package>
+
+</struts>
+
