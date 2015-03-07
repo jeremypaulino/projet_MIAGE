@@ -21,10 +21,9 @@ public class Professeur extends Utilisateur {
 	 * @param motivations du prof
 	 */
 	public Professeur(String mail, String mdp, String pseudo, String nom,
-			String prenom, String adresse, String complementAdresse,
+			String prenom, String adresse, String complementAdresse, int codepostale,
 			String ville, String etat, String pays,String cv,String motivations,Statut statut) {
-		super(mail, mdp, pseudo, nom, prenom, adresse, complementAdresse, ville, etat,
-				pays);
+		super(mail, mdp, pseudo, nom, prenom, adresse, complementAdresse, codepostale, ville, etat,pays);
 		this.statut = statut;
 		this.cv = cv;
 		this.motivations = motivations;

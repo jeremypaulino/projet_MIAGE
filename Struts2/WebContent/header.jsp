@@ -18,7 +18,7 @@
 
 			<s:else>
 				<li><a href="#loginmodal" id="modaltrigger">S'identifier</a></li>
-				<li><a href=' <s:url action="pageInscrire"/> '>S'inscrire</a></li>
+				<li><a href="inscription">S'inscrire</a></li>
 			</s:else>
 
 			<div id="loginmodal" style="display: none;">

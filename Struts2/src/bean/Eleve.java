@@ -4,12 +4,12 @@ public class Eleve extends Utilisateur {
 	
 
 
-	String niveau;
+	private String niveau;
 	
 	public Eleve(String mail, String mdp, String pseudo, String nom,
-			String prenom, String adresse, String complementAdresse,
+			String prenom, String adresse, String complementadresse, int codepostale,
 			String ville, String etat, String pays,String niveau){
-		super(mail, mdp, pseudo, nom,prenom,  adresse,  complementAdresse,ville,  etat,  pays);
+		super(mail, mdp, pseudo, nom,prenom,  adresse,  complementadresse,codepostale,ville,  etat,  pays);
 		this.niveau = niveau;
 		
 	}
@@ -27,5 +27,8 @@ public class Eleve extends Utilisateur {
 	public void setNiveau(String niveau) {
 		this.niveau = niveau;
 	}
+	
+	
+	
 
 }

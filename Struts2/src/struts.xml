@@ -33,11 +33,10 @@
 
 
 		<!-- S'inscrire -->
-		<action name="inscrireEleveProcess" class="actions.general.InscrireEleveAction"
-			method="inscription">
-			<result name="success">inscriptionsuccess.jsp</result>
-			<result name="input">inscription.jsp</result>
+		<action name="inscrireEleve" class="actions.general.InscrireEleveAction">
+			<result name="success">inscription.jsp</result>
 		</action>
+		
 
 		<!-- page voir prof admin -->
 		<action name="voirProf" class="actions.general.ProfPageAction">
@@ -46,7 +45,7 @@
 
 
 		<!-- La reecriture des liens -->
-		<action name="pageInscrire">
+		<action name="inscription">
 			<result name="success">inscription.jsp</result>
 		</action>
 		
@@ -67,6 +66,10 @@
 		</action>
 		
 		
+<!-- 		 code postale to ville ajax -->
+		<action name="codepostaleAction" class="actions.general.ChercherVilleAction">
+			<result>listeville.jsp</result>
+		</action>
 
 		<action name="searchAction" class="actions.general.ChercherProfAction">
 			<result>liste.jsp</result>

@@ -93,7 +93,7 @@ public class AdministrateurDao {
 		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("select eleve.email,date_creation,nom,prenom,niveau from eleve LEFT JOIN utilisateur ON eleve.email=utilisateur.email ORDER BY date_creation DESC");  
 		   ResultSet rs=ps.executeQuery();  
 		   while (rs.next()) {
-			   Eleve nouveau = new Eleve(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, null, null, null,rs.getString("niveau"));
+			   Eleve nouveau = new Eleve(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, 0, null, null, null,rs.getString("niveau"));
 			   listeEleves.add(nouveau);
 			}
 		  }catch(Exception e){e.printStackTrace();} 

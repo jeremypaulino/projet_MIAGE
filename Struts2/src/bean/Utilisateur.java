@@ -8,7 +8,8 @@ public abstract class Utilisateur {
 	String nom;
 	String prenom;
 	String adresse;
-	String complementAdresse;
+	String complementadresse;
+	int codepostale;
 	String ville;
 	String etat;
 	String pays;
@@ -27,7 +28,7 @@ public abstract class Utilisateur {
 	 * @param pays
 	 */
 	public Utilisateur(String mail, String mdp, String pseudo, String nom,
-			String prenom, String adresse, String complementAdresse,
+			String prenom, String adresse, String complementadresse, int codepostale,
 			String ville, String etat, String pays) {
 		
 		this.mail = mail;
@@ -36,11 +37,13 @@ public abstract class Utilisateur {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
-		this.complementAdresse = complementAdresse;
+		this.complementadresse = complementadresse;
 		this.ville = ville;
 		this.etat = etat;
 		this.pays = pays;
 		this.credit = 0;
+		this.codepostale = codepostale;
+		
 	}
 	
 	
@@ -121,7 +124,7 @@ public abstract class Utilisateur {
 	 * @return le complementAdresse
 	 */
 	public String getComplementAdresse() {
-		return complementAdresse;
+		return complementadresse;
 	}
 
 
@@ -129,7 +132,7 @@ public abstract class Utilisateur {
 	 * @param complementAdresse le complementAdresse a modifier
 	 */
 	public void setComplementAdresse(String complementAdresse) {
-		this.complementAdresse = complementAdresse;
+		this.complementadresse = complementAdresse;
 	}
 
 
@@ -200,4 +203,37 @@ public abstract class Utilisateur {
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
+
+
+	/**
+	 * @return le codepostale
+	 */
+	public int getCodepostale() {
+		return codepostale;
+	}
+
+
+	/**
+	 * @param codepostale le codepostale a modifier
+	 */
+	public void setCodepostale(int codepostale) {
+		this.codepostale = codepostale;
+	}
+
+
+	/**
+	 * @return le complementadresse
+	 */
+	public String getComplementadresse() {
+		return complementadresse;
+	}
+
+
+	/**
+	 * @param complementadresse le complementadresse a modifier
+	 */
+	public void setComplementadresse(String complementadresse) {
+		this.complementadresse = complementadresse;
+	}
+	
 }

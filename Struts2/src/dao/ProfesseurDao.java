@@ -37,7 +37,7 @@ public class ProfesseurDao {
 			   else if(rs.getString("statut").equals("REFUSE")){
 				   statut = Statut.REFUSE;
 			   }
-			   Professeur nouveau = new Professeur(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, null, null, null,rs.getString("cv"),rs.getString("motivation"),statut);
+			   Professeur nouveau = new Professeur(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, 0, null, null, null,rs.getString("cv"),rs.getString("motivation"),statut);
 			   listeProf.add(nouveau);
 			}
 		  }catch(Exception e){e.printStackTrace();} 
@@ -64,7 +64,7 @@ public class ProfesseurDao {
 			   else if(rs.getString("statut").equals("REFUSE")){
 				   statut = Statut.REFUSE;
 			   }
-			   Professeur nouveau = new Professeur(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, null, null, null,rs.getString("cv"),rs.getString("motivation"),statut);
+			   Professeur nouveau = new Professeur(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, 0, null, null, null,rs.getString("cv"),rs.getString("motivation"),statut);
 			   listeProf.add(nouveau);
 			}
 		  }catch(Exception e){e.printStackTrace();} 
@@ -94,7 +94,7 @@ public class ProfesseurDao {
 			   else if(rs.getString("statut").equals("REFUSE")){
 				   statut = Statut.REFUSE;
 			   }
-			   Professeur nouveau = new Professeur(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, null, null, null,rs.getString("cv"),rs.getString("motivation"),statut);
+			   Professeur nouveau = new Professeur(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, 0, null, null, null,rs.getString("cv"),rs.getString("motivation"),statut);
 			   listeProf.add(nouveau);
 			}
 		  }catch(Exception e){e.printStackTrace();} 
