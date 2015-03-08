@@ -24,7 +24,9 @@ public class AdminSupprMatiereAction extends ActionSupport {
 	public String execute() throws Exception {
 
 		// si tout est OK on stock en bdd
-		dao.supprMatiere(this.getMatiere());
+		String matiere = this.getMatiere();
+		dao.supprMatiere(matiere);
+		addActionMessage("Vous avez bien supprimer "+ matiere + "!");
 
 		return SUCCESS;
 

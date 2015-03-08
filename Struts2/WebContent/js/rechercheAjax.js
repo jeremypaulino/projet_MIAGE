@@ -26,7 +26,25 @@ $(document).ready(function() {
 		if ($(this).data("lastval") != $(this).val()) {
 
 			$.ajax({
-				url : "searchAction",
+				url : "searchProf",
+				data : {
+					term : $(this).val()
+				}
+
+			}).done(function(result) {
+				$("#result").html(result);
+			});
+		}
+		
+	});
+});
+
+$(document).ready(function() {
+	$("#searcheleve").on("input", function(e) {
+		if ($(this).data("lastval") != $(this).val()) {
+
+			$.ajax({
+				url : "searchEleve",
 				data : {
 					term : $(this).val()
 				}

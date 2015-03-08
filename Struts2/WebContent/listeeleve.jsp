@@ -4,15 +4,15 @@
 <link rel="stylesheet" href="css/jquery-ui.css">
 
 
-				<div class="grid_12">
+		
 				
-				<h2>Liste complète des professeurs</h2>
+				<h2>Liste complète des élèves</h2>
 				<div>
 						<h3>Filtres</h3>
 
 				<div class="search-container">
 					<div class="ui-widget">
-						<s:textfield id="search" class="txtfield" name="search" placeholder="example@yahoo.fr" />
+						<s:textfield id="searcheleve" class="txtfield" name="searcheleve" placeholder="example@yahoo.fr" />
 					</div>
 				</div>
 										

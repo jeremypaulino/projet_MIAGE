@@ -25,7 +25,7 @@ public class AdminAddMatiereAction extends ActionSupport {
 
 		// si tout est OK on stock en bdd
 		dao.addMatiere(matiere.getNom());
-
+		addActionMessage("Vous avez bien ajouter "+ matiere.getNom() + "!");
 		return SUCCESS;
 
 	}

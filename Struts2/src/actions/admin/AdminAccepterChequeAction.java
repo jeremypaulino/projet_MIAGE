@@ -23,6 +23,8 @@ public class AdminAccepterChequeAction extends ActionSupport {
 
 		// si tout est OK on stock en bdd
 		dao.accepterCheque(this.getId());
+		
+		addActionMessage("Vous avez bien accepté le chèque !");
 
 		return SUCCESS;
 

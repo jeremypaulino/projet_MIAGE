@@ -25,7 +25,7 @@ public class AdminSupprAdminAction extends ActionSupport {
 
 		// si tout est OK on stock en bdd
 		dao.supprAdmin(this.getEmail());
-
+		addActionMessage("Vous avez bien supprimé l'administrateur "+this.getEmail() + " !");
 		return SUCCESS;
 
 	}

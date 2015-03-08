@@ -23,6 +23,7 @@ public class AdminRefuserChequeAction extends ActionSupport {
 
 		// si tout est OK on stock en bdd
 		dao.refuserCheque(this.getId());
+		addActionMessage("Vous avez bien refusé le chèque");
 
 		return SUCCESS;
 

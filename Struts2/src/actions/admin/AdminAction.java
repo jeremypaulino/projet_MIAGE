@@ -47,6 +47,8 @@ public class AdminAction extends ActionSupport {
 				+ "Vous pourrez le modifier une fois connecté à votre compte";
 
 		new Email(administrateur.getEmail(), sujet, texte);
+		
+		addActionMessage("Vous avez bien ajouter un admin!");
 
 		return SUCCESS;
 
