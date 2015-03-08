@@ -79,4 +79,25 @@ public class EleveDao {
 		 return listeEleve;
 	}
 
+	/**
+	 * @param term
+	 * @return
+	 */
+	public int getStatEleve(String term) {
+		
+		int result=0;
+		if("total".equals(term)){
+			try{ 
+			PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("SELECT COUNT(*) AS total FROM eleve");  
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			result = rs.getInt(1);
+		   
+			}catch(Exception e){e.printStackTrace();} 
+		   
+		}
+		return result;
+	}
+	
+
 }

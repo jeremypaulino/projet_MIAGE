@@ -960,14 +960,8 @@ dl dd a:hover {
 	background-image: url('../images/error.png');
 }
 
-/* .table { */
-/* 	width: 100%; */
-/* } */
-
-/* .jotform-form { */
-/* 	width: 100%; */
-/* } */
-
-/* .tdLabel{ */
-/* 	width:250px; */
-/* } */
+.tableAdmin {
+	margin: auto;
+	vertical-align: middle;
+/* 	font-size:25%; */
+}

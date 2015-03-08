@@ -17,4 +17,11 @@ $(document).ready(function() {
 			width: 700
 		});
 		});
+	
+	$( "#popupStatEleve" ).click(function() {
+		$( "#resultat" ).load( "stateleve.jsp" );
+		$( "#resultat" ).dialog({
+			width: 700
+		});
+		});
 });

@@ -5,15 +5,63 @@
 <head>
 <meta charset="UTF-8">
 <title>Panneau d'administration</title>
-
 <s:include value="../cssjs.jsp"></s:include>
-
-
 <script src="js/popupAjax.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
-
+<link rel="stylesheet" href="./css/jquery-ui.css">
 <script src="js/popupAjax.js"></script>
+<script type="text/javascript" src="js/jquery.canvasjs.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(function() {
+		$("#popupCA").click(function() {
 
+			var options = {
+				title : {
+					text : "Chiffre d'affaire"
+				},
+				animationEnabled : true,
+				data : [ {
+					type : "spline",
+					xValueType: "dateTime", //change it to line, area, column, pie, etc
+					dataPoints : [ {
+						x : 1262300400000,
+						y : 0
+					}, {
+						x : 1325372400000,
+						y : 12
+					}, {
+// 						x : 30,
+// 						y : 8
+// 					}, {
+// 						x : 40,
+// 						y : 14
+// 					}, {
+// 						x : 50,
+// 						y : 6
+// 					}, {
+// 						x : 60,
+// 						y : 24
+// 					}, {
+// 						x : 70,
+// 						y : -4
+// 					}, {
+						x : 1420066800000,
+						y : 10
+					} ]
+				} ]
+			};
+
+			$("#resultat").CanvasJSChart(options);
+			
+			$("#resultat").dialog({
+				width: 950,
+				height: 500
+			});
+		});
+	});
+});
+</script>
 </head>
 <body>
 	<div class="main">
@@ -58,7 +106,7 @@
 							<h3>Les professeurs a valider</h3>
 							<img src="images/professeur.png" alt="" class="img-border">
 							<p>Derniers inscrits :</p>
-							<table id="table">
+							<table id="table" class="tableAdmin">
 								<s:iterator value="listeProf" var="element">
 									<tr>
 										<td><s:property value="nom" /> <s:property
@@ -82,7 +130,7 @@
 							<h3>Les cheques a valider</h3>
 							<img src="images/cheques.png" alt="" class="img-border">
 							<p>Derniers cheque confirme par le client :</p>
-							<table>
+							<table class="tableAdmin">
 
 								<s:iterator value="listeChequesEnAttente" var="element">
 									<tr>
@@ -110,7 +158,7 @@
 							<h3>Les &eacute;l&egrave;ves</h3>
 							<img src="images/student.png" alt="" class="img-border">
 							<p>Derniers inscrits :</p>
-							<table>
+							<table class="tableAdmin">
 
 								<s:iterator value="listeEleves" var="element">
 									<tr>
@@ -132,7 +180,7 @@
 
 							<img src="images/admin.png" alt="" class="img-border">
 							<p>Liste des administrateur :</p>
-							<table>
+							<table class="tableAdmin">
 
 								<s:iterator value="listeAdmin" var="element">
 									<tr>
@@ -165,7 +213,7 @@
 							<h3>Les Matieres</h3>
 							<img src="images/sujets.png" alt="" class="img-border">
 							<p>Liste des mati&egrave;res :</p>
-							<table>
+							<table class="tableAdmin">
 								<s:iterator value="listeMatieres" var="element">
 									<tr>
 										<td><s:property /></td>
@@ -198,13 +246,13 @@
 								<h3 class="p3">CA de la journ&eacute;e</h3>
 								<h4>Aujourd'hui</h4>
 								<p class="p4">25 451 e</p>
-								<a href="#" class="button">semaine</a> <a href="#"
-									class="button">mois</a> <a href="#" class="button">annee</a>
+								<a id="popupCA" class="button">semaine</a> <a id="popupCA"
+									class="button">mois</a> <a id="popupCA" class="button">annee</a>
 							</div>
 							<div class="last">
 								<h3 class="p3">Nombre d'eleves</h3>
 								<p class="p4">1 458 eleves</p>
-								<a href="#" class="button">Plus</a>
+								<a id="popupStatEleve" class="button">Plus</a>
 							</div>
 
 							<div>

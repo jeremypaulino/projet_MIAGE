@@ -45,6 +45,7 @@
 		flags.wrap.on('click','.eventsCalendar-day a',function(e){
 		//flags.wrap.find('.eventsCalendar-day a').live('click',function(e){
 			e.preventDefault();
+			
 			var year = flags.wrap.attr('data-current-year'),
 				month = flags.wrap.attr('data-current-month'),
 				day = $(this).parent().attr('rel');
@@ -52,6 +53,7 @@
 			getEvents(false, year, month,day, "day");
 		});
 		flags.wrap.on('click','.monthTitle', function(e){
+			
 		//flags.wrap.find('.monthTitle').live('click',function(e){
 			e.preventDefault();
 			var year = flags.wrap.attr('data-current-year'),
@@ -96,6 +98,7 @@
 	};
 
 	function dateSlider(show, year, month) {
+		
 		var $eventsCalendarSlider = $("<div class='eventsCalendar-slider'></div>"),
 			$eventsCalendarMonthWrap = $("<div class='eventsCalendar-monthWrap'></div>"),
 			$eventsCalendarTitle = $("<div class='eventsCalendar-currentTitle'><a href='#' class='monthTitle'></a></div>"),
@@ -117,6 +120,7 @@
 
 		// if current show current month & day
 		if (show === "current") {
+			
 			day = date.getDate();
 			$eventsCalendarSlider.append($eventsCalendarArrows);
 
@@ -260,7 +264,7 @@
 		}
 
 		if (day > '') {
-			flags.wrap.find('.current').removeClass('current');
+			flags.wrap.find('.current').removeClass('current');//colorie en bleu le jour selectionné
 			flags.wrap.find('#dayList_'+day).addClass('current');
 		}
 	}
@@ -396,6 +400,7 @@
 	}
 
 	function changeMonth() {
+	
 		flags.wrap.find('.arrow').click(function(e){
 			e.preventDefault();
 
@@ -441,7 +446,7 @@ $.fn.eventCalendar.defaults = {
 	dayNames: [ 'Dimanche','Lundi','Mardi','Mercredi',
 		'Jeudi','Vendredi','Samedi' ],
 	dayNamesShort: [ 'Dim','Lun','Mar','Mer', 'Jeu','Ven','Sam' ],
-	txt_noEvents: "There are no events in this period",
+	txt_noEvents: "Pas de cours durant cette journee",
 	txt_SpecificEvents_prev: "",
 	txt_SpecificEvents_after: "cours:",
 	txt_next: "next",

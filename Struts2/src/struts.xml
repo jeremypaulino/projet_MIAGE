@@ -71,6 +71,10 @@
 			<result>listeville.jsp</result>
 		</action>
 
+		<action name="statEleve" class="actions.admin.StatEleveAction">
+			<result>stateleveresult.jsp</result>
+		</action>
+
 		<action name="searchProf" class="actions.general.ChercherProfAction">
 			<result>liste.jsp</result>
 		</action>
@@ -123,12 +127,12 @@
 <!-- ============================================================ PROF=========================================================== -->
 
 
-<action name="profPage" class="actions.general.ProfPageAction">
+		<action name="profPage" class="actions.general.ProfPageAction">
 			<result name="success">identifier/espaceperso.jsp</result>
 		</action>
 		
 		<action name="affcalend" >
-			<result name="success">identifier/calend/cal.jsp</result>
+			<result name="success">identifier/calend/cal2.jsp</result>
 		</action>
 		
 	</package>

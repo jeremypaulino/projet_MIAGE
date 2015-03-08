@@ -1,10 +1,6 @@
-<%@ taglib uri="/struts-tags" prefix="s"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
-
 	<meta charset="utf-8" />
 
 	<!-- Set the viewport width to device width for mobile -->

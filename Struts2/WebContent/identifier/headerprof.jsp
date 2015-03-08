@@ -10,7 +10,7 @@
 
 
 			
-				<li><a href="profPage">Espace Professeur</a></li>
+				<li><a href="./identifier/espaceperso.jsp">Espace Professeur</a></li>
 				<li><a href="logout">Se Deconnecter</a></li>
 
 			<div id="loginmodal" style="display: none;">
