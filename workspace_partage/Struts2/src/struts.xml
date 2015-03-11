@@ -68,23 +68,25 @@
 		
 <!-- 		 code postale to ville ajax -->
 		<action name="codepostaleAction" class="actions.general.ChercherVilleAction">
-			<result>listeville.jsp</result>
+			<result>resultat/listeville.jsp</result>
 		</action>
 
 		<action name="statEleve" class="actions.admin.StatEleveAction">
-			<result>stateleveresult.jsp</result>
+			<result>resultat/stateleveresult.jsp</result>
 		</action>
 
 		<action name="searchProf" class="actions.general.ChercherProfAction">
-			<result>liste.jsp</result>
+			<result>resultat/liste.jsp</result>
 		</action>
 		
 		<action name="searchEleve" class="actions.general.ChercherEleveAction">
-			<result>listeeleveajax.jsp</result>
+			<result>resultat/listeeleveajax.jsp</result>
 		</action>
+		
+
 
 		<!-- ============================================================ ADMIN=========================================================== -->
-		<!-- charger liste admin -->
+		<!-- charger listes de la page admin -->
 		<action name="adminPage" class="actions.admin.AdminPageAction">
 			<result name="success">identifier/espaceadmin.jsp</result>
 		</action>
@@ -93,30 +95,49 @@
 		<!-- ajouter admin -->
 		<action name="addAdminAction" class="actions.admin.AdminAction"
 			method="execute">
-			<result name="success">identifier/espaceadmin.jsp</result>
+			<result type="redirectAction" name="success">adminPage</result>
 		</action>
 
 		<!-- supprimer admin -->
 		<action name="supprimerAdmin" class="actions.admin.AdminSupprAdminAction"
 			method="execute">
-			<result name="success">identifier/espaceadmin.jsp</result>
+			<result type="redirectAction" name="success">adminPage</result>
+		</action>
+		
+		<!-- accepter prof -->
+		<action name="accepterProf" class="actions.admin.AdminAccepterProfAction"
+			method="execute">
+			<result type="redirectAction" name="success">adminPage</result>
+		</action>
+		
+		<!-- refuser prof -->
+		<action name="refuserProf" class="actions.admin.AdminRefuserProfAction"
+			method="execute">
+			<result type="redirectAction" name="success">adminPage</result>
 		</action>
 
-		<!-- supprimer matiere -->
-		<action name="supprimerMatiere" class="actions.admin.AdminSupprMatiereAction"
-			method="execute">
-			<result name="success">identifier/espaceadmin.jsp</result>
-		</action>
+
 		<!-- ajouter matiere -->
 		<action name="addMatiereAction" class="actions.admin.AdminAddMatiereAction"
 			method="execute">
-			<result name="success">identifier/espaceadmin.jsp</result>
+			<result type="redirectAction" name="success">adminPage</result>
+		</action>
+		<!-- supprimer matiere -->
+		<action name="supprimerMatiere" class="actions.admin.AdminSupprMatiereAction"
+			method="execute">
+			<result type="redirectAction" name="success">adminPage</result>
+		</action>
+
+	<!-- supprimer matiere -->
+		<action name="supprimerEleve" class="actions.admin.AdminSupprEleveAction"
+			method="execute">
+			<result type="redirectAction" name="success">adminPage</result>
 		</action>
 
 		<!-- accepter cheque -->
 		<action name="accepterCheque" class="actions.admin.AdminAccepterChequeAction"
 			method="execute">
-			<result name="success">identifier/espaceadmin.jsp</result>
+			<result type="redirectAction" name="success">adminPage</result>
 		</action>
 		<!-- refuser cheque -->
 		<!-- <action name="refuserCheque" class="actions.AdminRefuserChequeAction" 
@@ -136,6 +157,11 @@
 		</action>
 		
 	</package>
+	<package name="json" extends="json-default">
+			<action name="searchMatiere" class="actions.general.ChercherMatiereAction">
+			<result type="json">resultat/listeprofesseur.jsp</result>
+		</action>
+		</package>
 
 </struts>
 

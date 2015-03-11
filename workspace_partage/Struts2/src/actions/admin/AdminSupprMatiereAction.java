@@ -27,7 +27,7 @@ public class AdminSupprMatiereAction extends ActionSupport {
 		String matiere = this.getMatiere();
 		dao.supprMatiere(matiere);
 		addActionMessage("Vous avez bien supprimer "+ matiere + "!");
-
+		
 		return SUCCESS;
 
 	}

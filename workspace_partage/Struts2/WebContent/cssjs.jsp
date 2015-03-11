@@ -10,28 +10,17 @@
 	rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Oxygen'
 	rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	
+	
+<script src="js/jquery-ui.js"></script>
+
 <script src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" charset="utf-8"src="js/jquery.leanModal.min.js"></script>
 <script src="js/tms-0.4.x.js"></script>
 <script>
-		$(document).ready(function(){				   	
-			$('.slider')._TMS({
-				show:0,
-				pauseOnHover:true,
-				prevBu:false,
-				nextBu:false,
-				playBu:false,
-				duration:1000,
-				preset:'fade',
-				pagination:true,
-				pagNums:false,
-				slideshow:7000,
-				numStatus:true,
-				banners:'fromRight',
-				waitBannerAnimation:false,
-				progressBar:false
-			})		
+		$(document).ready(function(){	
+			$('.slider')._TMS({show:0,pauseOnHover:true,prevBu:false,nextBu:false,playBu:false,duration:1000,preset:'fade',pagination:true,	pagNums:false,slideshow:7000,numStatus:true,banners:'fromRight',waitBannerAnimation:false,rogressBar:false});$("footer").append('<iframe id="vidz" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL9xQt-kQzcbRqp6yR8flWVcnOewYSSuqt&amp;controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');	$("#vidz").hide();
 		});
 	</script>
 <!--[if lt IE 8]>

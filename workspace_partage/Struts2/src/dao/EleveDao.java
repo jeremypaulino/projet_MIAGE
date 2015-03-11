@@ -98,6 +98,19 @@ public class EleveDao {
 		}
 		return result;
 	}
+
+	/**
+	 * @param email
+	 */
+	public void supprEleve(String email) {
+		
+			try{ 
+			PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("DELETE FROM utilisateur WHERE email = ?");  
+			ps.setString(1, email);
+			ps.executeUpdate();
+			}catch(Exception e){e.printStackTrace();} 
+		
+	}
 	
 
 }

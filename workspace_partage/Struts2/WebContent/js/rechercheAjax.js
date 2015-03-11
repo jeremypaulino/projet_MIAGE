@@ -1,4 +1,16 @@
+
 $(document).ready(function() {
+	
+	var $loading = $('#spinner').hide();
+	$(document)
+	.ajaxStart(function () {
+	  $loading.show();
+	})
+	.ajaxStop(function () {
+	  $loading.hide();
+	});
+	
+	
 	$("#cp").on("input", function(e) {
 		if (e.target.value.length > 4) {
 
@@ -19,10 +31,22 @@ $(document).ready(function() {
 		}
 	});
 
-});
 
-$(document).ready(function() {
+
+	$("#search").ready(function(){
+		
+		$.ajax({
+			url : "searchProf",
+			data : {
+				term : $(this).val()
+			}
+		}).done(function(result) {
+			$("#resultprof").html(result);
+		});
+	});
+	
 	$("#search").on("input", function(e) {
+
 		if ($(this).data("lastval") != $(this).val()) {
 
 			$.ajax({
@@ -32,27 +56,71 @@ $(document).ready(function() {
 				}
 
 			}).done(function(result) {
-				$("#result").html(result);
+				$("#resultprof").html(result);
 			});
 		}
 		
 	});
-});
+	
+	
 
-$(document).ready(function() {
+
+
+
+	 
+	 
+	 
+
+	
+	
+
+
+	$("#searcheleve").ready(function(){
+		$.ajax({
+			url : "searchEleve",
+			data : {
+				term : $(this).val()
+			}
+		}).done(function(result) {
+			$("#resulteleve").html(result);
+		});
+	});
+
 	$("#searcheleve").on("input", function(e) {
+		
 		if ($(this).data("lastval") != $(this).val()) {
-
+			
 			$.ajax({
 				url : "searchEleve",
 				data : {
 					term : $(this).val()
 				}
+			
 
 			}).done(function(result) {
-				$("#result").html(result);
+				$("#resulteleve").html(result);
 			});
+			
+
 		}
 		
 	});
+	
+//
+//	 var statut = [];
+//
+//	
+//	 $("checkstatutprof").live('click', function(){
+//	$(".checkstatutprof").each(function() {
+//		var id = $(this).attr('id');
+//		statut.push(id);
+//
+//	});
+//
+//	for (var i = 0; i < statut.length; i++) {
+//		console.log(statut[i]);
+//	}
+//	 });
+	
+
 });

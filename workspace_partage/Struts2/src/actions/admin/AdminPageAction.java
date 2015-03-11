@@ -36,7 +36,7 @@ public class AdminPageAction extends ActionSupport {
 		listeProf = profDao.getLiProfEnAttente();
 		listeChequesEnAttente = adminDao.getLiChequesEnAttente();
 		listePrix = adminDao.getLiPrix();
-		listeMatieres = matiereDao.getLiMatieres();
+		listeMatieres = matiereDao.getLiMatieres("");
 
 		return SUCCESS;
 	}

@@ -1,27 +1,35 @@
 $(document).ready(function() {
 
+
 	
 	
 	$( "#popupProf" ).click(function() {
-//		$( "#resultat" ).html("sniiiiiiif");
-		$( "#resultat" ).load( "listeprofesseur.jsp" );
+		$( "#resultat" ).load( "resultat/listeprofesseur.jsp" );
 		$( "#resultat" ).dialog({
-			width: 700
+			width: 850,show :'fold',hide:'fold'
 		});
 		});
 	
 	
 	$( "#popupEleve" ).click(function() {
-		$( "#resultat" ).load( "listeeleve.jsp" );
+		$( "#resultat" ).load( "resultat/listeeleve.jsp" );
 		$( "#resultat" ).dialog({
-			width: 700
+			width: 850,show :'fold',hide:'fold'
 		});
 		});
 	
 	$( "#popupStatEleve" ).click(function() {
-		$( "#resultat" ).load( "stateleve.jsp" );
+		$( "#resultat" ).load( "resultat/stateleve.jsp" );
 		$( "#resultat" ).dialog({
-			width: 700
+			width: 850,show :'fold',hide:'fold'
 		});
+		
 		});
+	
+
+
+		
+		
+
 });
+

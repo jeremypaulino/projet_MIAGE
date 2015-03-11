@@ -101,4 +101,30 @@ public class ProfesseurDao {
 		  
 		 return listeProf;
 	}
+
+	/**
+	 * @param email
+	 */
+	public void refuserProf(String email) {
+		try{  	     
+			   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("UPDATE professeur SET statut ='REFUSE'  WHERE email = ?");  
+			   ps.setString(1,email);
+			   ps.executeUpdate();
+			   
+			  }catch(Exception e){e.printStackTrace();} 
+		
+	}
+	
+	/**
+	 * @param email
+	 */
+	public void accepterProf(String email) {
+		try{  	     
+			   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("UPDATE professeur SET statut ='ACCEPTE'  WHERE email = ?");  
+			   ps.setString(1,email);
+			   ps.executeUpdate();
+			   
+			  }catch(Exception e){e.printStackTrace();} 
+		
+	}
 }

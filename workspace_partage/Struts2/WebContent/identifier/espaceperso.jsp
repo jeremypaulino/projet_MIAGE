@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Panneau d'administration</title>
 
+<s:include value="../cssjs.jsp"></s:include>
 
 
 <!-- Grid CSS File (only needed for demo page) -->
@@ -25,6 +26,8 @@
 <script src="calend/js/jquery.eventCalendar.js" type="text/javascript"></script>
 
 
+
+
 <script>
 	$(document).ready(function() {
 		$('.sucess:empty').hide();
@@ -33,7 +36,6 @@
 
 
 
-<s:include value="../cssjs.jsp"></s:include>
 
 </head>
 <body>
@@ -49,7 +51,10 @@
 				<div class="grid_12">
 					<div class="wrap pad-3">
 
-						<div class="block-6">
+<!-- 						<div class="block-6" style="width:50%;"> -->
+						
+						
+						
 							<!--<h3>Entrer En Contact</h3>
                     <form id="form" method="post" >
                       <fieldset>
@@ -61,30 +66,162 @@
                       </fieldset>  
                     </form> 
                     -->
-<!-- 							  <object type="text/html" data="calend/contactform2.jsp" width="650" height="1000"> -->
-<!--                       <embed src="calend/contactform2.jsp" width="650" height="1000"></embed> -->
-<!--                     </object>   -->
-                    
-                    	  <object type="text/html" data="calend/cal2.jsp" width="1550" height="1000">
-                      <embed src="calend/cal2.jsp" width="1550" height="1000"></embed>
-                    </object> 
+							<!-- 							  <object type="text/html" data="calend/contactform2.jsp" width="650" height="1000"> -->
+							<!--                       <embed src="calend/contactform2.jsp" width="650" height="1000"></embed> -->
+							<!--                     </object>   -->
+
+							<object type="text/html" data="calend/cal2.jsp" width="1000px"
+								height="1000px">
+								<embed src="calend/cal2.jsp" width="1000px" height="1000px"></embed>
+							</object>
+
+<!-- 						</div> -->
 
 
-<%-- 					<s:include value="calend/cal.jsp"></s:include> --%>
+<!-- 						<div id="resultat2" > -->
 
+<!-- <div class="resultat3"> -->
+<!-- <div class="resultat4" > -->
 
+<!-- 							<table> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check"> <label -->
+<%-- 										for="check" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>8h00 - 9h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check1"> <label -->
+<%-- 										for="check1" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>9h00 - 10h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check2"> <label -->
+<%-- 										for="check2" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>10h00 - 11h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check3"> <label -->
+<%-- 										for="check3" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>11h00 - 12h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check4"> <label -->
+<%-- 										for="check4" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>12h00 - 13h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check5"> <label -->
+<%-- 										for="check5" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>13h00 - 14h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check6"> <label -->
+<%-- 										for="check6" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>14h00 - 15h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check7"> <label -->
+<%-- 										for="check7" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>15h00 - 16h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check8"> <label -->
+<%-- 										for="check8" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>16h00 - 17h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check9"> <label -->
+<%-- 										for="check9" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>17h00 - 18h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check10"> <label -->
+<%-- 										for="check10" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>18h00 - 19h00</td> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td><input type="checkbox" id="check11"> <label -->
+<%-- 										for="check11" class="loadcheck" id="loadcheck"> <span --%>
+<%-- 											class="entypo-cancel">&#10008;</span> <span class="load"></span> --%>
+<%-- 											<span class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="load"></span> <span class="load"></span> <span --%>
+<%-- 											class="entypo-check">&#10004;</span> --%>
+<!-- 									</label></td> -->
+<!-- 									<td>19h00 - 20h00</td> -->
+<!-- 								</tr> -->
 
-
-
-						</div>
+<!-- 							</table> -->
+<!-- 							</div>	 -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+					
+					
+					
 					</div>
 				</div>
 				<div class="clear"></div>
 			</div>
 		</section>
 	</div>
+
 	<!--==============================footer=================================-->
-	<s:include value="footer.jsp"></s:include>
+	<s:include value="../footer.jsp"></s:include>
+	
 </body>
 
 

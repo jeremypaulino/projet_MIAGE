@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="./css/jquery-ui.css">
 <script src="js/popupAjax.js"></script>
 <script type="text/javascript" src="js/jquery.canvasjs.min.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function() {
 	$(function() {
@@ -81,24 +82,15 @@ $(document).ready(function() {
 						<s:if test="hasActionMessages()">
 							<div class="success">
 								<s:actionmessage />
-								<script>
-									setTimeout(
-											function() {
-												window.location
-														.replace("http://localhost:8080/Struts2/adminPage")
-											}, 3000)
-								</script>
 							</div>
 
 						</s:if>
 						<s:if test="hasActionErrors()">
-							<div class="error">
+							<div class="success">
 								<s:actionerror />
 							</div>
 						</s:if>
-					<div id="resultat">
-			
-			</div>
+						<div id="resultat"></div>
 
 					</div>
 					<div class="wrap block-1 pad-1">

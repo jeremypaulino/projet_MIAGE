@@ -49,15 +49,17 @@ public class MatiereDao {
 	}
 	
 	/**
+	 * @param string 
 	 * @return liste des matieres
 	 */
-	public List<String> getLiMatieres() {
+	public List<String> getLiMatieres(String filtre) {
 		
 		List<String> listeMatieres = new ArrayList<String>();
 		 
 		 
 		  try{  	     
-		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("select * from matiere order by nom ASC");  
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("select * from matiere WHERE nom LIKE ? order by nom ASC ");  
+		   ps.setString(1, filtre+"%");
 		   ResultSet rs=ps.executeQuery();  
 		   while (rs.next()) {
 			   listeMatieres.add(rs.getString("nom"));

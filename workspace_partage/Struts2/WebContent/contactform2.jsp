@@ -16,19 +16,10 @@ $("#form_wrap").addClass('hide');
 <style>
 
 
-body, div, h1,h2, form, fieldset, input, textarea,p {
+body, div, h1,h2, form, fieldset, input, textarea, footer,p {
 	margin: 0; padding: 0; border: 0; outline: none;
 }
-footer {
-    overflow: hidden;
-    padding: 32px 0 45px;
-    position: relative;
-    text-align: center;
-    width: 100%;
-    background: none repeat scroll 0 0 #000000;
-    color: #000000;
-    font: 14px/25px Arial,Helvetica,sans-serif;
-}
+
 
 @font-face {
 	font-family: 'YanoneKaffeesatzRegular';
@@ -137,7 +128,7 @@ h1 {margin-bottom:20px; text-align:center;font-size:20px; text-shadow:0 1px 0 #0
 			<form>
 				<p>Bonjour iSchool,</p>
 				<label for="email">Votre Message : </label>
-				<textarea  name="message"  id="message" ></textarea>
+				<textarea  name="message" value="Your Message" id="message" ></textarea>
 				<p>Signé,</p>	
 				<label for="name">Nom: </label>
 				<input type="text" name="name" value="" id="name" />
