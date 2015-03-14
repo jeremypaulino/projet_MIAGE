@@ -32,6 +32,7 @@
 		</action>
 
 
+		
 		<!-- S'inscrire -->
 		<action name="inscrireEleve" class="actions.general.InscrireEleveAction">
 			<result name="success">inscription.jsp</result>
@@ -116,7 +117,8 @@
 			<result type="redirectAction" name="success">adminPage</result>
 		</action>
 
-
+	
+		
 		<!-- ajouter matiere -->
 		<action name="addMatiereAction" class="actions.admin.AdminAddMatiereAction"
 			method="execute">
@@ -152,10 +154,24 @@
 			<result name="success">identifier/espaceperso.jsp</result>
 		</action>
 		
-		<action name="affcalend" >
-			<result name="success">identifier/calend/cal2.jsp</result>
+<!-- 		<action name="affcalend" > -->
+<!-- 			<result name="success">identifier/calend/cal2.jsp</result> -->
+<!-- 		</action> -->
+		
+<!-- 		<action name="updatedispo" class="actions.general.InsererDispo"> -->
+<!-- 			<result name="success">identifier/espaceperso.jsp</result> -->
+<!-- 			<result>identifier/espaceperso.jsp</result> -->
+<!-- 		</action> -->
+		
+		<action name="disponibilite" class="actions.general.InsererDispo">
+			<result name="success">identifier/espaceperso.jsp</result>
 		</action>
 		
+		<action name="disponibilite2" class="actions.general.SupprDispo">
+			<result name="success">identifier/espaceperso.jsp</result>
+		</action>
+		
+
 	</package>
 	<package name="json" extends="json-default">
 			<action name="searchMatiere" class="actions.general.ChercherMatiereAction">

@@ -160,6 +160,14 @@
 					box-shadow:inset 5px 5px 10px #449FB2;
 					text-shadow: 2px 2px 2px #449FB2;
 				}
+				
+				.eventsCalendar-daysList li.dispo a {
+				color:#fff;
+				background:#000;
+				box-shadow:inset 5px 5px 10px #216B7A;
+				text-shadow: 2px 2px 2px #216B7A;
+			}
+				
 			.eventsCalendar-daysList li.current a {
 				color:#fff;
 				background:#449FB2;

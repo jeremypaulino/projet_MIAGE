@@ -9,7 +9,6 @@
 <script src="js/popupAjax.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <link rel="stylesheet" href="./css/jquery-ui.css">
-<script src="js/popupAjax.js"></script>
 <script type="text/javascript" src="js/jquery.canvasjs.min.js"></script>
 
 <script type="text/javascript">

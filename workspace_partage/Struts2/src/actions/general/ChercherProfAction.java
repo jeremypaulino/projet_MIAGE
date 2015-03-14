@@ -1,8 +1,11 @@
 package actions.general;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import bean.Matiere;
 import bean.Professeur;
+import bean.Statut;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -20,12 +23,16 @@ public class ChercherProfAction extends ActionSupport {
 
 	private String term;
 	private List<Professeur> listeAjaxProf;
+	private ArrayList<String> listestatut;
+	private ArrayList<String> listematiere;
+	
+	private String test;
 
 	public String execute() {
 		try {
-			System.out.println("parametres passe en ajax : - " + term);
+			System.out.println("parametres passe en ajax : - " + term + listematiere);
 			ProfesseurDao dao = new ProfesseurDao();
-			listeAjaxProf = dao.getLiProf(term);
+			//listeAjaxProf = dao.getLiProf2(term, listeStatut, listeMatiere);
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
@@ -62,5 +69,54 @@ public class ChercherProfAction extends ActionSupport {
 	public String getTerm() {
 		return term;
 	}
+
+	/**
+	 * @return le listestatut
+	 */
+	public ArrayList<String> getListestatut() {
+		return listestatut;
+	}
+
+	/**
+	 * @param listestatut le listestatut a modifier
+	 */
+	public void setListestatut(ArrayList<String> listestatut) {
+		this.listestatut = listestatut;
+	}
+
+	/**
+	 * @return le listematiere
+	 */
+	public ArrayList<String> getListematiere() {
+		return listematiere;
+	}
+
+	/**
+	 * @param listematiere le listematiere a modifier
+	 */
+	public void setListematiere(ArrayList<String> listematiere) {
+		this.listematiere = listematiere;
+	}
+
+	/**
+	 * @return le test
+	 */
+	public String getTest() {
+		return test;
+	}
+
+	/**
+	 * @param test le test a modifier
+	 */
+	public void setTest(String test) {
+		this.test = test;
+	}
+
+
+
+	
+
+	
+	
 
 }

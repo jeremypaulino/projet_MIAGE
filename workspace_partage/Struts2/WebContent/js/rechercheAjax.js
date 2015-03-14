@@ -35,16 +35,28 @@ $(document).ready(function() {
 
 	$("#search").ready(function(){
 		
+		var test='test';
+		
+		var listematiere = "matiere1#matiere2";
+		var test = "statut1#statut2";
+		var term = "test";
+		
+
+
+		
+
+		
+		
 		$.ajax({
 			url : "searchProf",
 			data : {
-				term : $(this).val()
+				term:term,
+				test:test
 			}
 		}).done(function(result) {
 			$("#resultprof").html(result);
 		});
-	});
-	
+
 	$("#search").on("input", function(e) {
 
 		if ($(this).data("lastval") != $(this).val()) {
@@ -52,8 +64,11 @@ $(document).ready(function() {
 			$.ajax({
 				url : "searchProf",
 				data : {
-					term : $(this).val()
+					term:term,
+					test:test
 				}
+				
+			
 
 			}).done(function(result) {
 				$("#resultprof").html(result);
@@ -61,19 +76,9 @@ $(document).ready(function() {
 		}
 		
 	});
+		
+	});
 	
-	
-
-
-
-
-	 
-	 
-	 
-
-	
-	
-
 
 	$("#searcheleve").ready(function(){
 		$.ajax({

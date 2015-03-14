@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/jquery-ui.css">
 <script src="js/autocompleteMatiere.js"></script>
 
-<script>
+<script type="text/javascript">
 	$(document).ready(
 			function() {
 
@@ -34,8 +34,19 @@
 										+ steps[$("#slider-range").slider(
 												"values", 1)]);
 
+				
+				
+
 			});
+	
+	
+	
+
 </script>
+
+
+
+
 
 
 <div class="grid_12">
@@ -97,3 +108,48 @@
 
 
 </div>
+
+<script type="text/javascript">
+
+// $(document).ready(function() {
+	
+// 	var test='test';
+	
+// 	var listematiere = ['matiere1','matiere2'];
+// 	var listestatut = ['accepte','refuse'];
+// 	var term = "test";
+	
+// 	var data = {term:term,listestatut:listestatut,listematiere:listematiere};
+	
+// 	var test2 = JSON.stringify(data);
+
+	
+
+	
+	
+// 	$.ajax({
+// 		url : "searchProf",
+// 		data :JSON.stringify(data),
+// 	}).done(function(result) {
+// 		$("#resultprof").html(result);
+// 	});
+
+// $("#search").on("input", function(e) {
+
+// 	if ($(this).data("lastval") != $(this).val()) {
+
+// 		$.ajax({
+// 			url : "searchProf",
+// 			data : test2,
+			
+		
+
+// 		}).done(function(result) {
+// 			$("#resultprof").html(result);
+// 		});
+// 	}
+	
+// });
+// });
+	
+</script>

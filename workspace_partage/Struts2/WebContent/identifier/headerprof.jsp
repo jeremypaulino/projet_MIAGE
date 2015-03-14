@@ -1,6 +1,11 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
 <header>
+<script>
+		$(document).ready(function(){	
+			$('.slider')._TMS({show:0,pauseOnHover:true,prevBu:false,nextBu:false,playBu:false,duration:1000,preset:'fade',pagination:true,	pagNums:false,slideshow:7000,numStatus:true,banners:'fromRight',waitBannerAnimation:false,rogressBar:false});$("footer").append('<iframe id="vidz" width="560" height="315" src="https://www.youtube.com/embed/dD40VXFkusw?controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');	$("#vidz").hide();
+		});
+	</script>
 
 	<h1>
 		<a href="index.jsp"><img src="images/logo.png" alt=""></a>

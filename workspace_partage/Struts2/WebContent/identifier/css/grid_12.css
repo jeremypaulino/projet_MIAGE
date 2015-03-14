@@ -95,22 +95,20 @@ cursor: pointer;
 
 
 
-.header-login
-{
-  position: absolute;
-  /*z-index: 2;
+.header-login {
+	position: absolute;
+	/*z-index: 2;
   display: block;*/
-  padding: 15px 15px 0 15px;
-  margin: 0px;
-  width: 400px;
-  
-  height: 45px;
-  top: 0;
-  right: 0;
-  background-color: #000;
-  -moz-box-shadow: 0px 0px 10px #000;
-  -webkit-box-shadow: 0px 0px 10px #000;
-  box-shadow: 0px 0px 10px #000;
+	padding: 15px 15px 0 15px;
+	margin: 0px;
+	/*width: 410px;*/
+	height: 35px;
+	top: 0;
+	right: 0;
+	background-color: #000;
+	-moz-box-shadow: 0px 0px 10px #000;
+	-webkit-box-shadow: 0px 0px 10px #000;
+	box-shadow: 0px 0px 10px #000;
 }
 
 .header-login a,

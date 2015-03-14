@@ -43,6 +43,8 @@ public class LoginAction extends ActionSupport  {
 
 	public String execute() throws Exception {
 		String type = LoginDao.validate(email, mdp);
+		
+		
 		if(!type.isEmpty()){
 			Map session = ActionContext.getContext().getSession();
 			
@@ -55,8 +57,13 @@ public class LoginAction extends ActionSupport  {
 			session.put("email", email);
 			session.put("message", "");
 			session.put("type", type);
-			//le type d'utilisateur
-
+			
+			
+			int id=0;
+			if(type.equals("eleve") || type.equals("professeur") ){
+				id = LoginDao.getId(email);
+			}
+			session.put("id", id);
 			
 			
 			return SUCCESS;
@@ -75,6 +82,7 @@ public class LoginAction extends ActionSupport  {
 		session.remove("email");
 		session.remove("type");
 		session.remove("message");
+		session.remove("id");
 		return SUCCESS;
 	}
 
