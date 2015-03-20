@@ -87,7 +87,7 @@ $(document).ready(function() {
 			        	if(nb<5){
 			        	
 						 $("#filtresMatieres").append("<p><a class='supprimer'>X</a> <span>"+ui.item.value+"</span></p>");
-						 
+						 $("#filtresMatieres").change();// pour signaler que la div a changer pour chercherprof JS
 			        	}
 						 
 						 
@@ -97,8 +97,12 @@ $(document).ready(function() {
 	});
 	
 	$("#filtresMatieres").on('click', '.supprimer', function(){
+		
+		$("#filtresMatieres").change();// pour signaler que la div a changer pour chercherprof JS
         $(this).closest('p').remove();        
     });
+	
+	
 
 });
 

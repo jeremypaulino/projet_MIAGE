@@ -1,14 +1,16 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 	<s:include value="cssjs.jsp"></s:include>
 </head>
 <body>
   <div class="main">
-  <!--==============================header=================================-->
-   		<s:include value="header.jsp"></s:include>
+		<!--==============================header=================================-->
+
+
+		<s:include value="wrapheader.jsp"></s:include>
    
   <!--==============================content================================-->
     <section id="content">

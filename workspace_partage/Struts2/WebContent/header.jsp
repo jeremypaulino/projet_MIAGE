@@ -9,30 +9,27 @@
 		<ul>
 
 
-			<s:if test="%{#session.log=='true'}">
-				<li><a href="espaceperso.jsp">Espace Personnel</a></li>
-				<li><a href="logout">Se Deconnecter</a></li>
-				<li class="header-panier"><a href="panier.jsp"><img	src="identifier/images/PAnier.png" alt=""></a></li>
-				
-			</s:if>
+			<li><a href="#loginmodal" id="modaltrigger">S'identifier</a></li>
+			<li><a href="inscription">S'inscrire</a></li>
 
-			<s:else>
-				<li><a href="#loginmodal" id="modaltrigger">S'identifier</a></li>
-				<li><a href="inscription">S'inscrire</a></li>
-			</s:else>
+
+
+
 
 			<div id="loginmodal" style="display: none;">
 				<h1 class="center">Entrez Vos Identifiants</h1>
+
 				<s:form id="loginform" name="loginform" action="login.action">
 					<p>
-						<s:textfield label="Email" type="text" name="email"
-							id="username" class="txtfield" tabindex="1"></s:textfield>
-						<s:password label="Mot de Passe" type="password" name="mdp"
-							id="password" class="txtfield" tabindex="2"></s:password>
+						<s:textfield label="Email" type="text" name="email" id="username" class="txtfield" tabindex="1"></s:textfield>
+						<s:password label="Mot de Passe" type="password" name="mdp" id="password" class="txtfield" tabindex="2"></s:password>
 					</p>
+
 					<p class="center">
-						<s:submit name="loginbtn" id="loginbtn"
-							class="flatbtn-blu hidemodal" value="Se Connecter" tabindex="3"></s:submit>
+						<s:submit name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Se Connecter" tabindex="3"></s:submit>
+					</p>
+					<p>
+					  <input type="checkbox" value="remember-me" id="remember_me"> Se souvenir de moi	
 					</p>
 				</s:form>
 			</div>
@@ -40,22 +37,34 @@
 	</section>
 
 	<div class="clear"></div>
-	<nav class="box-shadow">
-		<div>
-			<ul class="menu">
-				<li class="home-page current"><a href="index.jsp"><span></span></a></li>
-				<li><a href="a-propos">A propos De Nous</a></li>
-				<li><a href="nos-offres">Nos Offres</a></li>
-				<li><a href="nos-partenaires">Nos Partenaires</a></li>
-				<li><a href="nous-contacter">Contacts</a></li>
-			</ul>
-			<div class="social-icons">
-				<span>Nous suivre:</span> <a href="#" class="icon-3"></a> <a
-					href="#" class="icon-2"></a> <a href="#" class="icon-1"></a>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</nav>
+	<s:include value="menuhorizontal.jsp"></s:include>
 </header>
+<script>
+	$(function() {
 
+		if (localStorage.chkbx && localStorage.chkbx != '') {
+			$('#remember_me').attr('checked', 'checked');
+			$('#username').val(localStorage.usrname);
+			$('#password').val(localStorage.pass);
+		} else {
+			$('#remember_me').removeAttr('checked');
+			$('#username').val('');
+			$('#password').val('');
+		}
+
+		$('#remember_me').click(function() {
+
+			if ($('#remember_me').is(':checked')) {
+				//on sauvegarde le username ert mdp
+				localStorage.usrname = $('#username').val();
+				localStorage.pass = $('#password').val();
+				localStorage.chkbx = $('#remember_me').val();
+			} else {
+				localStorage.usrname = '';
+				localStorage.pass = '';
+				localStorage.chkbx = '';
+			}
+		});
+	});
+</script>
 </html>

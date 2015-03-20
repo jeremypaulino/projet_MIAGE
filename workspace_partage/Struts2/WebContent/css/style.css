@@ -1,3 +1,59 @@
+.info, .success, .warning, .error, .validation {
+border: 1px solid;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+.info {
+color: #00529B;
+background-color: #BDE5F8;
+background-image: url('images/info.png');
+}
+.success {
+color: #4F8A10;
+background-color: #DFF2BF;
+background-image:url('images/success.png');
+}
+.warning {
+color: #9F6000;
+background-color: #FEEFB3;
+background-image: url('images/warning.png');
+}
+.error {
+color: #D8000C;
+background-color: #FFBABA;
+background-image: url('images/error.png');
+}
+.success{
+	display:none;
+}
+
+.motie{
+	width:45%;
+	display:inline-block;
+	text-align:center;
+}
+
+#listedocuments{
+	width:900%;
+	display:inline-block;	
+	
+}
+#ajouterdocument{
+	width:90%;
+	display:inline-block;	
+}
+#mesdocuments{
+	width:100%;
+}
+.tableEleve{
+	width:100%;
+}
+#dernierscours{
+	width:100%;
+}
+
 .petit {
 	heigh: 5px;
 	width: 100px;
@@ -27,6 +83,12 @@ P
 	margin-left: 1px;
 }
 
+#test99{
+  margin-left:-230px;
+  zoom:92%;
+
+  }
+
 .segmented-control li, .segmented-control.alt li:target,
 	.segmented-control.alt li:target:active {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255,
@@ -48,7 +110,7 @@ P
 	background-color: #53b2c3;
 	background-image: -moz-linear-gradient(0% 0 -90deg, rgba(255, 255, 255, 0),
 		rgba(255, 255, 255, 0.1)),
-		url("../images/demos/background-segmented-control-selected.png");
+		url(../"images/demos/background-segmented-control-selected.png");
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 5px
 		rgba(0, 0, 0, 0.15) inset;
 }
@@ -986,28 +1048,28 @@ dl dd a:hover {
 .info {
 	color: #00529B;
 	background-color: #BDE5F8;
-	background-image: url('../images/info.png');
+	background-image: url(../'images/info.png');
 }
 
 .success {
 	color: #fff;
 	background-color: #53b2c3;
-	background-image: url('../images/success.png');
+	background-image: url(../'images/success.png');
 	/*color: #4F8A10;
 	background-color: #DFF2BF;
-	background-image: url('../images/success.png');*/
+	background-image: url(../'images/success.png');*/
 }
 
 .warning {
 	color: #9F6000;
 	background-color: #FEEFB3;
-	background-image: url('../images/warning.png');
+	background-image: url(../'images/warning.png');
 }
 
 .error {
 	color: #D8000C;
 	background-color: #FFBABA;
-	background-image: url('../images/error.png');
+	background-image: url(../'images/error.png');
 }
 
 .tableAdmin {

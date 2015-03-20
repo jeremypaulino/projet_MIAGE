@@ -16,6 +16,8 @@ import dao.VilleDao;
  *
  */
 public class ChercherDispoAction extends ActionSupport {
+
+	private static final long serialVersionUID = 1L;
 	private String term;
 	private List<String> listeAjaxDispo;
 

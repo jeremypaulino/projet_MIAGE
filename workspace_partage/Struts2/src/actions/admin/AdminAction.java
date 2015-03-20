@@ -7,6 +7,7 @@ import java.util.Random;
 
 import bean.Administrateur;
 import bean.Email;
+import bean.Emailer;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -41,12 +42,17 @@ public class AdminAction extends ActionSupport {
 				+ "Identifiant/Email : "
 				+ mail
 				+ Newligne
-				+ "Mot de Passe"
+				+ "Mot de Passe :"
 				+ mdp
 				+ Newligne
 				+ "Vous pourrez le modifier une fois connecté à votre compte";
 
-		new Email(administrateur.getEmail(), sujet, texte);
+		//new Email(administrateur.getEmail(), sujet, texte);
+		
+		Emailer email = new Emailer("ischool732@gmail.com","Ischool1989",mail, sujet, texte);
+		
+		email.envoyer();
+
 		
 		addActionMessage("Vous avez bien ajouter un admin!");
 

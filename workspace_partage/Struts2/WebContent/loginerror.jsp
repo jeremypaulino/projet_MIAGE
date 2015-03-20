@@ -1,6 +1,7 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+<meta charset="UTF-8">
 <head>
 	<s:include value="cssjs.jsp"></s:include>
 
@@ -9,35 +10,28 @@
 	<div class="main">
 		<!--==============================header=================================-->
 
-		<s:include value="header.jsp"></s:include>
+				<s:include value="wrapheader.jsp"></s:include>
+
 
 		<!--==============================content================================-->
 		<section id="content">
-			<div id="slide" class="box-shadow">
-				<div class="slider">
-					<ul class="items">
-						<li><img src="images/slider-1.jpg" alt="" />
-						<div class="banner">Le Succes Garantie Pour Vos
-								Études&nbsp;</div></li>
-						<li><img src="images/slider-2.jpg" alt="" />
-						<div class="banner">Des Professeurs Qualifiés Á Votre
-								Disposition&nbsp;</div></li>
-						<li><img src="images/slider-3.jpg" alt="" />
-						<div class="banner">Des Cours Personnalisés Selon Vos
-								Besoins&nbsp;</div></li>
-					</ul>
-				</div>
-			</div>
+			
 			<div class="container_12">
 				<div class="grid_12">
-					<div class="pad-0 border-1">
-						<h2 class="top-1 p0">Nous Vous Ouvrons La Voie Du Succès!</h2>
-						<p class="p2">iSchool est une plateforme intéractive qui met
-							à la disposition d'élève, un large panel de cours virtuels.
-							Que vous soyez collègien ou étudiant en école d'ingénieur,
-							iSchool est fait pour vous! En effet des professeurs de collège,
-							de lycée et universitaire, séléctionnés par nos soins, vous
-							attendent.</p>
+					
+					<div class="wrap block-1 pad-1">
+					<h2 class="top-1 p0">Désolé, votre login ou mot de passe est faux</h2>
+					
+						<div>
+							<h3>Pas encore inscrit ?</h3>
+							<img src="images/page1-img2.jpg" alt="" class="img-border">
+							<a href="inscription" class="button">Inscrivez-vous !</a>
+						</div>
+						<div class="last">
+							<h3>Mot de passe oublié ?</h3>
+							<img src="images/page1-img3.jpg" alt="" class="img-border">
+							<a href="#" class="button">Recuperer mon mot de passe</a>
+						</div>
 					</div>
 					<div class="wrap block-1 pad-1">
 						<div>
@@ -63,25 +57,7 @@
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="aside">
-				<div class="container_12">
-					<div class="grid_12">
-						<div class="pad-2 block-2 wrap">
-							<div>
-								<h3 class="p3">blabla</h3>
-								<p class="p4">fmvqjnfvùqnvùqknfvùlknfùvndsùf</p>
-								<a href="#" class="button">Plus</a>
-							</div>
-							<div class="last">
-								<h3 class="p3">blabla</h3>
-								<p class="p4">blaazdmoznfmoenfmjnzeozerv</p>
-								<a href="#" class="button">Plus</a>
-							</div>
-						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-			</div>
+
 		</section>
 	</div>
 	<!--==============================footer=================================-->

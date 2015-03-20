@@ -1,6 +1,6 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Services</title>
     <meta charset="utf-8">
@@ -8,8 +8,10 @@
 </head>
 <body>
   <div class="main">
-  <!--==============================header=================================-->
-   <s:include value="header.jsp"></s:include>
+		<!--==============================header=================================-->
+
+
+		<s:include value="wrapheader.jsp"></s:include>
   <!--==============================content================================-->
     <section id="content">
         <div class="container_12">	

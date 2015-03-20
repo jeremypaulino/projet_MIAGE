@@ -1,14 +1,18 @@
 package actions.prof;
 
 import java.util.List;
+import java.util.Map;
 
 import bean.Eleve;
 import bean.Paiement;
 import bean.Professeur;
+import bean.Utilisateur;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import dao.AdministrateurDao;
+import dao.ContactsDao;
 import dao.MatiereDao;
 import dao.ProfesseurDao;
 
@@ -18,110 +22,59 @@ public class ProfPageAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private List<String> listeAdmin;
-	private List<Eleve> listeEleves;
-	private List<Professeur> listeProf;
-	private List<Paiement> listeChequesEnAttente;
-	private List<String> listePrix;
-	private List<String> listeMatieres;
+	
+	
+	private List<Utilisateur> listecontact;
+	private Professeur professeur;
+
 
 	public String execute() {
-
-		AdministrateurDao adminDao = new AdministrateurDao();
-		MatiereDao matiereDao = new MatiereDao();
+		Map session = ActionContext.getContext().getSession();
+		
+		int id =  Integer.parseInt(session.get("id").toString());
+		
 		ProfesseurDao profDao = new ProfesseurDao();
-
-		listeAdmin = adminDao.getLiAdmin();
-		listeEleves = adminDao.getLiEleves();
-		listeProf = profDao.getLiProfEnAttente();
-		listeChequesEnAttente = adminDao.getLiChequesEnAttente();
-		listePrix = adminDao.getLiPrix();
-		listeMatieres = matiereDao.getLiMatieres("");
+		ContactsDao contactDao = new ContactsDao();
+		
+		professeur = profDao.getProfById(id);
+		
+		listecontact = contactDao.getLiContact(session.get("email").toString());
+		
 
 		return SUCCESS;
 	}
 
-	public List<String> getListeAdmin() {
-		return listeAdmin;
-	}
-
-	public void setListeAdmin(List<String> listeAdmin) {
-		this.listeAdmin = listeAdmin;
-	}
 
 	/**
-	 * @return le listeEleves
+	 * @return le listecontact
 	 */
-	public List<Eleve> getListeEleves() {
-		return listeEleves;
+	public List<Utilisateur> getListecontact() {
+		return listecontact;
 	}
 
-	/**
-	 * @param listeEleves
-	 *            le listeEleves a modifier
-	 */
-	public void setListeEleves(List<Eleve> listeEleves) {
-		this.listeEleves = listeEleves;
-	}
 
 	/**
-	 * @return le listeProf
+	 * @param listecontact le listecontact a modifier
 	 */
-	public List<Professeur> getListeProf() {
-		return listeProf;
+	public void setListecontact(List<Utilisateur> listecontact) {
+		this.listecontact = listecontact;
 	}
 
-	/**
-	 * @param listeProf
-	 *            le listeProf a modifier
-	 */
-	public void setListeProf(List<Professeur> listeProf) {
-		this.listeProf = listeProf;
-	}
 
 	/**
-	 * @return le listeCheques
+	 * @return le professeur
 	 */
-	public List<Paiement> getListeChequesEnAttente() {
-		return listeChequesEnAttente;
+	public Professeur getProfesseur() {
+		return professeur;
 	}
 
-	/**
-	 * @param listeCheques
-	 *            le listeCheques a modifier
-	 */
-	public void setListeChequesEnAttente(List<Paiement> listeChequesEnAttente) {
-		this.listeChequesEnAttente = listeChequesEnAttente;
-	}
 
 	/**
-	 * @return le listePrix
+	 * @param professeur le professeur a modifier
 	 */
-	public List<String> getListePrix() {
-		return listePrix;
+	public void setProfesseur(Professeur professeur) {
+		this.professeur = professeur;
 	}
 
-	/**
-	 * @param listePrix
-	 *            le listePrix a modifier
-	 */
-	public void setListePrix(List<String> listePrix) {
-		this.listePrix = listePrix;
-	}
-
-	/**
-	 * @return le listeMatieres
-	 */
-	public List<String> getListeMatieres() {
-		return listeMatieres;
-	}
-
-	/**
-	 * @param listeMatieres
-	 *            le listeMatieres a modifier
-	 */
-	public void setListeMatieres(List<String> listeMatieres) {
-		this.listeMatieres = listeMatieres;
-	}
 
 }

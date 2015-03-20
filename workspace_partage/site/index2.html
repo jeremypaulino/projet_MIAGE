@@ -1,157 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Home</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/grid_12.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/slider.css">
-    <link href='http://fonts.googleapis.com/css?family=Condiment' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-    
-    
-    
-    
-    <script src="js/jquery-1.7.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-
-<%@ include file="./index3.jsp" %>
-     
-     <!-- A ajouter partour 
-     
-    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>-->
-    <script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
-    
-    
-    
-    
-    <script src="js/tms-0.4.x.js"></script>
-    <script>
-		$(document).ready(function(){				   	
-			$('.slider')._TMS({
-				show:0,
-				pauseOnHover:true,
-				prevBu:false,
-				nextBu:false,
-				playBu:false,
-				duration:1000,
-				preset:'fade',
-				pagination:true,
-				pagNums:false,
-				slideshow:7000,
-				numStatus:true,
-				banners:'fromRight',
-				waitBannerAnimation:false,
-				progressBar:false
-			})		
-		});
-	</script>
-	<!--[if lt IE 8]>
-       <div style=' clear: both; text-align:center; position: relative;'>
-         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-        </a>
-      </div>
-    <![endif]-->
-    <!--[if lt IE 9]>
-   		<script type="text/javascript" src="js/html5.js"></script>
-    	<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
-	<![endif]-->
-</head>
-<body>
-  <div class="main">
-  <!--==============================header=================================-->
-  
-  
-     <header>
-<%@ include file="./index3.jsp" %>
-        <h1><a href="index.jsp"><img src="images/logo.png" alt=""></a>
-        </h1>
-        <section class="header-login">
-        <form name="login" action="index_submit" method="get" accept-charset="utf-8">
-        <ul>
-       <li><a href="#loginmodal" id="modaltrigger">S'identifier</a></li>
-       <li><a href="inscription.jsp">S'inscrire</a></li>
-       
-       
-       <div id="loginmodal" style="display:none;">
-       <center>
-       <h1>Entrez Vos Identifiants</h1>
-       </center>
-       <br>
-      
-       <form id="loginform" name="loginform" method="post" action="index.jsp">
-       
-       <label for="username">Email:</label>
-       <input type="text" name="username" id="username" class="txtfield" tabindex="1">
-       
-       <label for="password">Mot de passe:</label>
-       <input type="password" name="password" id="password" class="txtfield" tabindex="2">
-       
-       <br>
-       <center>
-       <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Se Connecter" tabindex="3"></div>
-       </center>
-       </form>
-       </div>
-       <script type="text/javascript">
-       $(function(){
-       $('#loginform').submit(function(e){
-       return false;
-       });
-       
-       $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
-       });
-       </script>
-
-        
-        
-        
-        
-        
-        </ul>
-        </form>
-        </section>
-        
-        <div class="clear"></div>    
-        <nav class="box-shadow">
-            <div>
-                <ul class="menu">
-                    <li class="home-page current"><a href="index.jsp"><span></span></a></li>
-                    <li><a href="about.jsp">À Propos De Nous</a></li>
-                    <li><a href="services.jsp">Nos Offres</a></li>
-                    <li><a href="clients.jsp">Nos Partenaires</a></li>
-                    <li><a href="contacts.jsp">Contacts</a></li>
-                </ul>
-                <div class="social-icons">
-                    <span>Nous suivre:</span>
-                    <a href="#" class="icon-3"></a>
-                    <a href="#" class="icon-2"></a>
-                    <a href="#" class="icon-1"></a>
+    <head>
+        <meta charset="utf-8">
+            <title>Chat | Cascade Flat , Responsive Bootstrap 3.0 Admin Template</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                
+                <!-- Loading Bootstrap -->
+                <link href="css/bootstrap.css" rel="stylesheet">
+                    
+                    <!-- Loading Stylesheets -->
+                    <link href="css/font-awesome.css" rel="stylesheet">
+                        <link href="css/style.css" rel="stylesheet" type="text/css">
+                            
+                            <link href="less/style.less" rel="stylesheet"  title="lessCss" id="lessCss">
+                                
+                                <!-- Loading Custom Stylesheets -->
+                                <link href="css/custom.css" rel="stylesheet">
+                                    
+                                    <link rel="shortcut icon" href="images/favicon.ico">
+                                        
+                                        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+                                        <!--[if lt IE 9]>
+                                         <script src="js/html5shiv.js"></script>
+                                         <![endif]-->
+                                        </head>
+    <body>
+        <div class="site-holder">
+            <!-- this is a dummy text -->
+            <!-- .navbar -->
+            <nav class="navbar" role="navigation">
+                
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><i class="fa fa-list btn-nav-toggle-responsive text-white"></i> <span class="logo">Cas<strong>ca</strong>de <i class="fa fa-bookmark"></i></span></a>
                 </div>
-                <div class="clear"></div>
-            </div>
-        </nav>
-    </header>   
-  <!--==============================content================================-->
-
-
-
-
-
-
-
-
-</div>
-
-
-
-
-<!--==============================footer=================================-->
-    <footer>
-        <p>© 2014 iSchool</p>
-        <p>Website project by <a href="http://ibisc.fr" target="_blank" rel="nofollow">Evry University</a></p>
-    </footer>	    
-</body>
+                
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav user-menu navbar-right ">
+                        
+                        <li><a href="#" class="user dropdown-toggle" data-toggle="dropdown"><span class="username"><img src="images/profiles/eleven.png" class="user-avatar" alt="">  Vijay Kumar </span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> Inbox</a></li>
+                                <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" class="text-danger"><i class="fa fa-lock"></i> Logout</a></li>
+                            </ul>
+                            <li><a href="#" class="settings dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge bg-pink">4</span></a>
+                                <ul class="dropdown-menu inbox">
+                                    <li>
+                                        <a href="inbox.php">
+                                            <img src="images/profiles/three.png" alt="" class="avatar">
+                                                <div class="message">
+                                                    <span class="username">John Deo</span>
+                                                    <span class="mini-details">(6) <i class="fa fa-paper-clip"></i></span>
+                                                    <span class="time pull-right"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ... </p>
+                                                </div>
+                                                </a>
+                                    </li>
+                                    <li>
+                                        <a href="inbox.php">
+                                            <img src="images/profiles/four.png" alt="" class="avatar">
+                                                <div class="message">
+                                                    <span class="username">Jane Deo</span>
+                                                    <span class="mini-details">(6) <i class="fa fa-paper-clip"></i></span>
+                                                    <span class="time pull-right"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ... </p>
+                                                </div>
+                                                </a>
+                                    </li>
+                                    <li>
+                                        <a href="inbox.php">
+                                            <img src="images/profiles/five.png" alt="" class="avatar">
+                                                <div class="message">
+                                                    <span class="username">Mr Deo</span>
+                                                    <span class="mini-details">(6) <i class="fa fa-paper-clip"></i></span>
+                                                    <span class="time pull-right"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ... </p>
+                                                </div>
+                                                </a>
+                                    </li>
+                                    <li>
+                                        <a href="inbox.php">
+                                            <img src="images/profiles/six.png" alt="" class="avatar">
+                                                <div class="message">
+                                                    <span class="username">Miss Deo</span>
+                                                    <span class="mini-details">(6) <i class="fa fa-paper-clip"></i></span>
+                                                    <span class="time pull-right"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ... </p>
+                                                </div>
+                                                </a>
+                                    </li>
+                                    <li><a href="inbox.php" class="btn bg-primary">View All</a></li>
+                                </ul>
+                                <li><a href="#" class="settings dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell animated shake"></i><span class="badge bg-success">10</span></a>
+                                    <ul class="dropdown-menu notifications">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-user noty-icon bg-primary"></i>
+                                                <span class="description">10 Users are registered</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-danger">
+                                                <i class="fa fa-inbox noty-icon bg-pink"></i>
+                                                <span class="description">Your disk space has been exceeeded</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-info">
+                                                <i class="fa fa-comment noty-icon bg-purple"></i>
+                                                <span class="description">58 new comments</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-warning">
+                                                <i class="fa fa-user noty-icon bg-warning"></i>
+                                                <span class="description">User deleted</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-success">
+                                                <i class="fa fa-bookmark-o noty-icon bg-seagreen"></i>
+                                                <span class="description">You have a new badge</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-info">
+                                                <i class="fa fa-envelope noty-icon bg-info"></i>
+                                                <span class="description">24 Unread mails</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-success">
+                                                <i class="fa fa-link noty-icon bg-purple"></i>
+                                                <span class="description">Urls forwarding activated</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-warning">
+                                                <i class="fa fa-clock-o noty-icon bg-yellow"></i>
+                                                <span class="description">Action</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-danger">
+                                                <i class="fa fa-exclamation noty-icon bg-danger"></i>
+                                                <span class="description">3 domains expired</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-success">
+                                                <i class="fa fa-clock-o noty-icon bg-success"></i>
+                                                <span class="description">Your have $950 as outstanding amount</span>
+                                                <span class="time"> <i class="fa fa-clock-o"></i> 06:58 PM</span>
+                                            </a>
+                                        </li>
+                                        
+                                        <li><a href="#" class="btn bg-primary">View All</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="settings"><i class="fa fa-cogs settings-toggle"></i><span class="badge bg-info">20</span></a></li>
+                                </ul>
+                </div><!-- /.navbar-collapse -->
+            </nav> <!-- /.navbar -->
+            
+            <!-- .box-holder -->
+            <div class="box-holder">
+                
+                <!-- .left-sidebar -->
+                <div class="left-sidebar">
+                    <div class="sidebar-holder">
+                        <ul class="nav  nav-list">
+                            
+                            <!-- sidebar to mini Sidebar toggle -->
+                            <li class="nav-toggle">
+                                <button class="btn  btn-nav-toggle text-primary"><i class="fa fa-angle-double-left toggle-left"></i> </button>
+                            </li>
+                            
+                            
+                            <li><a href="index.html" data-original-title="Dashboard"><i class="fa fa-dashboard"></i><span class="hidden-minibar"> Dashboard </span></a></li>
+                            <li><a href="top-navbar.html" data-original-title="Top Navbar"><i class="fa fa-indent"></i><span class="hidden-minibar"> Top Navbar </span></a></li>
+                            
+                            
+                            
+                            <li>
+                                <a class="dropdown" href="#" data-original-title="Pages"><i class="fa fa-book"></i><span class="hidden-minibar">  Pages <span class="badge bg-primary pull-right">14</span></a>
+                                <ul>
+                                    <li><a href="calendar.html" data-original-title="Calendar"><i class="fa fa-calendar"></i><span class="hidden-minibar"> Calendar</span></a></li>
+                                    <li class="active"><a href="chat.html" data-original-title="Calendar"><i class="fa fa-comment"></i><span class="hidden-minibar"> Chat</span></a></li>
+                                    <li><a href="profile.html" data-original-title="Profile Activity"><i class="fa fa-th"></i><span class="hidden-minibar"> Profile Activity</span></a></li>
+                                    
+                                    <li><a href="gallery.html" data-original-title="Gallery"><i class="fa fa-th"></i><span class="hidden-minibar"> Gallery</span></a></li>
+                                    <li><a href="grids.html" data-original-title="Grids"><i class="fa fa-th-large"></i><span class="hidden-minibar"> Grids</span></a></li>
+                                    
+                                    <li><a href="images.html" data-original-title="Images"><i class="fa fa-picture-o"></i><span class="hidden-minibar"> Images</span></a></li>
+                                    <li><a href="inbox.html" data-original-title="Inbox"><i class="fa fa-envelope"></i><span class="hidden-minibar"> Inbox</span></a></li>
+                                    <li><a href="invoice.html" data-original-title="Invoice"><i class="fa fa-credit-card"></i><span class="hidden-minibar"> Invoice</span></a></li>
+                                    <li><a href="pricing-table.html" data-original-title="Pricing Table"><i class="fa fa-money"></i><span class="hidden-minibar"> Pricing Table</span></a></li>
+                                    <li><a href="support.html" data-original-title="Support"><i class="fa fa-gears"></i><span class="hidden-minibar"> Support</span></a></li>
+                                    
+                                    <li><a href="typography.html" data-original-title="Typography"><i class="fa fa-text-width"></i><span class="hidden-minibar"> Typography</span></a></li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a class="dropdown" href="#" data-original-title="Utility"><i class="fa fa-tint"></i><span class="hidden-minibar">  Utility <span class="badge bg-primary pull-right">7</span></a>
+                                <ul>
+                                    <li><a href="404.html" data-original-title="404"><i class="fa fa-exclamation-circle"></i><span class="hidden-minibar"> 404 Error Page</span></a></li>
+                                    <li><a href="505.html" data-original-title="505"><i class="fa fa-exclamation-circle"></i><span class="hidden-minibar"> 505 Error Page</span></a></li>
+                                    <li><a href="faq.html" data-original-title="FAQ"><i class="fa fa-question"></i><span class="hidden-minibar"> FAQ</span></a></li>
+                                    <li><a href="screens.html" data-original-title="Lock Screen"><i class="fa fa-lock"></i><span class="hidden-minibar"> Lock Screen</span></a></li>
+                                    <li><a href="screens.html" data-original-title="LogIn"><i class="fa fa-sign-in"></i><span class="hidden-minibar"> Log In</span></a></li>
+                                    <li><a href="screens.html" data-original-title="SignUp"><i class="fa fa-smile-o"></i><span class="hidden-minibar"> Sign Up</span></a></li>
+                                    <li><a href="template.html" data-original-title="Template"><i class="fa fa-pagelines"></i><span class="hidden-minibar"> Template Page</span></a></li>
+                                </ul>
+                            </li>
+                            
+                            <li> <!-- Example for second level menu -->
+                                <a class="dropdown" href="#" data-original-title="UI Elements"><i class="fa fa-user"></i><span class="hidden-minibar">  UI Elements <span class="badge bg-primary pull-right">17</span></a>
+                                <ul>
+                                    <li><a href="alerts.html" data-original-title="Alerts"><i class="fa fa-exclamation-triangle"></i><span class="hidden-minibar"> Alerts</span></a></li>
+                                    <li><a href="animations.html" data-original-title="Animations"><i class="fa fa-font"></i><span class="hidden-minibar"> Animations</span></a></li>
+                                    <li><a href="breadcrumbs-jumbotron.html" data-original-title="Breadcrumbs"><i class="fa fa-chain"></i><span class="hidden-minibar"> Breadcrumbs &amp; Jumbo</span></a></li>
+                                    <li><a href="buttons.html" data-original-title="Buttons"><i class="fa fa-sort"></i><span class="hidden-minibar"> Buttons </span></a></li>
+                                    <li><a href="carousel.html" data-original-title="carousel"><i class="fa fa-coffee"></i><span class="hidden-minibar"> Carousel</span></a></li>
+                                    <li><a href="notifications.html" data-original-title="Notifications"><i class="fa fa-bell-o"></i><span class="hidden-minibar"> Notifications</span></a></li>
+                                    <li><a href="knobs.html" data-original-title="Knobs"><i class="fa fa-dot-circle-o"></i><span class="hidden-minibar"> Knobs</span></a></li>
+                                    <li><a href="labels-badges.html" data-original-title="Labels"><i class="fa fa-phone-square"></i><span class="hidden-minibar"> Labels &amp; badges</span></a></li>
+                                    <li><a href="list-groups.html" data-original-title="List Groups"><i class="fa fa-list"></i><span class="hidden-minibar"> List Groups</span></a></li>
+                                    <li><a href="pagination.html" data-original-title="Pagination"><i class="fa fa-sort-numeric-asc"></i><span class="hidden-minibar"> Pagination</span></a></li>
+                                    <li><a href="panels.html" data-original-title="Panels"><i class="fa fa-windows"></i><span class="hidden-minibar"> Panels</span></a></li>
+                                    <li><a href="progress-bars.html" data-original-title="Progress"><i class="fa fa-ruble"></i><span class="hidden-minibar"> Progress Bars</span></a></li>
+                                    <li><a href="sliders.html" data-original-title="Sliders"><i class="fa fa-exchange"></i><span class="hidden-minibar"> Sliders</span></a></li>
+                                    <li><a href="tabs-accordians.html" data-original-title="Tabs"><i class="fa fa-check"></i><span class="hidden-minibar"> Tabs &amp; Accordians</span></a></li>
+                                    <li><a href="info-boxes.html" data-original-title="Info Boxes"><i class="fa fa-bullseye"></i><span class="hidden-minibar"> Info Boxes</span></a></li>
+                                    <li><a href="tooltips-popovers.html" data-original-title="Tooltips"><i class="fa fa-asterisk"></i><span class="hidden-minibar"> Tooltips &amp; popovers</span></a></li>
+                                    <li><a href="wells.html" data-original-title="Wells"><i class="fa fa-beer"></i><span class="hidden-minibar"> Wells</span></a></li>
+                                    <li><a href="draggable-portlets.html" data-original-title="draggable-portlets"><i class="fa fa-windows"></i><span> Draggable Portlets</span></a></li>
+                                    <li><a href="bootbox-modals.html" data-original-title="bootbox-modals"><i class="fa fa-windows"></i><span> bootbox-modals</span></a></li>
+                                    <li><a href="extended-modals.html" data-original-title="extended-modals"><i class="fa fa-windows"></i><span> extended-modals</span></a></li>
+                                    <li><a href="date-paginator.html" data-original-title="date-paginator"><i class="fa fa-windows"></i><span> date-paginator</span></a></li>
+                                    <li><a href="file-manager.html" data-original-title="file-manager"><i class="fa fa-windows"></i><span> file-manager</span></a></li>
+                                    <li><a href="nestable.html" data-original-title="nestable"><i class="fa fa-windows"></i><span> nestable</span></a></li>
+                                    <li><a href="image-crop.html" data-original-title="image-crop"><i class="fa fa-windows"></i><span> image-crop</span></a></li>
+                                    <li><a href="rtl.html" data-original-title="RTL"><i class="fa fa-windows"></i><span> RTL</span></a></li>
+                                </ul>
+                            </li>
+                            
+                            <li> <!-- Example for second level menu -->
+                                <a class="dropdown" href="#" data-original-title="Tables"><i class="fa fa-table"></i><span class="hidden-minibar">  Tables <span class="badge bg-primary pull-right">3</span></a>
+                                <ul>
+                                    <li><a href="basic-tables.html" data-original-title="Basic"><i class="fa fa-table"></i><span class="hidden-minibar">  Basic Tables</span></a></li>
+                                    <li><a href="editable-tables.html" data-original-title="Editable"><i class="fa fa-table"></i><span class="hidden-minibar">  Editable Tables</span></a></li>
+                                    <li><a href="dynamic-tables.html" data-original-title="Dynamic"><i class="fa fa-table"></i><span class="hidden-minibar">  Dynamic Tables</span></a></li>
+                                </ul>
+                            </li>
+                            
+                            <li> <!-- Example for Third level menu -->
+                                <a class="dropdown" href="#" data-original-title="Unlimited Menu"><i class="fa fa-sitemap"></i><span class="hidden-minibar"> Unlimited Menu <span class="badge bg-primary pull-right">3</span></a>
+                                <ul>
+                                    <li><a href="#" data-original-title="SubMenu"><i class="fa fa-android"></i><span class="hidden-minibar"> Submenu </span></a></li>
+                                    <li><a href="#" data-original-title="SubMenu"><i class="fa fa-apple"></i><span class="hidden-minibar"> Submenu </span></a></li>
+                                    <li>
+                                        <a class="dropdown" href="#" data-original-title="One More"><i class="fa fa-windows"></i><span class="hidden-minibar"> One More <span class="badge bg-primary pull-right">3</span></a>
+                                        <ul>
+                                            <li><a href="#" data-original-title="SubMenu"><i class="fa fa-facebook-square"></i><span class="hidden-minibar"> Submenu </span></a></li>
+                                            <li><a href="#" data-original-title="SubMenu"><i class="fa fa-google-plus-square"></i><span class="hidden-minibar"> Submenu </span></a></li>
+                                            <li>
+                                                <a class="dropdown" href="#" data-original-title="More Here"><i class="fa fa-twitter-square"></i><span class="hidden-minibar"> More here <span class="badge bg-primary pull-right">3</span></a>
+                                                <ul>
+                                                    <li><a href="#" data-original-title="SubMenu"><i class="fa fa-flickr"></i><span class="hidden-minibar"> Submenu </span></a></li>
+                                                    <li><a href="#" data-original-title="SubMenu"><i class="fa fa-pinterest"></i><span class="hidden-minibar"> Submenu </span></a></li>
+                                                    <li><a href="#" data-original-title="Add More"><i class="fa fa-linkedin-square"></i><span class="hidden-minibar">More.. trust me </span></a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a class="dropdown" href="#" data-original-title="Forms"><i class="fa fa-list-alt"></i><span class="hidden-minibar"> Forms  <span class="badge bg-primary pull-right">9</span></a>
+                                <ul>
+                                    <li ><a href="dropzone-file-upload.html" data-original-title="Dropzone"><i class="fa fa-level-down"></i><span class="hidden-minibar">  Dropzone File Upload</span></a></li>
+                                    <li><a href="form-input-masks.html" data-original-title="Input Masks"><i class="fa fa-pencil-square"></i><span class="hidden-minibar"> Form Input Masks</span></a></li>
+                                    <li><a href="form-validation.html" data-original-title="validation"><i class="fa fa-warning"></i><span class="hidden-minibar"> Form Validation</span></a></li>
+                                    <li><a href="form-wizard.html" data-original-title="Form wizard"><i class="fa fa-indent"></i><span class="hidden-minibar">  Form Wizard</span></a></li>
+                                    <li><a href="input-groups.html" data-original-title="Input Groups"><i class="fa fa-group"></i><span class="hidden-minibar"> Input Groups</span></a></li>
+                                    <li><a href="layouts-elements.html" data-original-title="Form Elements"><i class="fa fa-indent"></i><span class="hidden-minibar">  Layouts &amp; elements</span></a></li>
+                                    <li><a href="multiple-file-upload.html" data-original-title="File Upload"><i class="fa fa-cloud-upload"></i><span class="hidden-minibar">  Multiple File Upload</span></a></li>
+                                    <li><a href="pickers.html" data-original-title="Pickers"><i class="fa fa-eye"></i><span class="hidden-minibar">  Pickers</span></a></li>
+                                    <li><a href="wysiwyg-markdown.html" data-original-title="Wysiwyg &amp; Markdown"><i class="fa fa-pencil-square"></i><span class="hidden-minibar"> Wysiwyg &amp; Markdown</span></a></li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a class="dropdown" href="#" data-original-title="Charts"><i class="fa fa-bar-chart-o"></i><span class="hidden-minibar"> Charts  <span class="badge bg-primary pull-right">6</span></a>
+                                <ul>
+                                    <li ><a href="basic-charts.html" data-original-title="Basic Charts"><i class="fa fa-bar-chart-o"></i><span class="hidden-minibar">  Basic Charts</span></a></li>
+                                    <li><a href="live-charts.html" data-original-title="Live Charts"><i class="fa fa-bar-chart-o"></i><span class="hidden-minibar"> Live Charts</span></a></li>
+                                    <li><a href="morris.html" data-original-title="Morris Charts"><i class="fa fa-bar-chart-o"></i><span class="hidden-minibar"> Morris Charts</span></a></li>
+                                    <li><a href="pie-charts.html" data-original-title="Pie Charts"><i class="fa fa-bar-chart-o"></i><span class="hidden-minibar">  Pie Charts</span></a></li>
+                                    <li><a href="sparklines.html" data-original-title="Spark Lines"><i class="fa fa-bar-chart-o"></i><span class="hidden-minibar">  Spark Lines</span></a></li>
+                                    <li><a href="nvd3.html" data-original-title="NVD3"><i class="fa fa-bar-chart-o"></i><span class="hidden-minibar">  NVD3</span></a></li>
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a class="dropdown" href="#" data-original-title="Maps"><i class="fa fa-map-marker"></i><span class="hidden-minibar"> Maps  <span class="badge bg-primary pull-right">2</span></a>
+                                <ul>
+                                    <li><a href="google-maps.html" data-original-title="Google Maps"><i class="fa fa-google-plus"></i><span class="hidden-minibar"> Google Maps</span></a></li>
+                                    <li><a href="vector-maps.html" data-original-title="Vector Maps"><i class="fa fa-vimeo-square"></i><span class="hidden-minibar"> Vector Maps</span></a></li>
+                                </ul>
+                            </li>
+                            
+                            <li><a href="icons.html" data-original-title="Icons"><i class="fa fa-truck"></i><span class="hidden-minibar"> Icons</span></a></li>
+                            
+                            
+                        </ul>
+                    </div>
+                </div> <!-- /.left-sidebar -->
+                
+                <!-- .content -->
+                <div class="content">
+                    
+                    <div class="row">
+                        <div class="col-mod-12">
+                            
+                            <ul class="breadcrumb">
+                                <li><a href="index.html">Dashboard</a></li>
+                                <li><a href="#">Pages</a></li>
+                                <li class="active">Chat</li>
+                            </ul>
+                            
+                            <div class="form-group hiddn-minibar pull-right">
+                                <input type="text" class="form-control form-cascade-control nav-input-search" size="20" placeholder="Search through site" />
+                                
+                                <span class="input-icon fui-search"></span>
+                            </div>
+                            
+                            <h3 class="page-header"><i class="fa fa-comment"></i> Chat <i class="fa fa-info-circle animated bounceInDown show-info"></i> </h3>
+                            
+                            <blockquote class="page-information hidden">
+                                <p>
+                                This is the working chat page where you can talk to your clients ,provide support to them and meet their requirements with this great user interface.
+                                </p>
+                            </blockquote>
+                            
+                        </div>
+                    </div>
+                    
+                    <!-- Demo Panel -->
+                    <div class="row chat-box">
+                        <div class="col-md-2">
+                            <div class="panel panel-cascade contacts-box">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title "> <i class="fa fa-user"></i> Contacts</h5>
+                                </div>
+                                <div class="panel-body nopadding">
+                                    <div class="list-group contact">
+                                        <a class="list-group-item">
+                                            <img src="images/profiles/one.png" class="chat-user-avatar" alt="">
+                                                Jane Doe
+                                                <i class="fa fa-circle"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/two.png" class="chat-user-avatar" alt="">
+                                                Jenny
+                                                <i class="fa fa-circle online"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/three.png" class="chat-user-avatar" alt="">
+                                                Vijay
+                                                <i class="fa fa-circle busy"></i>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profiles/four.png" class="chat-user-avatar" alt="">
+                                                Nikky
+                                                <i class="fa fa-circle offline"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/five.png" class="chat-user-avatar" alt="">
+                                                John
+                                                <i class="fa fa-circle"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/six.png" class="chat-user-avatar" alt="">
+                                                Anusha
+                                                <i class="fa fa-circle"></i>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profiles/seven.png" class="chat-user-avatar" alt="">
+                                                Antony
+                                                <i class="fa fa-circle offline"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/eight.png" class="chat-user-avatar" alt="">
+                                                Fana
+                                                <i class="fa fa-circle busy"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/nine.png" class="chat-user-avatar" alt="">
+                                                Chris
+                                                <i class="fa fa-circle offline"></i>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profiles/ten.png" class="chat-user-avatar" alt="">
+                                                Sandy
+                                                <i class="fa fa-circle online"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/eleven.png" class="chat-user-avatar" alt="">
+                                                Ajay
+                                                <i class="fa fa-circle"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/twelve.png" class="chat-user-avatar" alt="">
+                                                Geetha
+                                                <i class="fa fa-circle"></i>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profiles/thirteen.png" class="chat-user-avatar" alt="">
+                                                Ajith
+                                                <i class="fa fa-circle"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/fourteen.png" class="chat-user-avatar" alt="">
+                                                Sindhu
+                                                <i class="fa fa-circle"></i>
+                                                </a>
+                                        <a class="list-group-item contact">
+                                            <img src="images/profiles/fifteen.png" class="chat-user-avatar" alt="">
+                                                Kishore
+                                                <i class="fa fa-circle busy"></i>
+                                                </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-10">
+                            <div class="panel panel-cascade recipient-box">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title ">
+                                        <span class="recipient">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                Vijay kumar
+                                                <i class="fa fa-circle"></i>
+                                                </span>
+                                        <div class="btn-group pull-right">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                Options <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu options" role="menu">
+                                                <li><a href="#">Send Private Message</a></li>
+                                                <li><a href="#">Send Message</a></li>
+                                                <li><a href="#">Add to Group</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Block this User</a></li>
+                                            </ul>
+                                        </div>
+                                    </h3>
+                                </div>
+                                
+                                <div class="panel-body nopadding">
+                                    <div class="list-group conversation">
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                        <a class="list-group-item">
+                                            <img src="images/profile50x50.png" class="chat-user-avatar" alt="">
+                                                <span class="username" >Vijay kumar <span class="time">06:58</span> </span>
+                                                <p>Lorem Ipsum is a dummy text to represetn any webcontent which wants to unrelated to the user or reader but can be understood that it is unrelated data</p>
+                                                </a>
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control write-message" id="write-message" placeholder="Type something here and hit enter" >
+                                            <span class="input-group-btn">
+                                                <button class="btn text-white bg-primary" type="button" id="send-message">Send</button>
+                                            </span>
+                                            
+                                            </div><!-- /input-group -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div> <!-- /.content -->
+                
+                <!-- .right-sidebar -->
+                <div class="right-sidebar right-sidebar-hidden">
+                    <div class="right-sidebar-holder">
+                        
+                        <!-- @Demo part only The part from here can be removed till end of the @demo  -->
+                        <a href="screens.html" class="btn btn-danger btn-block">Logout </a>
+                        
+                        
+                        <h4 class="page-header text-primary text-center">
+                            Theme Options
+                            <a  href="#"  class="theme-panel-close text-primary pull-right"><strong><i class="fa fa-times"></i></strong></a>
+                        </h4>
+                        
+                        <ul class="list-group theme-options">
+                            <li class="list-group-item" href="#">	
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="fixedNavbar" value=""> Fixed Top Navbar
+                                            </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="fixedNavbarBottom" value=""> Fixed Bottom Navbar
+                                            </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="boxed" value=""> Boxed Version
+                                            </label>
+                                </div>
+                                
+                                <div class="form-group backgroundImage hidden" >
+                                    <label class="control-label">Paste Image Url and then hit enter</label>
+                                    <input type="text" class="form-control" id="backgroundImageUrl" />
+                                </div>
+                                <!-- 
+                                 <div class="checkbox">
+                                 <label>
+                                 <input type="checkbox" id="responsive" value=""> Disable Responsiveness
+                                 </label>
+                                 </div> 
+                                 -->			
+                            </li>
+                            <li class="list-group-item" href="#">Predefined Themes
+                                <ul class="list-inline predefined-themes"> 
+                                    <li><a class="badge" style="background-color:#54b5df" data-color-primary="#54b5df" data-color-secondary="#2f4051" data-color-link="#FFFFFF"> &nbsp; </a></li>
+                                    <li><a class="badge" style="background-color:#d85f5c" data-color-primary="#d85f5c" data-color-secondary="#f0f0f0" data-color-link="#474747"> &nbsp; </a></li>
+                                    <li><a class="badge" style="background-color:#3d4a5d" data-color-primary="#3d4a5d" data-color-secondary="#edf0f1" data-color-link="#777e88"> &nbsp; </a></li>
+                                    <li><a class="badge" style="background-color:#A0B448" data-color-primary="#A0B448" data-color-secondary="#485257" data-color-link="#AFB5AA"> &nbsp; </a></li>
+                                    <li><a class="badge" style="background-color:#2FA2D1" data-color-primary="#2FA2D1" data-color-secondary="#484D51" data-color-link="#A5B1B7"> &nbsp; </a></li>
+                                    <li><a class="badge" style="background-color:#2f343b" data-color-primary="#2f343b" data-color-secondary="#525a65" data-color-link="#FFFFFF"> &nbsp; </a></li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item" href="#">Change Primary Color
+                                <div class="input-group colorpicker-component bscp" data-color="#54728c" data-color-format="hex" id="colr">
+                                    <span class="input-group-addon"><i style="background-color: #54728c"></i></span>
+                                    <input type="text" value="#54728c" id="primaryColor" readonly class="form-control" />
+                                    
+                                </div>
+                            </li>
+                            <li class="list-group-item" href="#">Change LeftSidebar Background
+                                <div class="input-group colorpicker-component bscp" data-color="#f9f9f9" data-color-format="hex" id="Scolr">
+                                    <span class="input-group-addon"><i style="background-color: #f9f9f9"></i></span>
+                                    <input type="text" value="#f9f9f9" id="secondaryColor" readonly class="form-control" />
+                                    
+                                </div>
+                            </li>
+                            <li class="list-group-item" href="#">Change Leftsidebar Link Color
+                                <div class="input-group colorpicker-component bscp" data-color="#54728c" data-color-format="hex" id="Lcolr">
+                                    <span class="input-group-addon"><i style="background-color: #54728c"></i></span>
+                                    <input type="text" value="#54728c" id="linkColor" readonly class="form-control" />
+                                    
+                                </div>
+                            </li>
+                            <li class="list-group-item" href="#">Change RightSidebar Background
+                                <div class="input-group colorpicker-component bscp" data-color="#f9f9f9" data-color-format="hex" id="Rcolr">
+                                    <span class="input-group-addon"><i style="background-color: #f9f9f9"></i></span>
+                                    <input type="text" value="#f9f9f9" id="rightsidebarColor" readonly class="form-control" />
+                                    
+                                </div>
+                            </li>
+                            </li>
+                        </ul>
+                        <!-- /.@Demo part only The part to here can be removed   -->
+                        <div id="bic_calendar_right" class="bg-white"></div>
+                        
+                        <h4 class="page-header text-primary">Current Projects </h4>
+                        
+                        <div class="list-group projects">
+                            <a class="list-group-item" href="#">	
+                                <p> Archon <span class="pull-right label bg-success">90%</span></p>
+                                <div class="progress progress-mini">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                        <span class="sr-only">90% Complete</span>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                            <a class="list-group-item" href="#">	
+                                <p> Banshee <span class="pull-right label bg-warning">40%</span></p>
+                                <div class="progress progress-mini">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                        <span class="sr-only">40% Complete</span>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                            <a class="list-group-item" href="#">	
+                                <p> Cascade <span class="pull-right label bg-primary">40%</span></p>
+                                <div class="progress progress-mini">
+                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
+                                        <span class="sr-only">75% Complete</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <h4 class="page-header">Contacts</h4>
+                        <div class="list-group contact-list">
+                            <a class="list-group-item">
+                                <img src="images/profiles/one.png" class="chat-user-avatar" alt="">
+                                    Jane Doe
+                                    <i class="fa fa-circle"></i>
+                                    </a>
+                            <a class="list-group-item contact">
+                                <img src="images/profiles/two.png" class="chat-user-avatar" alt="">
+                                    Jenny
+                                    <i class="fa fa-circle online"></i>
+                                    </a>
+                            <a class="list-group-item contact">
+                                <img src="images/profiles/three.png" class="chat-user-avatar" alt="">
+                                    Vijay
+                                    <i class="fa fa-circle busy"></i>
+                                    </a>
+                            <a class="list-group-item">
+                                <img src="images/profiles/four.png" class="chat-user-avatar" alt="">
+                                    Nikky
+                                    <i class="fa fa-circle offline"></i>
+                                    </a>
+                            <a class="list-group-item contact">
+                                <img src="images/profiles/five.png" class="chat-user-avatar" alt="">
+                                    John
+                                    <i class="fa fa-circle"></i>
+                                    </a>
+                            <a class="list-group-item contact">
+                                <img src="images/profiles/six.png" class="chat-user-avatar" alt="">
+                                    Anusha
+                                    <i class="fa fa-circle"></i>
+                                    </a>
+                            <a class="list-group-item">
+                                <img src="images/profiles/seven.png" class="chat-user-avatar" alt="">
+                                    Antony
+                                    <i class="fa fa-circle offline"></i>
+                                    </a>
+                            <a class="list-group-item contact">
+                                <img src="images/profiles/eight.png" class="chat-user-avatar" alt="">
+                                    Fana
+                                    <i class="fa fa-circle busy"></i>
+                                    </a>
+                            <a class="list-group-item contact">
+                                <img src="images/profiles/nine.png" class="chat-user-avatar" alt="">
+                                    Chris
+                                    <i class="fa fa-circle offline"></i>
+                                    </a>
+                            <a class="list-group-item">
+                                <img src="images/profiles/ten.png" class="chat-user-avatar" alt="">
+                                    Sandy
+                                    <i class="fa fa-circle online"></i>
+                                    </a>
+                            <a class="list-group-item contact">
+                                <img src="images/profiles/eleven.png" class="chat-user-avatar" alt="">
+                                    Ajay
+                                    <i class="fa fa-circle"></i>
+                                    </a>
+                            <a class="list-group-item contact">
+                                <img src="images/profiles/twelve.png" class="chat-user-avatar" alt="">
+                                    Sanju
+                                    <i class="fa fa-circle"></i>
+                                    </a>
+                        </div>
+                    </div>
+                    
+                    
+                </div>	<!-- /.right-sidebar-holder -->
+            </div>  <!-- /.right-sidebar -->
+            
+            
+        </div> <!-- /.box-holder -->
+        </div><!-- /.site-holder -->
+        
+        
+        
+        <!-- Load JS here for Faster site load =============================-->
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="js/less-1.5.0.min.js"></script>
+        <script src="js/jquery.ui.touch-punch.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-select.js"></script>
+        <script src="js/bootstrap-switch.js"></script>
+        <script src="js/jquery.tagsinput.js"></script>
+        <script src="js/jquery.placeholder.js"></script>
+        <script src="js/bootstrap-typeahead.js"></script>
+        <script src="js/application.js"></script>
+        <script src="js/moment.min.js"></script>
+        <script src="js/jquery.dataTables.min.js"></script>
+        <script src="js/jquery.sortable.js"></script>
+        <script type="text/javascript" src="js/jquery.gritter.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/skylo.js"></script>
+        <script src="js/prettify.min.js"></script>
+        <script src="js/jquery.noty.js"></script>
+        <script src="js/bic_calendar.js"></script>
+        <script src="js/jquery.accordion.js"></script>
+        <script src="js/theme-options.js"></script>
+        
+        <script src="js/bootstrap-progressbar.js"></script>
+        <script src="js/bootstrap-progressbar-custom.js"></script>
+        <script src="js/bootstrap-colorpicker.min.js"></script>
+        <script src="js/bootstrap-colorpicker-custom.js"></script>
+        
+        
+        <!-- Core Jquery File  =============================-->
+        <script src="js/chat.js"></script>
+        
+        <!-- Core Jquery File  =============================-->
+        <script src="js/core.js"></script>
+        
+        
+    </body>
 </html>

@@ -1,7 +1,7 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Clients</title>
     <meta charset="utf-8">
@@ -11,38 +11,38 @@
 <body>
   <div class="main">
   <!--==============================header=================================-->
-	<s:include value="header.jsp"></s:include>
+		<s:include value="wrapheader.jsp"></s:include>
   <!--==============================content================================-->
     <section id="content">
         <div class="container_12">	
           <div class="grid_12">
             <div class="wrap pad-3">
                 <div class="block-5">
-                    <h3>Clients List</h3>
+                    <h3>Liste Des Universités Partenaires</h3>
                      <ul class="list-1">
-                    	<li><a href="#">At vero eos et accusam</a></li>
-                        <li><a href="#">Justo duo dolores et ea rebum</a></li>
-                        <li><a href="#">Stet clita kasd gubergren, no sea</a></li>
-                        <li><a href="#">Takimata sanctus est lorem</a></li>
-                        <li><a href="#">Lorem ipsum dolor sit</a></li>
-                        <li><a href="#">Amet consetetur sadipscing elitr</a></li>
-                        <li><a href="#">Sed diam nonumy eirmod</a></li>
-                        <li><a href="#">Tempor invidunt ut labore et dolore</a></li>
-                        <li><a href="#">Magna aliquyam erat sed diam</a></li>
-                        <li><a href="#">Voluptua vero eos et accusam et</a></li>
-                        <li><a href="#">Justo duo dolores et ea</a></li>
+                    	<li><a href="#">L'Université Harvard</a></li>
+                        <li><a href="#">Le MIT, Massachusetts Institute of Technology</a></li>
+                        <li><a href="#">L'Université Stanford</a></li>
+                        <li><a href="#">Le California Institute of Technology</a></li>
+                        <li><a href="#">L'université Columbia</a></li>
+                        <li><a href="#">L'Université Oxford</a></li>
+                        <li><a href="#">Paris Sorbonne</a></li>
+                        <li><a href="#">L'Université de Cambridge</a></li>
+                        <li><a href="#">L'Université Paris Saclay</a></li>
+                        <li><a href="#">École Polytechnique</a></li>
+                        <li><a href="#">Ecole Normale Supérieure de Lyon</a></li>
                     </ul>
                 </div>
                 <div class="block-6">
-                    <h3 class="p6">Be Our Client!</h3>
+                    <h3 class="p6">Des Professeurs Qualifiés</h3>
                     <div class="wrap">
                     	<img src="images/page5-img1.jpg" alt="" class="img-border img-indent-2">
                         <div class="extra-wrap">
-                            <p><a href="#" class="link"><strong>Ut wisi enim ad minim veniam, quis nostrud exerci tation</strong></a></p>
-                            <p class="p6">Duis autem vel eum iriure dolor in hendrerit in vulputate velit diam voluptua. At vero eos et accusam esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</p>
+                         
+                            <p class="p6">Tous les professeurs, quelques soit leur niveau d'enseignement, sont séléctionnés par nos soins. </p>
                     	</div>
-                    	<p class="p1">Odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-                    	<a href="#" class="button">More</a>
+                    	<p class="p1">Ils viennent des universités les plus cotés et les préstigieuses, et sont donc, par conséquent, les plus aptes a vous soutenir, a vous encadrer, a vous accompagner pendant toute votre scolarité. Mettez toutes les chances de votre cotés et rejoignez nous !</p>
+                    	<a href="#" class="button">Plus</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <div class="container_12">	
                 <div class="grid_12">
                     <div class="pad-2 wrap">
-                        <h3 class="p5">Our Most Respected Clients</h3>
+                        <h3 class="p5">Mais aussi quelques plateformes partenaires</h3>
                         <div class="wrap box-2">
                         	<a href="#"><img src="images/banner-1.jpg" alt=""></a><a href="#"><img src="images/banner-2.jpg" alt=""></a><a href="#"><img src="images/banner-3.jpg" alt=""></a><a href="#"><img src="images/banner-4.jpg" alt=""></a><a href="#" class="last"><img src="images/banner-5.jpg" alt=""></a>
                         </div>	

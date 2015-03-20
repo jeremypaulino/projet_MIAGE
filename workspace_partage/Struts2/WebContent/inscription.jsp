@@ -1,12 +1,13 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <title>Clients</title>
 
 <meta charset="utf-8">
 	<s:include value="cssjs.jsp"></s:include>
+			<script type="text/javascript" src="js/rechercheAjax.js"></script>
 
 </head>
 <body>
@@ -14,9 +15,9 @@
 		<!--==============================header=================================-->
 
 
-		<header>
-			<s:include value="header.jsp"></s:include>
-		</header>
+		<s:include value="wrapheader.jsp"></s:include>
+			
+
 		<!--==============================content================================-->
 
 
@@ -159,8 +160,6 @@
 // par defaut
 	$( document ).ready(function() {
 		$(location).attr('href',"#eleve");
-		
-		
 	})
 	
 	//si clik btn prof

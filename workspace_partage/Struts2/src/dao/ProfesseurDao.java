@@ -114,55 +114,76 @@ public class ProfesseurDao {
 		  try{
 			  
 			 if(term.length()>0){
-				 
-				 liWhere.add("WHERE professeur.email LIKE %"+term+"%");
+				 liWhere.add("WHERE professeur.email LIKE '%"+term+"%'");
 			 }
 			 if(listeStatut.size()>0){
-
-				 if(listeStatut.size() == 1){
-					 liWhere.add("WHERE professeur.statut = "+listeStatut.get(0));
-				 }
-				 else if(listeStatut.size() == 2){
-					 liWhere.add("WHERE professeur.statut = "+listeStatut.get(0)+" OR professeur.statut = "+listeStatut.get(1));
-				 }
 				 
-				 // si liste == 3 ça revient au meme que liste == 0 on n'ajoute pas de where 
+				 for(int i=0; i< listeStatut.size(); i++){
+					 if(i == 0){
+						 liWhere.add("WHERE professeur.statut = '"+listeStatut.get(i)+"'");
+					 }
+					 else{
+						 liWhere.add("OR professeur.statut = '"+listeStatut.get(i)+"'");
+					 }
+					 
+				 }
+
 			 }
 			 if(listeMatiere.size()>0){
-				 
-				 
-				 //le premier de la liste
 
-				 
 				 for(int i=0; i< listeMatiere.size(); i++)
 				    {
-					 
 					 if(i == 0){
-						 liWhere.add("WHERE professeur.matiere = ?"+listeMatiere.get(i));
+						 if(listeMatiere.get(i).getNom().length()>0){
+							 liWhere.add("WHERE matiereprof.nom = '"+listeMatiere.get(i).getNom()+"'");
+						 }
 					 }
 					 else {
-						 liWhere.add("OR professeur.matiere = ?"+listeMatiere.get(i));
+						 liWhere.add("OR matiereprof.nom = '"+listeMatiere.get(i).getNom()+"'");
 					 }
-					 
-				    }
-				 
+				    }		 
 				 
 			 }
 			 
 			 String conditions="";
-			 
+			 String conditions2="";
 			 
 			 for(int i=0; i< liWhere.size(); i++){
 				 
-				 conditions = conditions + liWhere.get(1);
 				 
+					 
+					 	conditions = conditions + liWhere.get(i)+" ";
+					 	
+					 	if(i+1<liWhere.size()){
+					 	
+						 	if((liWhere.get(i).contains("WHERE") && liWhere.get(i+1).contains("WHERE"))||(liWhere.get(i).contains("OR") && liWhere.get(i+1).contains("WHERE"))){
+						 		conditions2 = conditions2 + liWhere.get(i)+" AND ";
+						 		 String str =  liWhere.get(i+1).replace("WHERE","" );
+						 		 
+						 		 liWhere.set(i+1, str);
+						 		
+						 	}
+						 	else{
+						 	
+						 		conditions2 = conditions2 + liWhere.get(i)+" ";
+						 	}
+					 	}
+					 	else{
+					 		conditions2 = conditions2 + liWhere.get(i) +" ";
+					 	}
+ 
 			 }
 			 
+			 String bah =conditions2;
+			 
 
-		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("select professeur.statut,professeur.email,date_creation,cv,motivation,nom,prenom from professeur LEFT JOIN utilisateur ON professeur.email=utilisateur.email"+conditions);  
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement(
+				   "SELECT professeur.statut,professeur.email,date_creation,cv,motivation,matiereprof.nom AS matiere,utilisateur.nom,prenom "
+		   		+ "FROM professeur "
+		   		+ "LEFT JOIN utilisateur ON professeur.email = utilisateur.email "
+		   		+ "JOIN matiereprof ON professeur.idProf = matiereprof.idProf "
+				   +conditions2 + " GROUP BY utilisateur.nom");  
 			
-		   ps.setString(1, "%"+term + "%");
-
 		   ResultSet rs=ps.executeQuery();  
 		   while (rs.next()) {
 			   Statut statut = null;
@@ -207,5 +228,33 @@ public class ProfesseurDao {
 			   
 			  }catch(Exception e){e.printStackTrace();} 
 		
+	}
+
+	/**
+	 * @param id
+	 * @return
+	 */
+	public Professeur getProfById(int id) {
+		Professeur prof = new Professeur(null, null, null, null, null, null, null, id, null, null, null, null, null, null);
+		  try{  	     
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("select professeur.statut,professeur.email,date_creation,cv,motivation,nom,prenom from professeur LEFT JOIN utilisateur ON professeur.email=utilisateur.email WHERE idProf = ? ORDER BY date_creation DESC");  
+		   ps.setInt(1, id);
+		   ResultSet rs=ps.executeQuery();  
+		   rs.next();
+		   Statut statut = null;
+		   if(rs.getString("statut").equals("ATTENTE")){
+			   statut = Statut.ATTENTE;
+		   }
+		   else if(rs.getString("statut").equals("ACCEPTE")){
+			   statut = Statut.ACCEPTE;
+		   }
+		   else if(rs.getString("statut").equals("REFUSE")){
+			   statut = Statut.REFUSE;
+		   }
+		   prof = new Professeur(rs.getString("email"), null, null, rs.getString("nom"), rs.getString("prenom"), null, null, 0, null, null, null,rs.getString("cv"),rs.getString("motivation"),statut);
+
+		  }catch(Exception e){e.printStackTrace();} 
+		  
+		 return prof;
 	}
 }

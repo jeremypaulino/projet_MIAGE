@@ -1,8 +1,13 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
+<script src="js/jquery-ui.js"></script>
+
+
 <script src="js/rechercheAjax.js"></script>
-<link rel="stylesheet" href="css/jquery-ui.css">
+
 <script src="js/autocompleteMatiere.js"></script>
+
+
 
 <script type="text/javascript">
 	$(document).ready(
@@ -59,48 +64,41 @@
 	<div class="filtresdroite">
 		<div class="search-container">
 			<div class="ui-widget">
-				<s:textfield id="search" label="Email" class="txtfield" name="search"
-					placeholder="example@yahoo.fr" />
+				<s:textfield id="search" label="Email" class="txtfield" name="search" placeholder="example@yahoo.fr" />
 			</div>
 		</div>
+		
 		<div id="" class="filtrespopup">
 			<div class="ui-widget">
 				<fieldset>
-					<input type="checkbox" class="checkstatutprof" id="accepte"
-						name="accepte" value="Accepte" checked="checked" />Accepte <br />
-					<input type="checkbox" class="checkstatutprof" id="attente"
-						name="attente" value="Attente" checked="checked" />En Attente <br />
-					<input type="checkbox" class="checkstatutprof" id="refuse"
-						name="refuse" value="Refuse" />Refuse <br />
+					<input type="checkbox" class="checkstatutprof" id="accepte" name="accepte" value="Accepte" checked="checked" />Accepte <br /> <input
+						type="checkbox" class="checkstatutprof" id="attente" name="attente" value="Attente" checked="checked" />En Attente <br /> <input
+						type="checkbox" class="checkstatutprof" id="refuse" name="refuse" value="Refuse" />Refuse <br />
 				</fieldset>
 			</div>
 		</div>
 
-		<div id="" class="filtrespopup">
+		<div id="niveau" class="filtrespopup" style="margin-bottom:20px;">
 
 			<p>
-				<label for="amount">Niveau Enseigné:</label> <input type="text"
-					id="amount" readonly>
+				<label for="amount">Niveau Enseigné:</label> <input type="text" id="amount" readonly>
 			</p>
 			<div id="slider-range" class="ui-widget"></div>
 		</div>
-		
+
 		<div id="" class="filtrespopup">
 
-				<label>Matières :</label>
-			
+			<label>Matières :</label>
+
 			<div class="search-container">
 				<div class="ui-widget">
 					<s:textfield id="searchMatiere" class="txtfield" placeholder="Français" name="searchMatiere" />
 				</div>
 			</div>
-			<div id="filtresMatieres">
-			
-			
-			</div>
-			
+			<div id="filtresMatieres"></div>
+
 		</div>
-		
+
 	</div>
 
 
@@ -109,47 +107,4 @@
 
 </div>
 
-<script type="text/javascript">
 
-// $(document).ready(function() {
-	
-// 	var test='test';
-	
-// 	var listematiere = ['matiere1','matiere2'];
-// 	var listestatut = ['accepte','refuse'];
-// 	var term = "test";
-	
-// 	var data = {term:term,listestatut:listestatut,listematiere:listematiere};
-	
-// 	var test2 = JSON.stringify(data);
-
-	
-
-	
-	
-// 	$.ajax({
-// 		url : "searchProf",
-// 		data :JSON.stringify(data),
-// 	}).done(function(result) {
-// 		$("#resultprof").html(result);
-// 	});
-
-// $("#search").on("input", function(e) {
-
-// 	if ($(this).data("lastval") != $(this).val()) {
-
-// 		$.ajax({
-// 			url : "searchProf",
-// 			data : test2,
-			
-		
-
-// 		}).done(function(result) {
-// 			$("#resultprof").html(result);
-// 		});
-// 	}
-	
-// });
-// });
-	
-</script>

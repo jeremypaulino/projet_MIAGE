@@ -32,7 +32,7 @@ body, div, h1,h2, form, fieldset, input, textarea, footer,p {
 	font-style: normal;
 }
 
-body {background:url(../images/main.jpg); color: #000; font-family: 'YanoneKaffeesatzRegular';}
+body {background:url(images/main.jpg); color: #000; font-family: 'YanoneKaffeesatzRegular';}
 p {text-shadow:0 1px 0 #fff; font-size:24px;}
 #wrap {width:530px; margin:20px auto 0; height:1000px;}
 h1 {margin-bottom:20px; text-align:center;font-size:20px; text-shadow:0 1px 0 #000; }
@@ -129,7 +129,7 @@ h1 {margin-bottom:20px; text-align:center;font-size:20px; text-shadow:0 1px 0 #0
 				<p>Bonjour iSchool,</p>
 				<label for="email">Votre Message : </label>
 				<textarea  name="message" value="Your Message" id="message" ></textarea>
-				<p>Signé,</p>	
+				<p>Signe,</p>	
 				<label for="name">Nom: </label>
 				<input type="text" name="name" value="" id="name" />
 				<label for="email">Email: </label>

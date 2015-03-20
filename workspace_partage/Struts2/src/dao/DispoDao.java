@@ -56,5 +56,32 @@ public class DispoDao {
 			  
 		  } 
 		  }
+	
+	public List<Integer> disponibilite3(Disponibilite disponibilite) {
+	
+	
+		List<Integer> list = new ArrayList<Integer>();
+		try {
+			PreparedStatement ps = SingletonConnection
+					.getConnection()
+					.prepareStatement(
+							"SELECT crenaux FROM disponibilite WHERE idProf=? AND date=?");
+			ps.setLong(1, disponibilite.getIdProf());
+			ps.setString(2, disponibilite.getDate());
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(rs.getInt("crenaux"));
+			}
+			
+			
+			 System.out.println("test");
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+		return list;
+	}
 
 }

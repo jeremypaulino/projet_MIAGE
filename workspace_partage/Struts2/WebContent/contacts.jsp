@@ -1,19 +1,19 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Contacts</title>
     <meta charset="utf-8">
 	<s:include value="cssjs.jsp"></s:include>
-
+	
 </head>
 <body>
   <div class="main">
   <!--==============================header=================================-->
        <header>
   
-   		<s:include value="header.jsp"></s:include>
+		<s:include value="wrapheader.jsp"></s:include>
 
     </header>  
   <!--==============================content================================-->
@@ -26,14 +26,27 @@
                     <div class="map img-border">
                       <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=evry+boulevard+de+france&amp;aq=&amp;sll=37.424915,-122.072205&amp;sspn=0.178586,0.37405&amp;ie=UTF8&amp;hq=&amp;hnear=Boulevard+de+France,+91000+%C3%89vry,+France&amp;t=m&amp;z=14&amp;ll=48.626974,2.439081&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=fr&amp;geocode=&amp;q=evry+boulevard+de+france&amp;aq=&amp;sll=37.424915,-122.072205&amp;sspn=0.178586,0.37405&amp;ie=UTF8&amp;hq=&amp;hnear=Boulevard+de+France,+91000+%C3%89vry,+France&amp;t=m&amp;z=14&amp;ll=48.626974,2.439081" style="color:#0000FF;text-align:left"></a></small>
                     </div>
-                    <dl>
-                        <dt>IBISC - IBGBI - 2ème étage<br>23, Boulevard de France<br>91034 - EVRY</dt>
-       
-                        <dd><span>Telephone: </span>01 64 98 78 87</dd>
-                        <dd><span>Fax: </span>01 64 98 78 88</dd>
-                        <dd><span>E-mail: </span><a href="#" class="link">support@ischool.fr</a></dd>
-                    </dl> 
-                </div>
+							<ul>
+								<li>IBISC - IBGBI - 2eme étage<br>23, Boulevard de France<br>91034 - EVRY
+								</li>
+
+								<li><span>Telephone: </span>01 64 98 78 87</li>
+								<li><span>Fax: </span>01 64 98 78 88</li>
+								<li><span>E-mail: </span><a href="#" class="link">support@ischool.fr</a></li>
+								<li><script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+									<div id="SkypeButton_Call_zosta91_1">
+										<script type="text/javascript">
+											Skype
+													.ui({
+														"name" : "call",
+														"element" : "SkypeButton_Call_zosta91_1",
+														"participants" : [ "zosta91" ],
+														"imageSize" : 32
+													});
+										</script>
+									</div></li>
+							</ul>
+						</div>
                 <div class="block-6">
                
                     <!--<h3>Entrer En Contact</h3>

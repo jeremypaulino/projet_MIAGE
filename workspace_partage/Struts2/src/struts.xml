@@ -17,20 +17,17 @@
 
 		<!-- Se connecter / se deconnecter -->
 		<action name="login" class="actions.general.LoginAction">
-			<result name="success" type="dispatcher">identifier/indexL.jsp</result>
-			<result name="error" type="redirect">about.jsp</result>
+			<result name="success" type="dispatcher">index.jsp</result>
+			<result name="error" type="redirect">loginerror.jsp</result>
 		</action>
 
-		<action name="logout" class="actions.general.LoginAction"
-			method="logout">
+		<action name="logout" class="actions.general.LoginAction" method="logout">
 			<result name="success" type="redirect">index.jsp</result>
 		</action>
 
-		<action name="espaceadmin" class="actions.general.LoginAction"
-			method="logout">
+		<action name="espaceadmin" class="actions.general.LoginAction">
 			<result name="success" type="redirect">index.jsp</result>
 		</action>
-
 
 		
 		<!-- S'inscrire -->
@@ -39,10 +36,7 @@
 		</action>
 		
 
-		<!-- page voir prof admin -->
-		<action name="voirProf" class="actions.general.ProfPageAction">
-			<result name="success">listeprofesseur.jsp</result>
-		</action>
+
 
 
 		<!-- La reecriture des liens -->
@@ -66,6 +60,14 @@
 			<result name="success">contacts.jsp</result>
 		</action>
 		
+		<action name="chat">
+			<result name="success">messagerie/chat.jsp</result>
+		</action>
+		
+		<action name="chat2">
+			<result name="success">messagerie/chat2.jsp</result>
+		</action>
+		
 		
 <!-- 		 code postale to ville ajax -->
 		<action name="codepostaleAction" class="actions.general.ChercherVilleAction">
@@ -80,16 +82,37 @@
 			<result>resultat/liste.jsp</result>
 		</action>
 		
+		
+		
 		<action name="searchEleve" class="actions.general.ChercherEleveAction">
 			<result>resultat/listeeleveajax.jsp</result>
 		</action>
 		
+<!-- 		<action name="contactupdate" class="actions.general.ContactAction"> -->
+<!-- 			<result>messagerie.jsp</result> -->
+<!-- 		</action> -->
+		
+
+
+
+		<!-- ============================================================ Eleve=========================================================== -->
+		<!-- charger page eleve de la page admin -->
+		<action name="elevePage" class="actions.eleve.ElevePageAction">
+			<result name="success">espaceeleve.jsp</result>
+		</action>
+		
+		<action name="upload" class="actions.general.UploadAction">
+			<result name="success">espaceeleve.jsp</result>
+		</action>
+		
+
+
 
 
 		<!-- ============================================================ ADMIN=========================================================== -->
 		<!-- charger listes de la page admin -->
 		<action name="adminPage" class="actions.admin.AdminPageAction">
-			<result name="success">identifier/espaceadmin.jsp</result>
+			<result name="success">espaceadmin.jsp</result>
 		</action>
 
 
@@ -144,39 +167,69 @@
 		<!-- refuser cheque -->
 		<!-- <action name="refuserCheque" class="actions.AdminRefuserChequeAction" 
 			method="execute"> -->
-		<!-- <result name="success">identifier/espaceadmin.jsp</result> -->
+		<!-- <result name="success">espaceadmin.jsp</result> -->
 		<!-- </action> -->
 
 <!-- ============================================================ PROF=========================================================== -->
 
 
-		<action name="profPage" class="actions.general.ProfPageAction">
-			<result name="success">identifier/espaceperso.jsp</result>
+		<action name="profPage" class="actions.prof.ProfPageAction">
+			<result name="success">espaceprof.jsp</result>
 		</action>
 		
+	
+		
 <!-- 		<action name="affcalend" > -->
-<!-- 			<result name="success">identifier/calend/cal2.jsp</result> -->
+<!-- 			<result name="success">calend/cal2.jsp</result> -->
 <!-- 		</action> -->
 		
 <!-- 		<action name="updatedispo" class="actions.general.InsererDispo"> -->
-<!-- 			<result name="success">identifier/espaceperso.jsp</result> -->
-<!-- 			<result>identifier/espaceperso.jsp</result> -->
+<!-- 			<result name="success">espaceprof.jsp</result> -->
+<!-- 			<result>espaceprof.jsp</result> -->
 <!-- 		</action> -->
 		
 		<action name="disponibilite" class="actions.general.InsererDispo">
-			<result name="success">identifier/espaceperso.jsp</result>
+			<result name="success">espaceprof.jsp</result>
 		</action>
 		
 		<action name="disponibilite2" class="actions.general.SupprDispo">
-			<result name="success">identifier/espaceperso.jsp</result>
+			<result name="success">espaceprof.jsp</result>
 		</action>
 		
+		<action name="envoimessage" class="actions.general.EnvoyerMessage">
+			<result name="success">messagerie/chat2.jsp</result>
+		</action>
+
 
 	</package>
 	<package name="json" extends="json-default">
-			<action name="searchMatiere" class="actions.general.ChercherMatiereAction">
+	
+		<action name="searchMatiere" class="actions.general.ChercherMatiereAction">
 			<result type="json">resultat/listeprofesseur.jsp</result>
 		</action>
+		
+<!-- 		<action name="searchEmail" class="actions.general.ChercherEmailAction"> -->
+<!-- 			<result type="json">contactsL.jsp</result> -->
+<!-- 		</action> -->
+		
+		<action name="disponibilite3" class="actions.general.RechercherDispo">
+			<result type="json">espaceprof.jsp</result>
+			<param name="noCache">true</param>
+
+		</action>
+		
+		<action name="chargermessage" class="actions.general.RechercherMessage">
+			<result type="json">messagerie/chat2.jsp</result>
+			<param name="noCache">true</param>
+
+		</action>
+
+		
+		<action name="contactupdate" class="actions.general.ContactAction">
+			<result type="json">messagerie/chat2.jsp</result>
+			<param name="noCache">true</param>
+		</action>
+
 		</package>
 
 </struts>

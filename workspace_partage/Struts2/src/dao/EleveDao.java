@@ -111,6 +111,35 @@ public class EleveDao {
 			}catch(Exception e){e.printStackTrace();} 
 		
 	}
+
+	/**
+	 * @param id
+	 * @return
+	 */
+	public Eleve getEleveByid(int id) {
+		
+		Eleve eleve = new Eleve(null, null, null, null, null, null, null, id, null, null, null, null);
+		  try{  	     
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("select eleve.idEleve,utilisateur.pseudo,eleve.statutEleve,eleve.email,utilisateur.date_creation,utilisateur.nom,utilisateur.prenom, eleve.niveau FROM eleve LEFT JOIN utilisateur ON eleve.email=utilisateur.email WHERE idEleve = ?  ORDER BY date_creation DESC");  
+		   ps.setInt(1, id);
+		   ResultSet rs=ps.executeQuery();  
+		   rs.next();
+		   Statut statut = null;
+		   if(rs.getString("statutEleve").equals("ATTENTE")){
+			   statut = Statut.ATTENTE;
+		   }
+		   else if(rs.getString("statutEleve").equals("ACCEPTE")){
+			   statut = Statut.ACCEPTE;
+		   }
+		   else if(rs.getString("statutEleve").equals("REFUSE")){
+			   statut = Statut.REFUSE;
+		   }
+		   eleve = new Eleve(rs.getString("email"), "", rs.getString("pseudo"), rs.getString("nom"), rs.getString("prenom"), "", "", 0, "", "", "", rs.getString("niveau"));
+
+		  }catch(Exception e){e.printStackTrace();} 
+		  
+		 return eleve;
+	}
 	
 
 }

@@ -1,10 +1,11 @@
 eclipse.preferences.version=1
+encoding//WebContent/calend/cal2.jsp=UTF-8
 encoding//WebContent/contactform2.jsp=UTF-8
 encoding//WebContent/contacts.jsp=UTF-8
-encoding//WebContent/identifier/calend/cal2.jsp=UTF-8
-encoding//WebContent/identifier/contactform2.jsp=UTF-8
-encoding//WebContent/identifier/contactsL.jsp=UTF-8
-encoding//WebContent/identifier/espaceadmin.jsp=UTF-8
-encoding//WebContent/identifier/indexL.jsp=UTF-8
+encoding//WebContent/espaceadmin.jsp=UTF-8
+encoding//WebContent/loginerror.jsp=UTF-8
+encoding//WebContent/menuhorizontal.jsp=UTF-8
+encoding//WebContent/resultat/modifprofilprof.jsp=UTF-8
+encoding//WebContent/wrapheader.jsp=UTF-8
 encoding/<project>=UTF-8
 encoding/WebContent=UTF-8
