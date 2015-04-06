@@ -1,3 +1,5 @@
+
+
 .info, .success, .warning, .error, .validation {
 border: 1px solid;
 margin: 10px 0px;
@@ -29,6 +31,208 @@ background-image: url('images/error.png');
 	display:none;
 }
 
+#from{
+	width:120px;
+	
+	display: inline;
+}
+
+#to{
+	width:120px;
+	display: inline;
+}
+#cours{
+	margin-left:-50px;
+}
+
+.acol{
+	
+   display:inline;
+   float:left;
+  /*border:1px solid #000;*/
+   margin:0px;
+   padding:3px;
+   height:30px;
+ 
+  }
+
+
+.col1 {width:155px;
+
+}
+.col2 {width:80px}
+.col3 {width:110px}
+.col4 {width:110px}
+.col5 {width:120px}
+.col6{width:50px}
+.col7{
+	 border:1px solid #000;
+	width:50px;
+	
+	
+
+}
+
+.etoile{
+	zoom:60%;
+}
+
+
+.champmain{
+	background-image: url(../images/main.jpg);
+}
+
+
+
+.acoll{
+	
+   display:inline;
+   float:left;
+  border:1px solid #000;
+   margin:0px;
+   padding:3px;
+   height:30px;
+   border-radius: 100px;
+ 
+  }
+.entete{
+	 background: #55b7c8;
+	
+}
+
+.cart_menu {
+  background: #55b7c8;
+  height:40px;
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  border:1px solid #000;
+vertical-align:middle;
+  
+  
+}
+
+.coll1 {width:200px;
+
+}
+.coll2 {width:200px}
+.coll3 {width:200px}
+.coll4 {width:200px}
+.coll5 {width:200px}
+.coll6{width:50px}
+.coll7{
+	
+	width:50px;
+	
+	
+
+}
+
+.ligntab{
+	border: thin solid #fff;
+width: 50%;
+height:100px;
+text-align: center;
+  margin-top:20px;
+  padding:5px;
+   vertical-align:middle;
+   
+}
+
+#resT{
+	background: #55b7c8;
+	width:200px;
+	
+	
+}
+
+#resT[type="text"][disabled] {
+   color: black;
+   font-size: 150%;
+}
+
+#res1[type="text"][disabled] {
+   color: black;
+   
+}
+
+#res2[type="text"][disabled] {
+   color: black;
+   
+}
+
+#res3[type="text"][disabled] {
+   color: black;
+   
+}
+
+#btnachat{
+	margin-top:50px;
+	margin-bottom:20px;
+	
+	
+}
+
+.cart_quantity_button a {
+  background:#F0F0E9;
+  color: #696763;
+  display: inline-block;
+  font-size: 16px;
+  height: 28px;
+  overflow: hidden;
+  text-align: center;
+  width: 35px;
+  
+ 
+}
+
+
+.cart_quantity_input {
+  color: #696763;
+  
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Roboto',sans-serif;
+  
+  
+}
+
+#paniercss{
+	
+	margin-top:-20px;
+	margin-bottom:20px;
+}
+
+#btnp1{
+	margin-top:50px;
+	margin-right:200px;
+	
+}
+
+#btnp2{
+	
+	
+}
+
+#boutondubled{
+	background: #55b7c8;
+	font-size: 14px;
+	line-height: 20px;
+	color: #fff;
+	display: inline-block;
+	padding: 6px 20px 5px 20px;
+	border-radius: 5px;
+	box-shadow: 0 1px 1px #fff;
+	margin: 18px 0 0 0
+	
+}
+
+
+.bouton:hover {
+	background: #131313
+}
+
 .motie{
 	width:45%;
 	display:inline-block;
@@ -36,7 +240,7 @@ background-image: url('images/error.png');
 }
 
 #listedocuments{
-	width:900%;
+	width:90%;
 	display:inline-block;	
 	
 }
@@ -278,6 +482,31 @@ P
 	margin-bottom: 15px;
 	
 }
+#textfi1{
+	margin-bottom:20px;
+}
+
+
+
+
+
+
+#modifmodal2 {
+	zoom:90%;
+	width: 500px;
+	height: 770px;
+	padding: 15px 20px;
+	background: url(../images/main.jpg) center 0 repeat;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	margin-bottom: 15px;
+	
+}
 
 /*#loginform { /* no default styles */
 }
@@ -290,7 +519,14 @@ P
 	margin-bottom: 3px;
 }
 
-
+#modifform label {
+	
+	display: block;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #7c8291;
+	margin-bottom: 3px;
+}
 
 
 .txtfield2 {
@@ -361,6 +597,7 @@ P
 	-moz-transition: all 0.25s linear;
 	transition: all 0.25s linear;
 }
+
 
 .txtfield:hover {
 	outline: none;
@@ -455,8 +692,10 @@ a.button {
 	box-shadow: 0 1px 1px #fff
 }
 
+
 a.button:hover {
-	background: #131313
+	background: #131313;
+	/*content:'9,99€' :after*/
 }
 
 a.link {
@@ -498,6 +737,18 @@ h3 {
 	color: #000;
 	font-weight: normal;
 	font-family: 'Oxygen', sans-serif
+}
+
+#hduturfu{
+	/*font-size: 16px;*/
+	text-decoration: underline;
+	font-style: italic;
+}
+
+.hduturfu2{
+	/*font-size: 16px;*/
+	text-decoration: underline;
+	font-style: italic;
 }
 
 h3 strong {
@@ -661,6 +912,8 @@ ul.list-1 li a:hover {
 .p6 {
 	padding-bottom: 10px
 }
+
+
 
 /*********************************header*************************************/
 header {
@@ -1210,6 +1463,9 @@ dl dd a:hover {
 	float:right;
 	margin-left: 20px;
 	
+}
+#cherche_matiere{
+	margin-top:40px;
 }
 #resultprof{
 	font-size:0.8em;

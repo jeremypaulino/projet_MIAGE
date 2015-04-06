@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="./css/jquery-ui.css">
 <script type="text/javascript" src="js/jquery.canvasjs.min.js"></script>
 
+
 <script type="text/javascript">
 $(document).ready(function() {
 	$(function() {
@@ -260,13 +261,17 @@ $(document).ready(function() {
 							</div>
 						</div>
 					</div>
-					<div class="clear"></div>
 				</div>
+				
 			</div>
+<!-- 												<div class="clear"></div> -->
+			
 		</section>
 	</div>
 
-	<s:include value="footer.jsp"></s:include>
+	<s:include value="../footer.jsp"></s:include>
 
 </body>
+
+
 </html>

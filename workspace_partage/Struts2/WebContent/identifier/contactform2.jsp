@@ -1,10 +1,31 @@
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<title>Contact Form</title>
-	<script  src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
-	<!--[if IE]><script>
+
+
+
+<meta charset="utf-8" />
+
+<title>Contact Form</title>
+<script src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery-1.7.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jquery.leanModal.min.js"></script>
+<script src="js/tms-0.4.x.js"></script>
+
+<script src="js/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="css/jquery-ui.css">
+
+
+<!--[if IE]><script>
 	$(document).ready(function() { 
 
 $("#form_wrap").addClass('hide');
@@ -126,17 +147,29 @@ h1 {margin-bottom:20px; text-align:center;font-size:20px; text-shadow:0 1px 0 #0
 		
 		<div id='form_wrap'>
 			<form>
-				<p>Bonjour iSchool,</p>
+				<label for="name">A: </label>
+				<!-- <input type="text" name="name" value="" id="name" /> -->
+				<div class="search-container">
+				<div class="ui-widget">
+					<s:textfield id="searchEmail" class="txtfield" placeholder="destinataire" name="searchEmail" />
+				</div>
+			</div>
+			<div id="filtresMatieres"></div>
 				<label for="email">Votre Message : </label>
 				<textarea  name="message" value="Your Message" id="message" ></textarea>
-				<p>Signé,</p>	
+				<p>Signe,</p>	
 				<label for="name">Nom: </label>
-				<input type="text" name="name" value="" id="name" />
+				<input type="text" name="name" value=<s:property value="#session.email"/> id="name" />
 				<label for="email">Email: </label>
-				<input type="text" name="email" value="" id="email" />
+				<input type="text" name="email" value=<s:property value="#session.email"/> id="email" />
 				<input type="submit" name ="submit" value="Maintenant, j'envoi, merci!" />
 			</form>
 		</div>
 	</div>
 </body>
+
+<script type="text/javascript" src="js/autocompleteEmail.js"></script>
+
+
 </html>
+

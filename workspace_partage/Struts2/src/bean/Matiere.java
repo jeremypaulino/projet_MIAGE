@@ -24,4 +24,13 @@ public class Matiere {
 		this.nom = nom;
 	}
 
+	/**
+	 * @param nom
+	 */
+	public Matiere(String nom) {
+		this.nom = nom;
+	}
+	
+	
+
 }

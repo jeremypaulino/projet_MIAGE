@@ -360,7 +360,22 @@ $('document').ready(function(){
 			
 			var Email_dest= $('.contact a.active').parent().attr("id");
 			//var Email_dest="eleve@test.fr";
-		//alert(Email_dest);
+		alert(Email_dest);
+		$.ajax({
+			url : "indiquelu",
+			data : {
+
+				Email_dest : Email_envoy,
+				Email_envoy : Email_dest
+				
+			},
+			error : function(resultat, statut, erreur) {	
+			
+			}
+		}).done(function(result) {
+		
+		});
+		
 		$.ajax({
 			url : "chargermessage",
 			data : {

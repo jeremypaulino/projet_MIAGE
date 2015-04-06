@@ -1,4 +1,6 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -198,10 +200,13 @@
 					});
 
 					var datefinale;
+					var elmt = document.getElementById("dayList_21");
+					elmt.style.backgroundColor = "#ff0";
 
 					$(".eventsCalendar-day").click(
-							function(event) {
-
+							
+							function(event,response) {
+								var elmt = document.getElementById("dayList_21");
 								var idjour = $(event.target).parent()
 										.attr("id").replace("dayList_", "");
 
@@ -306,6 +311,9 @@
 								datefinale = idannee + "-" + idnummois + "-"
 										+ idjour;
 								
+								//alert(idSession2)
+								
+
 								$.ajax({
 									url : "disponibilite3",
 									data : {
@@ -313,16 +321,37 @@
 										idProf : idSession2,
 										date : datefinale
 
+									},
+									dataType : "json",
+									success : function(data) {	
+										//la reponse
+										
+										//alert("OKAY J SUIS AL MA GUEULE");
+										for(var ii=0; ii<12;ii++){
+											if(ii==0){
+												$("#check").prop("checked", false);
+											}else{
+											$("#check"+ii).prop("checked", false);
+											}
+										}
+										
+										for(var i =0 ; i<data.list.length;i++){
+										//	alert(data.list[i]);
+											if(data.list[i]==1){
+												$("#check").prop("checked", true);
+											}else{
+										$("#check"+(data.list[i]-1)).prop("checked", true);
+											}
+										}
+										//alert(data.list[0]-1);
+									//	alert(data.list[3]);
+										
+										//response(jsonResponse.listeAjaxMatiere);
 									}
-								}).done(function(result) {
-
-									//alert(result);
-									$("#resultprof").html(result);
-								});
-								
+									
+								})
 								
 								$("#resultat2").show();
-
 							});
 
 					$(".checkbox").click(function(event) {
@@ -371,7 +400,7 @@
 							if (idjour == "check11") {
 								idjourint = 12;
 							}
-
+								alert(datefinale);
 							$.ajax({
 								url : "disponibilite",
 								data : {
@@ -380,12 +409,18 @@
 									creneaux : idjourint,
 									date : datefinale
 
+								},
+								error : function(resultat, statut, erreur) {	
+									//la reponse
+								//alert("ca marche!!");
 								}
 							}).done(function(result) {
-
-								//alert(result);
+							
+								alert(result);
 								$("#resultprof").html(result);
 							});
+							
+							
 
 						} else {
 							//	alert("coucou");

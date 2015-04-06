@@ -257,4 +257,94 @@ public class ProfesseurDao {
 		  
 		 return prof;
 	}
+
+	/**
+	 * @param idProf
+	 * @return
+	 */
+	public String getNomPrenomById(int idProf) {
+		
+		String nomprenom = "";
+		  try{  	     
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("select professeur.email,nom,prenom FROM professeur LEFT JOIN utilisateur ON professeur.email=utilisateur.email WHERE idProf = ? ");  
+		   ps.setInt(1, idProf);
+		   ResultSet rs=ps.executeQuery();  
+		   rs.next();
+		   nomprenom = rs.getString("prenom")+" "+rs.getString("nom");
+
+		  }catch(Exception e){e.printStackTrace();} 
+		  
+		 return nomprenom;
+	}
+	
+	/**
+	 * @param idProf
+	 * @return
+	 */
+	public String getEmailById(int idProf) {
+		
+		String email = "";
+		  try{  	     
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("SELECT professeur.email,nom,prenom FROM professeur LEFT JOIN utilisateur ON professeur.email=utilisateur.email WHERE idProf = ? ");  
+		   ps.setInt(1, idProf);
+		   ResultSet rs=ps.executeQuery();  
+		   rs.next();
+		   email = rs.getString("email");
+
+		  }catch(Exception e){e.printStackTrace();} 
+		  
+		 return email;
+	}
+
+	/**
+	 * @param mailprof
+	 * @param i
+	 */
+	public void updateCreditProf(String mailprof, int credit) {
+		
+		try {
+			PreparedStatement ps = SingletonConnection
+					.getConnection()
+					.prepareStatement(
+							"UPDATE utilisateur LEFT JOIN professeur ON utilisateur.email=professeur.email SET credit = ? WHERE utilisateur.email=?");
+			ps.setInt(1, credit);
+			ps.setString(2, mailprof);
+
+			ps.executeUpdate();
+
+			
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+		
+	}
+
+	/**
+	 * @param idProf
+	 * @return credits que le prof possede
+	 */
+	public int getCreditProf(int idProf) {
+		int credit=0;
+		
+		try {
+			PreparedStatement ps = SingletonConnection
+					.getConnection()
+					.prepareStatement(
+							"SELECT credit FROM utilisateur LEFT JOIN professeur ON utilisateur.email=professeur.email WHERE idEleve=?");
+			ps.setLong(1, idProf);
+
+			ResultSet rs = ps.executeQuery();
+			 rs.next();
+			 credit=rs.getInt(1);
+			
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+		
+		return credit; 
+	}
 }

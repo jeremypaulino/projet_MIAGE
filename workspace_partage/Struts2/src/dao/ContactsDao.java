@@ -33,7 +33,7 @@ public class ContactsDao {
 					.prepareStatement(
 							"select nom,prenom,email from contacts LEFT JOIN utilisateur ON utilisateur.email=contacts.email_dest WHERE email_sess = ? OR email_dest = ?");
 			ps.setString(1, contact.getEmail_sess());
-			ps.setString(1, contact.getEmail_sess());
+			ps.setString(2, contact.getEmail_sess());
 
 
 			ResultSet rs = ps.executeQuery();

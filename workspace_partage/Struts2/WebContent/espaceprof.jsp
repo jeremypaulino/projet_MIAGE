@@ -29,18 +29,44 @@
 
 <script src="js/jquery-ui.js"></script>
 
+<link rel="stylesheet" type="text/css" media="screen" href="css/dropzone.css">
+<script src="js/dropzone.js"></script>
+
+
 <script>
 $(document).ready(function() {
 
-	$("#popupmodifprofilprof").click(function() {
-		$("#resultatprof").load("resultat/modifprofilprof.jsp");
+	
+    $('#popupUpload').click(function(){
+    	var mail = $(this).parents("tr").attr("id");
+    	
+		alert("j'ai cliqué sur " + mail);
+		
+		$.ajax({
+			url : "messagesession",
+			data : {
+				message : mail
+			}
+		})
+		
+		$("#resultatprof").show();
+				
 		$("#resultatprof").dialog({
-			width : 850,
+			width : 400,
 			show : 'fold',
-			hide : 'fold'
+			hide : 'fold',
+			buttons : {
+				"OK" : function() {
+					$(this).dialog("close");
+					$("#resultatprof").hide();
+					$.ajax({
+						url : "effacermessagesession"
+					})
+				}
+			}
 		});
-
-	});
+    	
+    });
 });
 	
 </script>
@@ -59,7 +85,9 @@ $(document).ready(function() {
 
 					<div class="wrap pad-3">
 
-						<div id="resultatprof"></div>
+						<div id="resultatprof" style="display: none">
+							<s:include value="resultat/mesdocuments.jsp"></s:include>
+						</div>
 
 						<div class="motie">
 							<h3>Mon profil</h3>
@@ -117,8 +145,8 @@ $(document).ready(function() {
 							<table id="table" class="tableEleve">
 								<s:iterator value="listecontact" var="element">
 
-									<tr>
-										<td><s:property value="nom" /> <s:property value="prenom" /> <s:property value="niveau" /></td>
+									<tr id="<s:property value="mail" />">
+										<td><s:property value="nom" /> <s:property value="prenom" /> <s:property value="niveau" /> <a id="popupUpload">deposer doc</a></td>
 									</tr>
 
 								</s:iterator>
@@ -151,6 +179,79 @@ $(document).ready(function() {
 								<embed src="calend/cal2.jsp" width="1000px" height="1000px"></embed>
 							</object>
 						</div>
+						
+						
+						
+						<div id="dernierscours" >
+							<h3>Mes derniers cours</h3>
+							<table id="table" class="tableEleve">
+								<s:iterator value="listecourpasse" var="element">
+
+									<tr id="<s:property value="id"/>">
+										<td><s:property value="matiere.nom" /></td>
+										<td><s:property value="date" /></td>
+										<td id="<s:property value="creneaux" />"><s:property value="%{creneauxToHeure(creneaux)}" /></td>
+										<td id="<s:property value="idEleve" />"><s:property value="%{getEleve(idEleve)}" /></td>
+										<td id="<s:property value="note" />" class="rating"><span id="5"><img src="images/etoilevide.png"></span><span id="4"><img src="images/etoilevide.png"></span><span id="3"><img src="images/etoilevide.png"></span><span id="2"><img src="images/etoilevide.png"></span><span id="1"><img src="images/etoilevide.png"></span></td>
+										<td class="inserercr"><img src="images/mp.png"></td>
+										
+									</tr>
+
+								</s:iterator>
+
+							</table>
+
+							<a href="#modifmodal2" id="modaltrigger" class="button">Modifier mon profil</a>
+							
+							<div id="modifmodal2" style="display: none;">
+				<h1 id="textfi1" class="center">Modifier mon profil</h1>
+				
+				<br>
+				<!--<s:textfield class="txtfield" name = "prenom" label = "Prénom" value = "%{eleve.prenom}"/>
+				<s:textfield class="txtfield" name = "nom" label = "Nom" value = "%{eleve.nom}"/>
+				<s:textfield class="txtfield" name = "email" label = "Email" value = "%{eleve.mail}"/>
+				<s:textfield class="txtfield" name = "mdp" label = "Mot de passe" value = "***********"/>-->
+				
+				<s:form id="loginform" name="loginform" action="modifEleve" class="jotform-form center">
+				
+						<s:textfield label="Pseudo" value = "%{eleve.pseudo}" type="text" name="pseudo" required="required" placeholder="Ex: Ibracadabra" pattern=".{3,45}" class="txtfield" tabindex="1"></s:textfield>
+							
+						<s:textfield label="Prenom" value = "%{eleve.prenom}" type="text" name="prenom" required="required" placeholder="Ex: Arnaud" pattern=".{3,45}" class="txtfield modiftext" tabindex="2"></s:textfield>
+
+					    <s:textfield label="Nom" value = "%{eleve.nom}" type="text" name="nom" required="required" placeholder="Ex: Arnaud" pattern=".{3,45}" class="txtfield modiftext" tabindex="3"></s:textfield>
+
+						<s:textfield label="Adresse" value = "%{eleve.adresse}" type="text" name="adresse" required="required" placeholder="Ex: 16 rue des arenes"	 class="txtfield modiftext" tabindex="4"></s:textfield>
+
+						<s:textfield label="Complement d'adresse" type="text" name="complementadresse"  class="txtfield modiftext" tabindex="5"></s:textfield>
+
+						<s:textfield label="Code Postal" value = "%{eleve.codepostale}"  id="cp" name="codepostale" required="required" placeholder="Ex: 92500" class="txtfield modiftext" tabindex="8"></s:textfield>
+						
+						<s:select  class="txtfield modiftext" id="result" tabindex="9" label="Ville" list="#{'Choisir':'Choisir'}" name="ville"></s:select>						
+						
+						<s:select id="modifpays" class="txtfield modiftext" tabindex="9" label="Pays" list="#{'France':'France', 'Belgique':'Belgique', 'Suisse':'Suisse', 'Canada':'Canada'}" name="pays"></s:select>
+
+						<s:textfield label="Email" value = "%{eleve.mail}" type="email" name="mail" required="required" placeholder="adresse@mail.fr" class="txtfield modiftext" tabindex="10"></s:textfield>
+
+						<s:password label="Mot de Passe" type="text" name="mdp" required="required"	class="txtfield modiftext" tabindex="11"></s:password>
+
+						<s:password label="Confirmer votre mot de passe" type="text" required="required" id="mdpConfirm" class="txtfield modiftext" tabindex="12"></s:password>
+							
+						<s:select label="Niveau" class="txtfield modiftext" value = "%{eleve.niveau}" tabindex="13" list="#{'6e':'6e', '5e':'5e', '4e':'4e', '3e':'3e', '2nd':'2nd', '1ere':'1ere', 'Terminale':'Terminale', 'Bac+1':'Bac+1', 'Bac+2':'Bac+2', 'Bac+3':'Bac+3', 'Bac+4':'Bac+4', 'Bac+5':'Bac+5'}" name="niveau"></s:select>
+				
+				<s:submit name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Je Valide" tabindex="14"></s:submit>
+			
+						</s:form>	
+						
+					
+			</div>
+
+						</div>
+						
+						
+						
+						
+						
+						
 						<!-- 						</div> -->
 
 
@@ -299,7 +400,18 @@ $(document).ready(function() {
 	<s:include value="footer.jsp"></s:include>
 
 </body>
+<script>
+	$(document).ready(function() {
+		$('.inserercr').click(function() {
 
+			var note = $(this).attr("id");
+			var ligne = $(this).parents("tr").attr("id");
+			alert(ligne);
+
+		});
+
+	})
+</script>
 
 </html>
 

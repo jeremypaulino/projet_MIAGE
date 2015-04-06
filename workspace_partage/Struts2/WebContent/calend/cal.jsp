@@ -33,7 +33,9 @@
 				<script>
 					$(document).ready(function() {
 						$("#eventCalendarHumanDate").eventCalendar({
-							eventsjson: './event.humanDate.json.php',
+							//eventsjson: './event.humanDate.json.php',
+							
+							eventsjson: './events.json',
 							jsonDateFormat: 'human'  // 'YYYY-MM-DD HH:MM:SS'
 						});
 					});

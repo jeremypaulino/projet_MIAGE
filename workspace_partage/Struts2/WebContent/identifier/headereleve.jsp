@@ -9,9 +9,11 @@
 		<ul>
 
 
-			
-				<li><a href="adminPage">Espace Personnel</a></li>
+				<li><a href="#"><img src="./images/message.png">1</a></li>
+				<li><a href="elevePage">Espace Eleve</a></li>
 				<li><a href="logout">Se Deconnecter</a></li>
+				<li class="header-panier"><a href="panier.jsp"><img src="identifier/images/PAnier.png" alt=""></a></li>
+				
 
 			<div id="loginmodal" style="display: none;">
 				<h1 class="center">Entrez Vos Identifiants</h1>

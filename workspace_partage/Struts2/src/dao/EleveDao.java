@@ -141,5 +141,152 @@ public class EleveDao {
 		 return eleve;
 	}
 	
+	
+	public String getNiveau(int id) {
+		
+		String niveau="";
+		  try{  	     
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("SELECT niveau FROM eleve WHERE idEleve = ?");  
+		   ps.setInt(1, id);
+		   ResultSet rs=ps.executeQuery();  
+		   rs.next();
+		  
+		   niveau = rs.getString("niveau");
 
+		  }catch(Exception e){e.printStackTrace();} 
+		  
+		 return niveau;
+	}
+
+	/**
+	 * @param id eleve
+	 * @return credit de l'eleve en int
+	 */
+	public int getCreditEleve(int id)
+	{
+		int i=0;
+		
+		try {
+			PreparedStatement ps = SingletonConnection
+					.getConnection()
+					.prepareStatement(
+							"SELECT credit FROM utilisateur LEFT JOIN eleve ON utilisateur.email=eleve.email WHERE idEleve=?");
+			ps.setLong(1, id);
+
+			ResultSet rs = ps.executeQuery();
+			 rs.next();
+				i=rs.getInt(1);
+			
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+		
+		return i; 
+	}
+
+	/**
+	 * @param i
+	 * @param j 
+	 */
+	public void updateCreditEleve(String maileleve, int credit) {
+		
+		try {
+			PreparedStatement ps = SingletonConnection
+					.getConnection()
+					.prepareStatement(
+							"UPDATE utilisateur LEFT JOIN eleve ON utilisateur.email=eleve.email SET credit = ? WHERE utilisateur.email=?");
+			ps.setInt(1, credit);
+			ps.setString(2, maileleve);
+
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+
+		}
+				
+	}
+
+	/**
+	 * @param idEleve
+	 * @return
+	 */
+	public String getEmailById(int idEleve) {
+		String email = "";
+		  try{  	     
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("SELECT eleve.email,eleve.idEleve,nom,prenom FROM eleve LEFT JOIN utilisateur ON eleve.email=utilisateur.email WHERE idEleve = ? ");  
+		   ps.setInt(1, idEleve);
+		   ResultSet rs=ps.executeQuery();  
+		   rs.next();
+		   email = rs.getString("email");
+
+		  }catch(Exception e){e.printStackTrace();} 
+		  
+		 return email;
+	}
+	
+	
+	
+	
+	public void ModifierEleve(Eleve eleve,String email) {
+		
+		try {
+			PreparedStatement ps = SingletonConnection.getConnection().prepareStatement("UPDATE utilisateur SET email=? WHERE email=?");
+			ps.setString(1, eleve.getMail());
+			ps.setString(2, email);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		 //insertion dans table utilisateur
+		  try{  	     
+			   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("UPDATE utilisateur SET pseudo=?, nom=?, prenom=?, mdp=?,adresse=?,complementadresse=?,codepostale=?,ville=?,pays=? WHERE email=?");  
+			  
+			   ps.setString(1,eleve.getPseudo());
+			   ps.setString(2,eleve.getNom());
+			   ps.setString(3,eleve.getPrenom());
+			   ps.setString(4,eleve.getMdp());
+			   ps.setString(5,eleve.getAdresse());
+			   ps.setString(6,eleve.getComplementAdresse());
+			   ps.setInt(7,eleve.getCodepostale());
+			   ps.setString(8,eleve.getVille());
+			   ps.setString(9,eleve.getPays());
+			   ps.setString(10,eleve.getMail());
+			   ps.executeUpdate();  
+			  }
+		  catch(Exception e){
+			  e.printStackTrace();
+			  }
+		  
+		  // table eleve
+		try {
+			PreparedStatement ps = SingletonConnection.getConnection().prepareStatement("UPDATE eleve SET email=? WHERE email=?");
+			ps.setString(1, eleve.getMail());
+			ps.setString(2, email);
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+public String getNomPrenomById(int idEleve) {
+		
+		String nomprenom = "";
+		  try{  	     
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("select eleve.email,nom,prenom FROM eleve LEFT JOIN utilisateur ON eleve.email=utilisateur.email WHERE idEleve = ? ");  
+		   ps.setInt(1, idEleve);
+		   ResultSet rs=ps.executeQuery();  
+		   rs.next();
+		   nomprenom = rs.getString("prenom")+" "+rs.getString("nom");
+
+		  }catch(Exception e){e.printStackTrace();} 
+		  
+		 return nomprenom;
+	}
+	
 }

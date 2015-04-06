@@ -8,7 +8,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.Cours;
 import bean.Eleve;
+import bean.Matiere;
 import bean.Paiement;
 import bean.Professeur;
 import bean.Statut;
@@ -156,12 +158,38 @@ public class AdministrateurDao {
 	 */
 	public void accepterCheque(int id) {
 		  try{  	     
+			  int i;
+			  int ideleve;
+			  
 			   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("UPDATE paiement SET statut='ACCEPTE' WHERE id = ? ");  
 			   ps.setInt(1,id);  
 			   ps.executeUpdate();
+			   
+			   PreparedStatement ps1= SingletonConnection.getConnection().prepareStatement("SELECT ideleve FROM paiement WHERE id=?"); 
+			   ps1.setInt(1,id);
+			   ResultSet rs1=ps1.executeQuery();
+			   rs1.next();
+			   ideleve=rs1.getInt(1);;
+			   
+			   PreparedStatement ps2= SingletonConnection.getConnection().prepareStatement("SELECT (montant + credit) AS credit FROM utilisateur JOIN eleve ON eleve.email=utilisateur.email JOIN paiement ON eleve.ideleve=paiement.ideleve  WHERE eleve.ideleve=?");  
+			   ps2.setInt(1,ideleve);
+			   ResultSet rs=ps2.executeQuery();
+			   
+			   rs.next();
+				
+				i=rs.getInt(1);
+				System.out.println(i);
+				
+				 PreparedStatement ps3= SingletonConnection.getConnection().prepareStatement("UPDATE utilisateur JOIN eleve ON utilisateur.email=eleve.email SET utilisateur.credit=? WHERE ideleve=?");  
+				 ps3.setInt(1,i);
+				 ps3.setInt(2,ideleve);
+				   ps3.executeUpdate();
+			   
+			 
 			  }
 			  catch(Exception e){
 				  e.printStackTrace();
+				  
 				  } 
 		
 	}

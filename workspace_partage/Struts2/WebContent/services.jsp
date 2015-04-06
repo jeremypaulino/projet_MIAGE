@@ -2,112 +2,235 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Services</title>
-    <meta charset="utf-8">
-    <s:include value="cssjs.jsp"></s:include>
+<title>Services</title>
+<meta charset="utf-8">
+<s:include value="cssjs.jsp"></s:include>
+<script src="js/jquery-ui.js"></script>
+<%--<link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="css/datepicker.css" rel="stylesheet" type="text/css"/>	
+ <script src="js/rechercheAjax.js"></script> --%>
+
+<script src="js/autocompleteMatiere.js"></script>
+
+<script>
+	$(function() {
+
+		
+		$.datepicker.setDefaults({
+			altField: "#datepicker",
+			closeText: 'Fermer',
+			prevText: 'Précédent',
+			nextText: 'Suivant',
+			currentText: 'Aujourd\'hui',
+			monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+			monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+			dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+			dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+			dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+			weekHeader: 'Sem.',
+			dateFormat: 'yy-mm-dd',
+			showOn : "both",
+			buttonImageOnly : true,
+			buttonImage : "images/calendar.png",
+			buttonText : "Choisissez une date",
+			defaultDate : "+1w",
+			changeMonth : true,
+			numberOfMonths : 1,
+			dateFormat : "dd/mm/yy",
+
+		});
+
+		$("#from").datepicker({
+			onClose : function(selectedDate) {
+				$("#to").datepicker("option", "minDate", selectedDate);
+			}
+		});
+		$("#to").datepicker({
+			onClose : function(selectedDate) {
+				$("#from").datepicker("option", "maxDate", selectedDate);
+			}
+		});
+				
+		
+		$( "#from,#to" ).change(function() {			  
+			  chercher2("tridate");
+			});
+		
+	});
+	
+	
+
+
+	function chercher2(tri) {
+
+		var stringmatiere = "";
+
+		var datedebut = "";
+		
+		var datefin ="";
+
+		if ($("#from").val().length > 0) {
+			datedebut = $("#from").val();
+		}
+		if ($("#to").val().length > 0) {
+			datefin = $("#to").val();
+		}
+
+		$(".checkstatutprof:checked").each(function() {
+			var id = $(this).attr('id');
+			stringstatut = id + "#" + stringstatut;
+		});
+
+		$("div#filtresMatieres").children("p").children("span").each(
+				function() {
+					//var id = $(this).attr('id');
+
+					var id = $(this).text();
+					stringmatiere = id + "#" + stringmatiere;
+
+				});
+
+		if ($("#search").val()) {
+
+			term = $("#search").val();
+
+		}
+
+
+		$.ajax({
+			url : "searchCours",
+			data : {
+				stringmatiere : stringmatiere,
+				datedebut : datedebut,
+				datefin : datefin,
+				tri : tri
+
+			}
+		}).done(function(result) {
+			$("#resultprof").html(result);
+		});
+
+	}
+
+	$("#search").ready(function() {
+		// si la div matiere change
+		$("#filtresMatieres").change(function() {
+			chercher2("tridate");
+		});
+
+		//Des que l'input est modifier on lance une recherche
+		$("#search").on("input", function(e) {
+			if ($(this).data("lastval") != $(this).val()) {
+				chercher2("tridate");
+			}
+		});
+	});
+	
+
+
+	function testmapoule() {
+
+		$('.col7').hover(function() {
+			//alert($('.idb0').val());
+			if (document.getElementById(this.id).innerHTML == "9,99 euros") {
+				document.getElementById(this.id).innerHTML = "Réserver";
+			} else {
+				document.getElementById(this.id).innerHTML = "9,99 euros";
+			}
+		})
+
+		$('.col7').click(function() {
+			//alert("coucou");
+			var bntid = this.id;
+			if (bntid.length == 5) {
+				if (bntid.length == 6) {
+					var id = bntid[3] + bntid[4] + bntid[5];
+				} else {
+					var id = bntid[3] + bntid[4];
+				}
+			} else {
+				var id = bntid[3];
+			}
+			// alert("Votre Cours est bien réservé");
+			var ligne = document.getElementById("idli" + id).innerHTML;
+
+			alert(ligne);
+		})
+
+	}
+</script>
+
+
 </head>
 <body>
-  <div class="main">
+	<div class="main">
 		<!--==============================header=================================-->
 
 
 		<s:include value="wrapheader.jsp"></s:include>
-  <!--==============================content================================-->
-    <section id="content">
-        <div class="container_12">	
-          <div class="grid_12">
-            <div class="wrap pad-3">
-                <div class="block-5">
-                    <h3>Marketing Services</h3>
-                     <ul class="list-1">
-                    	<li><a href="#">At vero eos et accusam</a></li>
-                        <li><a href="#">Justo duo dolores et ea rebum</a></li>
-                        <li><a href="#">Stet clita kasd gubergren, no sea</a></li>
-                        <li><a href="#">Takimata sanctus est lorem</a></li>
-                        <li><a href="#">Lorem ipsum dolor sit</a></li>
-                        <li><a href="#">Amet consetetur sadipscing elitr</a></li>
-                        <li><a href="#">Sed diam nonumy eirmod</a></li>
-                        <li><a href="#">Tempor invidunt ut labore et dolore</a></li>
-                        <li><a href="#">Magna aliquyam erat sed diam</a></li>
-                        <li><a href="#">Voluptua vero eos et accusam et</a></li>
-                        <li><a href="#">Justo duo dolores et ea</a></li>
-                    </ul>
-                </div>
-                <div class="block-6">
-                    <h3 class="p6">High Achievement Always Takes Place in the <strong>Framework of Expectation</strong></h3>
-                    <p><a href="#" class="link"><strong>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat</strong></a></p>
-                    <p class="p6">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. </p>
-                    <p class="p1">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-                    <a href="#" class="button">More</a>
-                </div>
-            </div>
-          </div>
-          <div class="clear"></div>
-        </div>
-        <div class="aside">
-            <div class="container_12">	
-                <div class="grid_12">
-                    <div class="pad-2 wrap">
-                        <h3 class="p6">Our Main Services Overview</h3>
-                        <div class="wrap">
-                        	<div class="block-7">
-                            	<div class="wrap">
-                                    <img src="images/page3-img1.png" alt="" class="img-indent">
-                                    <div class="extra-wrap">
-                                        <p><a href="#" class="link"><strong>Nam liber tempor</strong></a></p>
-                                        <p>Cum suta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum lorem ipsum dolor sit amet, consectetuer.</p>
-                                    </div>
-                                </div>
-                                <div class="wrap top-2">
-                                    <img src="images/page3-img4.png" alt="" class="img-indent">
-                                    <div class="extra-wrap">
-                                        <p><a href="#" class="link"><strong>Sed diam nonummy</strong></a></p>
-                                        <p>Nibh euismod tincidunt laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam uis nostrud exerci tation ullamcorper.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-7">
-                            	<div class="wrap">
-                                    <img src="images/page3-img2.png" alt="" class="img-indent">
-                                    <div class="extra-wrap">
-                                        <p><a href="#" class="link"><strong>Adipiscing elit sed</strong></a></p>
-                                        <p>Diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.</p>
-                                    </div>
-                                </div>
-                                <div class="wrap top-2">
-                                    <img src="images/page3-img5.png" alt="" class="img-indent">
-                                    <div class="extra-wrap">
-                                        <p><a href="#" class="link"><strong>Consetetur sadipscing</strong></a></p>
-                                        <p>Sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-7 last">
-                            	<div class="wrap">
-                                    <img src="images/page3-img3.png" alt="" class="img-indent">
-                                    <div class="extra-wrap">
-                                        <p><a href="#" class="link"><strong>Nam liber tempor</strong></a></p>
-                                        <p>Cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet.</p>
-                                    </div>
-                                </div>
-                                <div class="wrap top-2">
-                                    <img src="images/page3-img6.png" alt="" class="img-indent">
-                                    <div class="extra-wrap">
-                                        <p><a href="#" class="link"><strong>Stet clita kasd</strong></a></p>
-                                        <p>Qubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>  
-    </section> 
-  </div>    
-<!--==============================footer=================================-->
+		<!--==============================content================================-->
+		<section id="content">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="wrap pad-3">
+
+						<div>
+
+
+<!-- 							<div class="search-container"> -->
+<!-- 								<div class="ui-widget"> -->
+<%-- 									<s:textfield id="searchMatiere" class="txtfield" placeholder="Français" name="searchMatiere" /> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
+
+
+							<p>
+								<a href="nous-contacter" class="link"><strong>Si vous ne trouvez pas votre bonheur, n'hésitez pas a nous le faire savoir.</strong></a>
+							</p>
+							<br>
+							<div id="date" style="width:400px;display:inline-block;" class="filtrespopup">
+								<label for="from">Entre</label>
+								<input class="txtfield" type="text" id="from" name="from">
+								<label for="to">et</label>
+								<input class="txtfield" type="text" id="to" name="to">
+
+							</div>
+
+							<div id="cherche_matiere" class="filtrespopup">
+
+								<label>Matières :</label>
+
+								<div class="search-container">
+									<div class="ui-widget">
+										<s:textfield id="searchMatiere" class="txtfield" placeholder="Français" name="searchMatiere" />
+									</div>
+								</div>
+								<div id="filtresMatieres"></div>
+
+							</div>
+							
+							<div id="resultprof"></div>
+							
+							
+<!-- 							<ul id="cours" class="list-1 p4 left-1"> -->
+<%-- 								<li><a id=col1 class="acol" href="#"><strong>Nom Et Prénom Du Professeur</strong></a> <a id=col2 class="acol" href="#"><strong>Matière</strong></a> --%>
+<%-- 									<a id=col3 class="acol" href="#"><strong>Plage Horaire</strong></a> <a id=col4 class="acol" href="#"><strong>Date</strong></a> <a id=col5 --%>
+<%-- 									class="acol" href="#"><strong>Avis</strong></a></li> --%>
+<!-- 							</ul> -->
+							<!--  <a href="#" class="button">Réserver</a> -->
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		
+		</section>
+	</div>
+	<!--==============================footer=================================-->
 	<s:include value="footer.jsp"></s:include>
-    
+
+
+
+
 </body>
 </html>

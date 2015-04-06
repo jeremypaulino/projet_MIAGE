@@ -3,6 +3,7 @@ package actions.prof;
 import java.util.List;
 import java.util.Map;
 
+import bean.Cours;
 import bean.Eleve;
 import bean.Paiement;
 import bean.Professeur;
@@ -13,6 +14,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import dao.AdministrateurDao;
 import dao.ContactsDao;
+import dao.CoursDao;
+import dao.EleveDao;
 import dao.MatiereDao;
 import dao.ProfesseurDao;
 
@@ -26,6 +29,7 @@ public class ProfPageAction extends ActionSupport {
 	
 	private List<Utilisateur> listecontact;
 	private Professeur professeur;
+	private List<Cours> listecourpasse;
 
 
 	public String execute() {
@@ -35,6 +39,9 @@ public class ProfPageAction extends ActionSupport {
 		
 		ProfesseurDao profDao = new ProfesseurDao();
 		ContactsDao contactDao = new ContactsDao();
+		CoursDao coursDao = new CoursDao();
+		
+		listecourpasse = coursDao.getMesCoursPasseProf(id);
 		
 		professeur = profDao.getProfById(id);
 		
@@ -47,7 +54,32 @@ public class ProfPageAction extends ActionSupport {
 
 	/**
 	 * @return le listecontact
+	 * 
+	 * 
 	 */
+	public String getEleve(int idEleve) {
+
+		String nom = "";
+
+		EleveDao elevedao = new EleveDao();
+
+		nom = elevedao.getNomPrenomById(idEleve);
+
+		return nom;
+	}
+	
+	public List<Cours> getListecourpasse() {
+		return listecourpasse;
+	}
+
+
+	/**
+	 * @param listecontact le listecontact a modifier
+	 */
+	public void setListecourpasse(List<Cours> listecourpasse) {
+		this.listecourpasse = listecourpasse;
+	}
+	
 	public List<Utilisateur> getListecontact() {
 		return listecontact;
 	}

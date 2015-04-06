@@ -7,9 +7,12 @@ import java.util.Map;
 
 
 
+
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.EleveDao;
 import dao.LoginDao;
 
 /**
@@ -55,8 +58,10 @@ public class LoginAction extends ActionSupport  {
 			
 			// savoir l'email utilisateur
 			session.put("email", email);
-			session.put("message", "");
+			session.put("message", email);
 			session.put("type", type);
+			
+			
 			
 			
 			int id=0;
@@ -64,6 +69,14 @@ public class LoginAction extends ActionSupport  {
 				id = LoginDao.getId(email);
 			}
 			session.put("id", id);
+			
+			if(type.equals("eleve")){
+				String niveau = "";
+				EleveDao elevedao= new EleveDao();
+				niveau = elevedao.getNiveau(id);
+				session.put("niveau", niveau);
+				
+			}
 			
 			
 			return SUCCESS;
@@ -83,6 +96,7 @@ public class LoginAction extends ActionSupport  {
 		session.remove("type");
 		session.remove("message");
 		session.remove("id");
+		session.remove("niveau");
 		return SUCCESS;
 	}
 

@@ -35,29 +35,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="g6" style="width:400px;">
-				
 				<div id="eventCalendarHumanDate2"></div>
-				<script>
-				
-					$(document).ready(
-							function() {
-						$("#eventCalendarHumanDate2").eventCalendar({
-							eventsjson: './event.humanDate.json.php2',
-							jsonDateFormat: 'human2'  // 'YYYY-MM-DD HH:MM:SS'
-						});
-
-					});
-					
-				</script>
-				
-			
-				
-
 		  </div>
 		</div>
 		
 	</div>
-
+	
 	<div id="resultat2" class="eventCalendar-wrap">
 		<div class="eventsCalendar-currentTitle " style="margin-top: 10px;">
 			<div class="monthTitle" id="titre">Vos disponibilit&eacute;s </div>
@@ -199,19 +182,15 @@
 						refire();
 					});
 
-					var datefinale;
-					var elmt = document.getElementById("dayList_21");
-					elmt.style.backgroundColor = "#ff0";
+					
 
 					$(".eventsCalendar-day").click(
 							
 							function(event,response) {
-								var elmt = document.getElementById("dayList_21");
-								var idjour = $(event.target).parent()
-										.attr("id").replace("dayList_", "");
+								//var elmt = document.getElementById("dayList_21");
+								var idjour = $(event.target).parent().attr("id").replace("dayList_", "");
 
-								var idmoisanne = $(".monthTitle:not(#titre)")
-										.text();
+								var idmoisanne = $(".monthTitle:not(#titre)").text();
 								var idmois = idmoisanne.split(" ")[0];
 								var idannee = idmoisanne.split(" ")[1];
 								var idnummois;
@@ -301,18 +280,10 @@
 								}
 
 								$("#date").text(idjour + " " + idmoisanne);
-
-								//alert("vous avez clicker sur " + idjour + " "+ idmoisanne+ " " );
-
-								
 								
 								var idSession2 = "<s:property value='#session.id' />";
 								
-								datefinale = idannee + "-" + idnummois + "-"
-										+ idjour;
-								
-								//alert(idSession2)
-								
+								datefinale = idannee + "-" + idnummois + "-"+ idjour;
 
 								$.ajax({
 									url : "disponibilite3",
@@ -324,9 +295,6 @@
 									},
 									dataType : "json",
 									success : function(data) {	
-										//la reponse
-										
-										//alert("OKAY J SUIS AL MA GUEULE");
 										for(var ii=0; ii<12;ii++){
 											if(ii==0){
 												$("#check").prop("checked", false);
@@ -336,155 +304,109 @@
 										}
 										
 										for(var i =0 ; i<data.list.length;i++){
-										//	alert(data.list[i]);
 											if(data.list[i]==1){
 												$("#check").prop("checked", true);
 											}else{
-										$("#check"+(data.list[i]-1)).prop("checked", true);
+												$("#check"+(data.list[i]-1)).prop("checked", true);
 											}
 										}
-										//alert(data.list[0]-1);
-									//	alert(data.list[3]);
-										
-										//response(jsonResponse.listeAjaxMatiere);
 									}
-									
 								})
-								
 								$("#resultat2").show();
 							});
 
-					$(".checkbox").click(function(event) {
+					$(".checkbox").off().click(function(event) {
 						var idSession = "<s:property value='#session.id' />";
-
+						var idjour = $(event.target).attr("id");
+						var idjourint;
+						//	alert(idjour);
+						// alert(datefinale);
+						if (idjour == "check") {
+							idjourint = 1;
+						}
+						else if (idjour == "check1") {
+							idjourint = 2;
+						}
+						else if (idjour == "check2") {
+							idjourint = 3;
+						}
+						else if (idjour == "check3") {
+							idjourint = 4;
+						}
+						else if (idjour == "check4") {
+							idjourint = 5;
+						}
+						else if (idjour == "check5") {
+							idjourint = 6;
+						}
+						else if (idjour == "check6") {
+							idjourint = 7;
+						}
+						else if (idjour == "check7") {
+							idjourint = 8;
+						}
+						else if (idjour == "check8") {
+							idjourint = 9;
+						}
+						else if (idjour == "check9") {
+							idjourint = 10;
+						}
+						else if (idjour == "check10") {
+							idjourint = 11;
+						}
+						else if (idjour == "check11") {
+							idjourint = 12;
+						}
 						if ($(this).is(":checked")) {
-							//alert(idSession);
-
-							var idjour = $(event.target).attr("id");
-							var idjourint;
-							//	alert(idjour);
-							// alert(datefinale);
-							if (idjour == "check") {
-								idjourint = 1;
-							}
-							if (idjour == "check1") {
-								idjourint = 2;
-							}
-							if (idjour == "check2") {
-								idjourint = 3;
-							}
-							if (idjour == "check3") {
-								idjourint = 4;
-							}
-							if (idjour == "check4") {
-								idjourint = 5;
-							}
-							if (idjour == "check5") {
-								idjourint = 6;
-							}
-							if (idjour == "check6") {
-								idjourint = 7;
-							}
-							if (idjour == "check7") {
-								idjourint = 8;
-							}
-							if (idjour == "check8") {
-								idjourint = 9;
-							}
-							if (idjour == "check9") {
-								idjourint = 10;
-							}
-							if (idjour == "check10") {
-								idjourint = 11;
-							}
-							if (idjour == "check11") {
-								idjourint = 12;
-							}
-								alert(datefinale);
+							alert(datefinale);
 							$.ajax({
 								url : "disponibilite",
 								data : {
-
 									idProf : idSession,
 									creneaux : idjourint,
 									date : datefinale
-
-								},
-								error : function(resultat, statut, erreur) {	
-									//la reponse
-								//alert("ca marche!!");
 								}
-							}).done(function(result) {
-							
-								alert(result);
-								$("#resultprof").html(result);
 							});
-							
-							
-
-						} else {
-							//	alert("coucou");
-							var idjour = $(event.target).attr("id");
-							var idjourint;
-							//	alert(idjour);
-							//	 alert(datefinale);
-							if (idjour == "check") {
-								idjourint = 1;
-							}
-							if (idjour == "check1") {
-								idjourint = 2;
-							}
-							if (idjour == "check2") {
-								idjourint = 3;
-							}
-							if (idjour == "check3") {
-								idjourint = 4;
-							}
-							if (idjour == "check4") {
-								idjourint = 5;
-							}
-							if (idjour == "check5") {
-								idjourint = 6;
-							}
-							if (idjour == "check6") {
-								idjourint = 7;
-							}
-							if (idjour == "check7") {
-								idjourint = 8;
-							}
-							if (idjour == "check8") {
-								idjourint = 9;
-							}
-							if (idjour == "check9") {
-								idjourint = 10;
-							}
-							if (idjour == "check10") {
-								idjourint = 11;
-							}
-							if (idjour == "check11") {
-								idjourint = 12;
-							}
+						} 
+						else {
 							$.ajax({
 								url : "disponibilite2",
 								data : {
 									idProf : idSession,
 									creneaux : idjourint,
 									date : datefinale
-
 								}
-							}).done(function(result) {
-
-								alert(result);
-
-								$("#resultprof").html(result);
 							});
 						}
 					});
-
 				});
-	}
+	}	
+</script>
 
-	
+<script>
+	$(document).ready(function() {
+		var idSession3 = "<s:property value='#session.id' />";
+
+		$.ajax({
+			url : "selectcours",
+			data : {
+				IdProf : idSession3
+			},
+			dataType : "json",
+			success : function(data) {
+				
+				$("#eventCalendarHumanDate2").eventCalendar({
+ 	 				//eventsjson : 'json/events.json',
+ 	 				jsonData : data.listecourscalend,
+	 			  	showDescription: true, 
+				//jsonDateFormat : 'human2' // 'YYYY-MM-DD HH:MM:SS'
+			});
+				
+				refire();
+			}
+
+		})
+	});
 </script>
 
 

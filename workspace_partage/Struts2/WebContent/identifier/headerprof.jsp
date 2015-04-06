@@ -3,7 +3,8 @@
 <header>
 <script>
 		$(document).ready(function(){	
-			$('.slider')._TMS({show:0,pauseOnHover:true,prevBu:false,nextBu:false,playBu:false,duration:1000,preset:'fade',pagination:true,	pagNums:false,slideshow:7000,numStatus:true,banners:'fromRight',waitBannerAnimation:false,rogressBar:false});$("footer").append('<iframe id="vidz" width="560" height="315" src="https://www.youtube.com/embed/dD40VXFkusw?controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');	$("#vidz").hide();
+			$('.slider')._TMS({show:0,pauseOnHover:true,prevBu:false,nextBu:false,playBu:false,duration:1000,preset:'fade',pagination:true,	pagNums:false,slideshow:7000,numStatus:true,banners:'fromRight',waitBannerAnimation:false,rogressBar:false});
+			//$("footer").append('<iframe id="vidz" width="560" height="315" src="https://www.youtube.com/embed/dD40VXFkusw?controls=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>');	$("#vidz").hide();
 		});
 	</script>
 
@@ -14,7 +15,7 @@
 		<ul>
 
 
-			
+				<li><a href="./identifier/messagerie/chat2.jsp"><img src="./images/message.png"></a>1</li>
 				<li><a href="./identifier/espaceperso.jsp">Espace Professeur</a></li>
 				<li><a href="logout">Se Deconnecter</a></li>
 
@@ -44,7 +45,7 @@
 				<li><a href="about.jsp">A propos De Nous</a></li>
 				<li><a href="services.jsp">Nos Offres</a></li>
 				<li><a href="clients.jsp">Nos Partenaires</a></li>
-				<li><a href="contacts.jsp">Contacts</a></li>
+				<li><a href="./identifier/contactsL.jsp">Contacts</a></li>
 			</ul>
 			<div class="social-icons">
 				<span>Nous suivre:</span> <a href="#" class="icon-3"></a> <a

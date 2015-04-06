@@ -94,9 +94,8 @@ public class ChercherProfAction extends ActionSupport {
 
 			String nvx = tab[i];
 			
-			Matiere matiere = new Matiere();
+			Matiere matiere = new Matiere(nvx);
 			
-			matiere.setNom(nvx);
 			
 			listematiere.add(matiere);
 

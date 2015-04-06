@@ -67,4 +67,28 @@ public class MessageDao {
 		  return list;
 		  }
 
+	
+	public int nvxmess(String Email_envoy) {
+		int i=0;
+		
+		  try{  	     
+		   PreparedStatement ps= SingletonConnection.getConnection().prepareStatement("SELECT COUNT(lu) FROM message WHERE email_dest=? AND lu=0");  
+		   ps.setString(1,Email_envoy);
+		   
+		   ResultSet rs = ps.executeQuery();
+			 rs.next();
+			//while (rs.next()) {
+				i=rs.getInt(1);
+		  
+				System.out.println("i=" + i);
+		  
+		  }catch(Exception e){
+			  
+			  e.printStackTrace();
+			  
+		  } 
+		  return i;
+		  }
+	
+	
 }

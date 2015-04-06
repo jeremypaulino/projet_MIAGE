@@ -10,6 +10,19 @@
 	
 		<!-- ===================================== Generale ================================================ -->
 
+		<action name="messagesession" class="actions.general.ModifSession" method="modifMessage" />
+		
+		<action name="effacermessagesession" class="actions.general.ModifSession" method="effacerMessage" />
+
+		<action name="annulerCours" class="actions.general.AnnulerCoursAction">
+			<result type="redirectAction" name="success">elevePage</result>
+		</action>
+		
+		<action name="noterCours" class="actions.eleve.NoterCoursAction">
+			<result type="redirectAction" name="success">elevePage</result>
+		</action>
+		
+		
 		<!-- Les includes -->
 		<action name="includeTagAction" class="actions.general.IncludeTagAction">
 			<result name="success">index.jsp</result>
@@ -35,7 +48,9 @@
 			<result name="success">inscription.jsp</result>
 		</action>
 		
-
+		<action name="modifEleve" class="actions.eleve.ModifierEleve">
+			<result name="success">espaceeleve.jsp</result>
+		</action>
 
 
 
@@ -82,11 +97,15 @@
 			<result>resultat/liste.jsp</result>
 		</action>
 		
-		
+		<action name="searchCours" class="actions.eleve.ChercherCoursAction">
+				<result>resultat/listecours.jsp</result>
+		</action>
 		
 		<action name="searchEleve" class="actions.general.ChercherEleveAction">
 			<result>resultat/listeeleveajax.jsp</result>
 		</action>
+		
+		
 		
 <!-- 		<action name="contactupdate" class="actions.general.ContactAction"> -->
 <!-- 			<result>messagerie.jsp</result> -->
@@ -104,6 +123,8 @@
 		<action name="upload" class="actions.general.UploadAction">
 			<result name="success">espaceeleve.jsp</result>
 		</action>
+		
+		 
 		
 
 
@@ -187,6 +208,10 @@
 <!-- 			<result name="success">espaceprof.jsp</result> -->
 <!-- 			<result>espaceprof.jsp</result> -->
 <!-- 		</action> -->
+
+		<action name="soumettrepaiement" class="actions.eleve.InsererPaiement">
+			<result name="success">panier.jsp</result>
+		</action>
 		
 		<action name="disponibilite" class="actions.general.InsererDispo">
 			<result name="success">espaceprof.jsp</result>
@@ -199,6 +224,15 @@
 		<action name="envoimessage" class="actions.general.EnvoyerMessage">
 			<result name="success">messagerie/chat2.jsp</result>
 		</action>
+		
+		<action name="indiquelu" class="actions.general.IndiqueLu">
+			<result name="success">messagerie/chat2.jsp</result>
+		</action>
+		
+<!-- 		<action name="inserercours" class="actions.general.InsererCours"> -->
+<!-- 		<result name="success">services.jsp</result> -->
+<!-- 		<result name="error" type="redirect">loginerror.jsp</result> -->
+<!-- 		</action> -->
 
 
 	</package>
@@ -214,21 +248,47 @@
 		
 		<action name="disponibilite3" class="actions.general.RechercherDispo">
 			<result type="json">espaceprof.jsp</result>
-			<param name="noCache">true</param>
+		</action>
+		
+		<action name="voircredit" class="actions.general.SelectCredit">
+			<result type="json">headereleve.jsp</result>
+		</action>
+		
+		<action name="voirnouvmess" class="actions.general.SelectMess">
+			<result type="json">headereleve.jsp</result>
+
+		</action>
+		
+		<action name="voirnouvmess2" class="actions.general.SelectMess">
+			<result type="json">headerprof.jsp</result>
+
+		</action>
+		
+		<action name="selectcours" class="actions.prof.SelectCoursAction">
+			<result type="json">calend/cal2.jsp</result>
 
 		</action>
 		
 		<action name="chargermessage" class="actions.general.RechercherMessage">
 			<result type="json">messagerie/chat2.jsp</result>
-			<param name="noCache">true</param>
 
 		</action>
 
 		
 		<action name="contactupdate" class="actions.general.ContactAction">
 			<result type="json">messagerie/chat2.jsp</result>
-			<param name="noCache">true</param>
 		</action>
+		
+		
+		<action name="getmesdocuments" class="actions.eleve.MesDocumentsAction">
+  			<result type="json"></result>
+  		</action>
+  		
+  		<action name="inserercours" class="actions.general.InsererCours">
+			<result type="json"></result>
+		</action>
+  		
+
 
 		</package>
 

@@ -50,7 +50,81 @@
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="wrap pad-3">
+						<div class="motie">
+							<h3>Mon profil</h3>
+							<img src="images/student.png" alt="" class="img-border">
 
+							<table id="table" class="tableEleve">
+								<tr>
+									<td>Prenom :</td>
+									<td>Mathieu</td>
+								</tr>
+								<tr>
+									<td>Nom :</td>
+									<td>Mathieu</td>
+
+								</tr>
+								<tr>
+									<td>Email :</td>
+									<td>Mathieu</td>
+								</tr>
+								<tr>
+									<td>Pseudo :</td>
+									<td>Killer91700</td>
+
+								</tr>
+								<tr>
+									<td>Mot de passe :</td>
+									<td>*********</td>
+								</tr>
+								<tr>
+									<td>Adresse :</td>
+									<td>15 allée des chenilles</td>
+								</tr>
+								<tr>
+									<td>Code Postale :</td>
+									<td>91700</td>
+								</tr>
+								<tr>
+									<td>Ville :</td>
+									<td>Sainte-Geneviève-Des-Bois</td>
+								</tr>
+								<tr>
+									<td>Niveau :</td>
+									<td>6e</td>
+								</tr>
+
+							</table>
+
+							<a class="button">Modifier mon profil</a>
+
+						</div>
+						<div class="motie">
+							<h3>Mes Contacts</h3>
+							<img src="images/contactbook.png" alt="" class="img-border">
+
+							<table id="table" class="tableEleve">
+								<tr>
+									<td>Mathieu</td>
+									<td>Sarlangue </td>
+									<td>MP</td>
+								</tr>
+								<tr>
+									<td>Jeremy</td>
+									<td>Paulino</td>
+									<td>MP</td>
+
+								</tr>
+								<tr>
+									<td>Sabrina</td>
+									<td>Cheurf</td>
+									<td>MP</td>
+								</tr>
+							</table>
+
+							<a class="button">Modifier mon profil</a>
+
+						</div>
 <!-- 						<div class="block-6" style="width:50%;"> -->
 						
 						
@@ -69,12 +143,12 @@
 							<!-- 							  <object type="text/html" data="calend/contactform2.jsp" width="650" height="1000"> -->
 							<!--                       <embed src="calend/contactform2.jsp" width="650" height="1000"></embed> -->
 							<!--                     </object>   -->
-
+<div>
 							<object type="text/html" data="calend/cal2.jsp" width="1000px"
 								height="1000px">
 								<embed src="calend/cal2.jsp" width="1000px" height="1000px"></embed>
 							</object>
-
+</div>
 <!-- 						</div> -->
 
 

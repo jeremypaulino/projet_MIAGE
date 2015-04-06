@@ -446,13 +446,13 @@ $.fn.eventCalendar.defaults = {
 	dayNames: [ 'Dimanche','Lundi','Mardi','Mercredi',
 		'Jeudi','Vendredi','Samedi' ],
 	dayNamesShort: [ 'Dim','Lun','Mar','Mer', 'Jeu','Ven','Sam' ],
-	txt_noEvents: "Pas de cours durant cette journee",
+	//txt_noEvents: "Pas de cours durant cette journee",
 	txt_SpecificEvents_prev: "",
 	txt_SpecificEvents_after: "cours:",
-	txt_next: "next",
-	txt_prev: "prev",
-	txt_NextEvents: "Next events:",
-	txt_GoToEventUrl: "See the event",
+	//txt_next: "next",
+	//txt_prev: "prev",
+	//txt_NextEvents: "Next events:",
+	//txt_GoToEventUrl: "See the event",
 	showDayAsWeeks: true,
 	startWeekOnMonday: true,
 	showDayNameInCalendar: true,
@@ -464,7 +464,22 @@ $.fn.eventCalendar.defaults = {
 	moveSpeed: 500,	// speed of month move when you clic on a new date
 	moveOpacity: 0.15, // month and events fadeOut to this opacity
 	jsonData: "", 	// to load and inline json (not ajax calls)
-	cacheJson: true	// if true plugin get a json only first time and after plugin filter events
+	cacheJson: true,	// if true plugin get a json only first time and after plugin filter events
 					// if false plugin get a new json on each date change
+	
+	
+	  txt_noEvents: "Il n'y a pas d'evenements pour cette periode.",
+		  
+		  txt_SpecificEvents_prev: "",
+		  
+		  txt_SpecificEvents_after: "evenements:",
+		  
+		  txt_next: "suivant",
+		  
+		  txt_prev: "precedent",
+		  
+		  txt_NextEvents: "Prochain evenements:",
+		  
+		  txt_GoToEventUrl: "Acceder au cours"
 };
 

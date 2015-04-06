@@ -49,35 +49,6 @@ public class Emailer extends ActionSupport {
 	   texte=texte2;
 }
 
-public String execute() 
-   {
-      String ret = SUCCESS;
-      try
-      {
-    	  Session session = Session.getDefaultInstance(properties,  
-  	            new javax.mail.Authenticator() {
-  	            protected PasswordAuthentication 
-  	            getPasswordAuthentication() {
-  	            return new 
-  	            PasswordAuthentication(from, password);
-  	            }});
-
-  	         Message message = new MimeMessage(session);
-  	         message.setFrom(new InternetAddress(from));
-  	         message.setRecipients(Message.RecipientType.TO, 
-  	            InternetAddress.parse(destinataireMail));
-  	         message.setSubject(sujet);
-  	         message.setText(texte);
-  	         Transport.send(message);
-      }
-      catch(Exception e)
-      {
-         ret = ERROR;
-         e.printStackTrace();
-      }
-      return ret;
-   }
-
 	public void envoyer(){
 		
 		Session session = Session.getDefaultInstance(properties,  

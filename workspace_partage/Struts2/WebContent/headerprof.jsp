@@ -1,5 +1,41 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
+
+<script>
+
+
+var Email_envoy= "<s:property value='#session.email' />";
+
+
+$.ajax({
+	url : "voirnouvmess2",
+	data : {
+
+		Email_envoy : Email_envoy
+		
+
+	},
+	dataType : "json",
+	success : function(data) {	
+			//alert(data.nvxmess);
+			nouvmessupdate(data.nvxmess);
+			
+	}
+	
+})
+
+
+function nouvmessupdate(nvxmess){
+	//document.getElementById('credit').innerHTML=credit;
+	
+	//$("#test2").append('<li><a href="chat"><img src="./images/message.png">'+nvxmess+'</a></li>');
+	
+	$("#test2").append('<a href="chat"><img src="./images/message.png">'+nvxmess+'</a>');
+}
+
+</script>
+
+
 <header>
 
 	<h1>
@@ -9,7 +45,7 @@
 		<ul>
 
 
-				<li><a href="chat"><img src="./images/message.png">1</a></li>
+				<li id="test2"></li>
 				<li><a href="profPage">Espace Professeur</a></li>
 				<li><a href="logout">Se Deconnecter</a></li>
 

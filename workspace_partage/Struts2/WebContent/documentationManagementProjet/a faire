@@ -1,13 +1,3 @@
-BDD:
-
-requetes avancée pour recherche de prof/ eleves avec tout les colonnes en parametres
-
-xml:
-réecriture des liens
-
-partie admin: utilisé la classe admin , refaire ajouter admin MATHIEU
-
-reglé bug de quand on ajouter un admin ( eventuellement tout passer en ajax) MATHIEU
 
 formulaire:
 verifications des données introduites en bdd
@@ -15,26 +5,11 @@ verifications des données introduites en bdd
 inscription: 
 charger les données necessaire depuis la BDD ( par exemple liste des classe, des matieres ... )
 
-
-regler pb des accents
-
-nettoyer et ranger css et js
-
-refaire les parties de partie admin mal faites au debut( tou passer ajax ) : MATHIEU
-
-remplir la classe email qui doit envoyer un email à chaque fois que son constructeur est appeller
-
 partie admin : recherche prof: voir les notes et pouvoir les virer : MATHIEU
-
-" se souvenir de mon mot de passe"
-
-
 
 PARTIE ELEVE:
 
-modifier son profil : avec options recevoir mail quand je reçoi un MP
-
-message privé
+modifier son profil
 
 rechercher un cours
 
